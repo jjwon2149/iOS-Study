@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>hihi</title>
+
+    <style>
+        body {
+            background: #f4f4f4;
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.5em;
+        }
+
+        #container {
+            border: 1px #ccc dashed;
+            padding: 0 10px 0 10px;
+            width: 800px;
+            margin: 30px auto;
+        }
+
+        .wrapper {
+            border: #000 1px solid;
+            width: 600px;
+            height: 400px;
+            position: relative;
+            left: 50px;
+            top: 100px;
+        }
+
+        .inside {
+            border: #ff0000 1px solid;
+            width: 200px;
+            height: 100px;
+            position: absolute;
+            top: 20px;
+            left: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Welcome</h1>
+    <h2>Welcome</h2>
+    <h3>Welcome</h3>
+    <h4>Welcome</h4>
+    <h5>Welcome</h5>
+    <h6>Welcome</h6>
+
+    <p>
+        This is a paragraph<br>
+        another paragraph of text<br>
+        <em>italic</em>
+    </p>
+
+    <h1>Link</h1>
+    <a href="https://google.com" target="_blank">Google</a>
+
+    <h1>Image</h1>
+    <img src="https://picsum.photos/200/300" alt="Picsum random image">
+
+    <h1>List</h1>
+    <ul>
+        <li>ListItem</li>
+        <li>ListItem</li>
+        <li>ListItem</li>
+        <li>ListItem</li>
+        <li>ListItem</li>
+        <li>ListItem</li>
+    </ul>
+    <ol>
+        <li>ListItem</li>
+        <li>ListItem</li>
+        <li>ListItem</li>
+        <li>ListItem</li>
+        <li>ListItem</li>
+        <li><a href="https://google.com" target="_blank">Google</a></li>
+    </ol>
+
+    <h1>Table</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>First</th>
+                <th>Last</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>John</td>
+                <td>Doe</td>
+                <td>doe@gmail.com</td>
+            </tr>
+            <tr>
+                <td>John</td>
+                <td>Doe</td>
+                <td>doe@gmail.com</td>
+            </tr>
+            <tr>
+                <td>John</td>
+                <td>Doe</td>
+                <td>doe@gmail.com</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h1>Registration Form</h1>
+    <br>
+    <form action="POST">
+        <fieldset>
+            <legend>Account</legend>
+            <label for="name">UserName</label><br>
+            <input type="text" name="username" required>
+        </fieldset>
+
+    </form>
+
+    <fieldset>
+        <legend>UserInfo</legend>
+        <select name="items" id="items">
+            <option value="1">첫번째 선택지</option>
+            <option value="2">두번째 선택지</option>
+            <option value="3">세번째 선택지</option>
+            <option value="4">네번째 선택지</option>
+            <option value="5">다섯번째 선택지</option>
+        </select>
+    </fieldset>
+
+    <button type="submit">제출</button>
+    <br><br><br><br><br><br>
+
+
+    <div id="container">
+        <div class="side-a">
+            <h1 style="color: red;">Welcome</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla a mollis lectus. <span class="emp">Ut
+                    lobortis
+                    at turpis</span> ac eleifend. Mauris orci sapien, vulputate sit amet ante eu, tempus facilisis
+                mauris. Etiam
+                pretium risus sit amet tristique interdum. Nunc lorem risus, pretium sed sodales ut, eleifend non nibh.
+                <span class="emp">Cum sociis natoque</span> penatibus et magnis dis parturient montes, nascetur
+                ridiculus mus. Donec
+                consectetur ultricies urna rutrum faucibus. Morbi cursus dictum dictum. Quisque finibus nec erat vel
+                faucibus.
+                Donec viverra interdum justo, in cursus erat. Nunc ac vestibulum tellus.
+            </p>
+        </div>
+
+        <div class="side-b">
+            <h1>Hello</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla a mollis lectus. <span class="emp">Ut
+                    lobortis
+                    at turpis</span> ac eleifend. Mauris orci sapien, vulputate sit amet ante eu, tempus facilisis
+                mauris. Etiam
+                pretium risus sit amet tristique interdum. Nunc lorem risus, pretium sed sodales ut, eleifend non nibh.
+                <span class="emp">Cum sociis natoque</span>
+            </p>
+        </div>
+    </div>
+
+    <div class="wrapper">
+        <div class="inside"></div>
+    </div>
+
+</body>
+
+</html>
