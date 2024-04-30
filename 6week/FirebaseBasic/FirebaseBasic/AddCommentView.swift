@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FirebaseFirestore
 
 struct AddCommentView: View {
     
@@ -29,7 +30,8 @@ struct AddCommentView: View {
                         dismiss()
                     }
                 } label: {
-                    <#code#>
+                    Image(systemName: "checkmark")
+                        .disabled(bodyText.isEmpty)
                 }
             }
         }
