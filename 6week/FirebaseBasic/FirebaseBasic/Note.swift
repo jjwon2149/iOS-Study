@@ -12,11 +12,12 @@ struct Note: Identifiable, Codable, Hashable {
     let title: String
     let date: Date
     let body: String
-
+    let username: String?
+    let photoURL: URL?
 }
 
 extension Note {
-    static let sample = Note(id: UUID().uuidString, title: "Sample Title", date: Date(), body: "Sample Body")
+    static let sample = Note(id: UUID().uuidString, title: "Sample Title", date: Date(), body: "Sample Body", author: nil, username: nil, photoURL: nil)
 
     static let sampleWithLongBody = Note(id: UUID().uuidString, title: "Sample Title", date: Date(), body:
     """
@@ -29,5 +30,5 @@ extension Note {
             Adipiscing bibendum est ultricies integer quis auctor. Tincidunt ornare massa eget egestas purus viverra accumsan. Nunc id cursus metus aliquam eleifend mi. Blandit turpis cursus in hac habitasse platea dictumst. Pellentesque pulvinar pellentesque habitant morbi. In hendrerit gravida rutrum quisque non tellus orci ac. Vulputate mi sit amet mauris commodo quis imperdiet massa. Vivamus at augue eget arcu dictum varius duis at consectetur. Ac odio tempor orci dapibus ultrices in iaculis nunc sed. Gravida dictum fusce ut placerat orci nulla. Nisi est sit amet facilisis magna etiam.
             
             Vel orci porta non pulvinar neque laoreet. Tincidunt lobortis feugiat vivamus at augue eget. Senectus et netus et malesuada fames ac turpis. Euismod quis viverra nibh cras pulvinar mattis nunc sed blandit. Feugiat in fermentum posuere urna. Malesuada pellentesque elit eget gravida cum. Pulvinar mattis nunc sed blandit libero volutpat sed cras ornare. Eu ultrices vitae auctor eu augue ut lectus arcu bibendum. Congue quisque egestas diam in arcu cursus euismod quis viverra. Pretium quam vulputate dignissim suspendisse in est ante in nibh.
-    """)
+    """, author: nil, username: nil, photoURL: nil)
 }

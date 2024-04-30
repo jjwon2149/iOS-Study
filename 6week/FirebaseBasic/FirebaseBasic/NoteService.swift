@@ -8,8 +8,7 @@
 import Firebase
 import FirebaseFirestore
 
-class NoteService: ObservableObject {
-    
+class NotesService: ObservableObject {
     @Published var notes: [Note]
     private let dbCollection = Firestore.firestore().collection("notes")
     private var listener: ListenerRegistration?
@@ -21,7 +20,7 @@ class NoteService: ObservableObject {
     
     func fetch() {
         guard listener == nil else { return }
-        dbCollection.getDocuments{ [self] querySnapshot, error in
+        dbCollection.getDocuments { [self] querySnapshot, error in
             guard let snapshot = querySnapshot else {
                 print("Error fetching snapshots: \(error!)")
                 return
@@ -30,8 +29,10 @@ class NoteService: ObservableObject {
         }
     }
     
-    func addNote(title: String, date: Date, body: String) {
-        let note = Note(id: UUID().uuidString, title: title, date: date, body: body)
+    func addNote(title: String, date: Date, body: String, author: String, username: String, photoURL: URL?) {
+        print("Author: \(author)")
+        let note = Note(id: UUID().uuidString, title: title, date: date, body: body,
+                        author: author, username: username, photoURL: photoURL)
         _ = try? dbCollection.addDocument(from: note)
         fetch()
     }
@@ -39,7 +40,7 @@ class NoteService: ObservableObject {
     private func startRealtimeUpdates() {
         listener = dbCollection.addSnapshotListener { [self] querySnapshot, error in
             guard let snapshot = querySnapshot else {
-                print("Error fetching snapshors \(error!)")
+                print("Error fetching snapshots: \(error!)")
                 return
             }
             snapshot.documentChanges.forEach { diff in
@@ -61,7 +62,9 @@ class NoteService: ObservableObject {
         let notes: [Note] = snapshot.documents.compactMap { document in
             try? document.data(as: Note.self)
         }
-        self.notes = notes.sorted { $0.date < $1.date }
+        self.notes = notes.sorted {
+            $0.date > $1.date
+        }
     }
+    
 }
-

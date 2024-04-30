@@ -28,18 +28,21 @@ struct AddNoteView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    service?.addNote(title: title, date: Date(), body: bodyText)
-                    dismiss()
-                } label: {
-                    Image(systemName: "checkmark")
-                        .font(.headline)
+                    Button {
+                        service?.addNote(title: title, date: Date(), body: bodyText,
+                            author: authenticationViewModel.userId,
+                            username: authenticationViewModel.username,
+                            photoURL: authenticationViewModel.photoURL)
+                        dismiss()
+                    } label: {
+                        Image(systemName: "checkmark")
+                    }
+                    .disabled(title.isEmpty)
                 }
-                .disabled(title.isEmpty)
             }
         }
     }
-}
-
-#Preview {
-    AddNoteView()
-}
+    
+    #Preview {
+        AddNoteView()
+    }
