@@ -11,6 +11,8 @@ struct NoteDetailView: View {
     var note: Note
     var body: some View {
         VStack(spacing: 12) {
+            Text(note.docId ?? "N/A")
+                .font(.headline)
             Text(note.title)
                 .font(.headline)
                 .fontWeight(.bold)
@@ -22,7 +24,7 @@ struct NoteDetailView: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .bottomBar) {
-                NavigationLink(destination: AddCommentView()) {
+                NavigationLink(destination: AddCommentView(note: note)) {
                     HStack{
                         Image(systemName: "text.bubble.fill")
                         Text("Add Comment")
@@ -37,6 +39,6 @@ struct NoteDetailView: View {
 
 #Preview {
     NavigationStack {
-        NoteDetailView(note: Note.sample)
+        NoteDetailView(note: Note.sampleWithLongBody)
     }
 }

@@ -32,7 +32,7 @@ class NotesService: ObservableObject {
     func addNote(title: String, date: Date, body: String, author: String, username: String, photoURL: URL?) {
         print("Author: \(author)")
         let note = Note(id: UUID().uuidString, title: title, date: date, body: body,
-                        author: author, username: username, photoURL: photoURL)
+                        author: author, username: username, photoURL: photoURL, docId: nil)
         _ = try? dbCollection.addDocument(from: note)
         fetch()
     }
@@ -60,7 +60,9 @@ class NotesService: ObservableObject {
     
     private func updateNotes(snapshot: QuerySnapshot) {
         let notes: [Note] = snapshot.documents.compactMap { document in
-            try? document.data(as: Note.self)
+            var note = try? document.data(as: Note.self)
+            note?.docId = document.documentID
+            return note
         }
         self.notes = notes.sorted {
             $0.date > $1.date

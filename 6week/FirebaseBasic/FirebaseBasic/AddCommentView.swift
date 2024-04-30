@@ -14,6 +14,8 @@ struct AddCommentView: View {
     @StateObject var authenticationViewModel: AuthenticationViewModel = AuthenticationViewModel.shared
     @State private var bodyText: String = ""
     
+    var note: Note
+    
     var body: some View {
         VStack {
             TextEditor(text: $bodyText)
@@ -37,11 +39,18 @@ struct AddCommentView: View {
         }
     }
     
-    func addComment() {
-        
+    func addComment() async {
+        var docReference = Firestore.firestore().collection("notes/\(note.docId!)/comments").document()
+        try? await docReference.setData([
+            "date": Date(),
+            "body": bodyText,
+            "userId": authenticationViewModel.userId,
+            "username": authenticationViewModel.username,
+            "photoURL": authenticationViewModel.photoURL?.absoluteString ?? "",
+        ])
     }
 }
 
 #Preview {
-    AddCommentView()
+    AddCommentView(note: Note.sample)
 }
