@@ -26,6 +26,7 @@
 		4A8D33C72BE072F7007C5582 /* AddNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8D33C62BE072F7007C5582 /* AddNoteView.swift */; };
 		4A8D33C92BE0A517007C5582 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4A8D33C82BE0A517007C5582 /* README.md */; };
 		4A8D33CB2BE0A99F007C5582 /* AddCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8D33CA2BE0A99E007C5582 /* AddCommentView.swift */; };
+		4A8D33CD2BE0BC90007C5582 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8D33CC2BE0BC90007C5582 /* Comment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		4A8D33C62BE072F7007C5582 /* AddNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteView.swift; sourceTree = "<group>"; };
 		4A8D33C82BE0A517007C5582 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4A8D33CA2BE0A99E007C5582 /* AddCommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCommentView.swift; sourceTree = "<group>"; };
+		4A8D33CC2BE0BC90007C5582 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,14 +88,15 @@
 				4A8D339D2BDF596F007C5582 /* ContentView.swift */,
 				4A8D33B62BDF81EB007C5582 /* ProfileView.swift */,
 				4A8D33B42BDF73E5007C5582 /* AuthenticationViewModel.swift */,
-				4A8D33BC2BDF8EF1007C5582 /* Note.swift */,
-				4A8D33BE2BDF907E007C5582 /* NoteService.swift */,
 				4A8D33C02BE06E84007C5582 /* NotesListView.swift */,
 				4A8D33C42BE06F39007C5582 /* NoteDetailView.swift */,
 				4A8D33CA2BE0A99E007C5582 /* AddCommentView.swift */,
 				4A8D33C22BE06F2F007C5582 /* NoteSummaryView.swift */,
 				4A8D33C62BE072F7007C5582 /* AddNoteView.swift */,
 				4A8D339F2BDF5972007C5582 /* Assets.xcassets */,
+				4A8D33BE2BDF907E007C5582 /* NoteService.swift */,
+				4A8D33BC2BDF8EF1007C5582 /* Note.swift */,
+				4A8D33CC2BE0BC90007C5582 /* Comment.swift */,
 				4A8D33A12BDF5972007C5582 /* Preview Content */,
 			);
 			path = FirebaseBasic;
@@ -196,6 +199,7 @@
 				4A8D33CB2BE0A99F007C5582 /* AddCommentView.swift in Sources */,
 				4A8D33C72BE072F7007C5582 /* AddNoteView.swift in Sources */,
 				4A8D339E2BDF596F007C5582 /* ContentView.swift in Sources */,
+				4A8D33CD2BE0BC90007C5582 /* Comment.swift in Sources */,
 				4A8D339C2BDF596F007C5582 /* FirebaseBasicApp.swift in Sources */,
 				4A8D33BF2BDF907E007C5582 /* NoteService.swift in Sources */,
 				4A8D33C12BE06E84007C5582 /* NotesListView.swift in Sources */,

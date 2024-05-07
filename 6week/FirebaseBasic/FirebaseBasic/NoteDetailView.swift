@@ -6,9 +6,12 @@
 //
 
 import SwiftUI
+import FirebaseFirestore
 
 struct NoteDetailView: View {
+    
     var note: Note
+    
     var body: some View {
         VStack(spacing: 12) {
             Text(note.docId ?? "N/A")
@@ -18,6 +21,7 @@ struct NoteDetailView: View {
                 .fontWeight(.bold)
             TextEditor(text: .constant(note.body))
                 .border(.gray)
+            
         }
         .padding(24)
         .navigationTitle("Note Detail")
@@ -33,6 +37,15 @@ struct NoteDetailView: View {
                 .padding()
                 .border(.gray)
             }
+        }
+        .task {
+            await loadComments()
+        }
+    }
+    mutating func loadComments() async {
+        let collection = Firestore.firestore().collection("/notes/\(note.docId!)/comments")
+        collection.getDocument { [self] querySnapshot, error in
+            self.comments = querySnapshot?.documents.map { $0.data() } ?? []
         }
     }
 }

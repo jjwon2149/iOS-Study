@@ -40,7 +40,7 @@ struct AddCommentView: View {
     }
     
     func addComment() async {
-        var docReference = Firestore.firestore().collection("notes/\(note.docId!)/comments").document()
+        let docReference = Firestore.firestore().collection("notes/\(note.docId!)/comments").document()
         try? await docReference.setData([
             "date": Date(),
             "body": bodyText,
