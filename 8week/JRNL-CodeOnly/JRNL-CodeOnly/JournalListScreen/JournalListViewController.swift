@@ -20,18 +20,18 @@ class JournalListViewController: UIViewController, UITableViewDataSource, UITabl
         
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "journalCell")
+        tableView.register(JournalListTableViewCell.self, forCellReuseIdentifier: "journalCell")
         
-        let global = view.safeAreaLayoutGuide
+        let safeArea = view.safeAreaLayoutGuide
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(tableView)
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: global.topAnchor),
-            tableView.leadingAnchor.constraint(equalTo: global.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: global.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: global.bottomAnchor)
+            tableView.topAnchor.constraint(equalTo: safeArea.topAnchor),
+            tableView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor)
         ])
         
         navigationItem.title = "Journal"
@@ -49,6 +49,16 @@ class JournalListViewController: UIViewController, UITableViewDataSource, UITabl
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         tableView.dequeueReusableCell(withIdentifier: "journalCell", for: indexPath)
+    }
+    
+    //MARK: - TableViewDelegate
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let journalDetailViewController = JournalDetailViewController()
+        show(journalDetailViewController, sender: self)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        90
     }
     
     //MARK: - Methods
