@@ -25,7 +25,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
          아래 코드와 동일*/
         self.window = UIWindow(windowScene: windowScene)
         
-        self.window?.rootViewController = JournalListViewController()
+        let journalListViewController = JournalListViewController()
+        let firstNavigationController = UINavigationController(rootViewController: journalListViewController)
+        
+        let mapViewController = MapViewController()
+        let secondNavigationController = UINavigationController(rootViewController: mapViewController)
+        
+        let tabBarController = UITabBarController()
+        tabBarController.viewControllers = [firstNavigationController, secondNavigationController]
+        
+        self.window?.rootViewController = tabBarController
         self.window?.makeKeyAndVisible() // keyWindow로 설정, keyWindow: window가 여러개 존재할 때, 가장 앞쪽에 배치된 window를 `key window`라고 지칭
     }
 
