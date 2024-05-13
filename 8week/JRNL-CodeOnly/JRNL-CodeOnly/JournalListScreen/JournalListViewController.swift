@@ -77,7 +77,8 @@ class JournalListViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func saveJournalEntry(_ journalEntry: JournalEntry) {
-        //TODO: - 저장 구현
+        sampleJournalEntryData.journalEntries.append(journalEntry)
+        tableView.reloadData()
     }
 }
 
