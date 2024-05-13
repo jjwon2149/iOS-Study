@@ -65,8 +65,8 @@ class AddJournalViewController: UIViewController {
         NSLayoutConstraint.activate([
             mainContainer.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: 20),
             mainContainer.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 20),
-            mainContainer.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: 20),
-            mainContainer.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor, constant: 20),
+            mainContainer.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -20),
+            
             ratingView.widthAnchor.constraint(equalToConstant: 252),
             ratingView.heightAnchor.constraint(equalToConstant: 44)
         ])
