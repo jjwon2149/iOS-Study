@@ -9,6 +9,8 @@ import UIKit
 
 class JournalDetailViewController: UIViewController {
 
+    weak var journalEntry: JournalEntry?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
