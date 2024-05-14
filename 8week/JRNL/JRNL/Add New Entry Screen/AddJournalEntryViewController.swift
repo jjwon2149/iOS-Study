@@ -98,7 +98,7 @@ class AddJournalEntryViewController: UIViewController, UITextFieldDelegate, UITe
         let textFieldText = titleTextField.text ?? ""
         let textViewText = bodyTextView.text ?? ""
         if getLocationSwitch.isOn {
-            saveButton.isEnabled = !textFieldText.isEmpty && !textViewText.isEmpty && currentLocation != nil
+            saveButton.isEnabled = !textFieldText.isEmpty && currentLocation != nil
         } else {
             saveButton.isEnabled = !textFieldText.isEmpty && !textViewText.isEmpty
         }
