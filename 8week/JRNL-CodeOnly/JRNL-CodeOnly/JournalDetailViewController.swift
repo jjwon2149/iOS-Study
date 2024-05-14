@@ -85,10 +85,11 @@ class JournalDetailViewController: UITableViewController {
         switch indexPath.row {
         case 1:
             cell.contentView.addSubview(dateLabel)
+            let marginGuide = cell.contentView.layoutMarginsGuide
             NSLayoutConstraint.activate([
                 dateLabel.centerYAnchor.constraint(equalTo: cell.contentView.centerYAnchor),
-                dateLabel.leadingAnchor.constraint(equalTo: cell.contentView.leadingAnchor, constant: 16),
-                dateLabel.trailingAnchor.constraint(equalTo: cell.contentView.trailingAnchor, constant: -16)
+                dateLabel.leadingAnchor.constraint(equalTo: marginGuide.leadingAnchor),
+                dateLabel.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor)
             ])
         default:
             print("others")
