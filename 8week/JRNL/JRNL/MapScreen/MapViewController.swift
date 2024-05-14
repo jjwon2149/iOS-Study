@@ -10,7 +10,7 @@ import MapKit
 import CoreLocation
 
 class MapViewController: UIViewController, CLLocationManagerDelegate {
-
+    
     @IBOutlet var mapView: MKMapView!
     let locationManager = CLLocationManager()
     
@@ -31,6 +31,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             self.navigationItem.title = "Map"
             mapView.region = setInitialRegion(lat: lat, lon: lon)
         }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("Failed to find user's location: \(error.localizedDescription)")
     }
     
     //MARK: - Methods
