@@ -221,7 +221,7 @@
                     <navigationItem key="navigationItem" title="Map" id="JU7-8v-IYA"/>
                     <connections>
                         <outlet property="mapView" destination="CCO-m6-Zem" id="42n-Kf-1f9"/>
-                        <segue destination="xx1-0d-BGn" kind="show" id="0za-8M-A69"/>
+                        <segue destination="xx1-0d-BGn" kind="show" identifier="showMapDetail" id="0za-8M-A69"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AZx-Oh-fGQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -388,6 +388,7 @@
                     <connections>
                         <outlet property="bodyTextView" destination="efB-Iz-jvh" id="E1X-nU-co5"/>
                         <outlet property="dateLabel" destination="lSQ-aL-EEz" id="ydg-2W-cQW"/>
+                        <outlet property="mapImageView" destination="A1W-Rw-cTq" id="878-fd-4LS"/>
                         <outlet property="photoImageView" destination="xGg-HL-BPt" id="oO0-1R-5Zp"/>
                         <outlet property="titleLabel" destination="24j-JC-8o2" id="Llm-eX-hmM"/>
                     </connections>
