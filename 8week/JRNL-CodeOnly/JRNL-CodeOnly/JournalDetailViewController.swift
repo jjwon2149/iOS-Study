@@ -13,6 +13,7 @@ class JournalDetailViewController: UITableViewController {
     
     private lazy var dateLabel: UILabel = {
         let label = UILabel()
+        label.text = "Date"
         label.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
         label.textAlignment = .right
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -81,7 +82,17 @@ class JournalDetailViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
-        // Configure the cell...
+        switch indexPath.row {
+        case 1:
+            cell.contentView.addSubview(dateLabel)
+            NSLayoutConstraint.activate([
+                dateLabel.centerYAnchor.constraint(equalTo: cell.contentView.centerYAnchor),
+                dateLabel.leadingAnchor.constraint(equalTo: cell.contentView.leadingAnchor, constant: 16),
+                dateLabel.trailingAnchor.constraint(equalTo: cell.contentView.trailingAnchor, constant: -16)
+            ])
+        default:
+            print("others")
+        }
         
         return cell
     }
