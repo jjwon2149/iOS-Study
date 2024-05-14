@@ -45,7 +45,7 @@ class JournalListViewController: UIViewController, UITableViewDataSource, UITabl
                                                             target: self,
                                                             action: #selector(addJournal))
     }
-
+    
     //MARK: - TableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         sampleJournalEntryData.journalEntries.count
@@ -60,8 +60,8 @@ class JournalListViewController: UIViewController, UITableViewDataSource, UITabl
     
     //MARK: - TableViewDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let journalDetailViewController = JournalDetailViewController()
-        journalDetailViewController.journalEntry = sampleJournalEntryData.journalEntries[indexPath.row]
+        let journalEntry = sampleJournalEntryData.journalEntries[indexPath.row]
+        let journalDetailViewController = JournalDetailViewController(journalEntry: journalEntry)
         show(journalDetailViewController, sender: self)
     }
     
