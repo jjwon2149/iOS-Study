@@ -5,32 +5,31 @@
 //  Created by 정종원 on 5/16/24.
 //
 
-import Foundation
+import UIKit
 
 class SharedData {
     static let shared = SharedData()
     private var journalEntries: [JournalEntry]
     
     private init() {
-        self.journalEntries = []
+        journalEntries = []
     }
     
     func numberOfJournalEntries() -> Int {
-           journalEntries.count
-   }
+        journalEntries.count
+    }
     
     func getJournalEntry(index: Int) -> JournalEntry {
         journalEntries[index]
     }
     
-    //사본 전달 함수
     func getAllJournalEntries() -> [JournalEntry] {
         let readOnlyJournalEntries = journalEntries
         return readOnlyJournalEntries
     }
     
-    func addJournalEntry(newJournalEntries: JournalEntry) {
-        journalEntries.append(newJournalEntries)
+    func addJournalEntry(newJournalEntry: JournalEntry) {
+        journalEntries.append(newJournalEntry)
     }
     
     func removeJournalEntry(index: Int) {
@@ -38,16 +37,17 @@ class SharedData {
     }
     
     func getDocumentDirectory() -> URL {
-        let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        return path[0]
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
     }
     
-    func loadJournalEntiriesData() {
+    func loadJournalEntriesData() {
         let pathDirectory = getDocumentDirectory()
         let fileURL = pathDirectory.appendingPathComponent("journalEntriesData.json")
         do {
             let data = try Data(contentsOf: fileURL)
-            let journalEntries = try JSONDecoder().decode([JournalEntry].self, from: data)
+            let journalEntriesData = try JSONDecoder().decode([JournalEntry].self, from: data)
+            journalEntries = journalEntriesData
         } catch {
             print("Failed to read JSON data: \(error.localizedDescription)")
         }
