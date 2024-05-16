@@ -15,6 +15,10 @@ class SharedData {
         self.journalEntries = []
     }
     
+    func numberOfJournalEntries() -> Int {
+           journalEntries.count
+   }
+    
     func getJournalEntry(index: Int) -> JournalEntry {
         journalEntries[index]
     }
