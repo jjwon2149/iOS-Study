@@ -36,4 +36,20 @@ class SharedData {
     func removeJournalEntry(index: Int) {
         journalEntries.remove(at: index)
     }
+    
+    func getDocumentDirectory() -> URL {
+        let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return path[0]
+    }
+    
+    func loadJournalEntiriesData() {
+        let pathDirectory = getDocumentDirectory()
+        let fileURL = pathDirectory.appendingPathComponent("journalEntriesData.json")
+        do {
+            let data = try Data(contentsOf: fileURL)
+            let journalEntries = try JSONDecoder().decode([JournalEntry].self, from: data)
+        } catch {
+            print("Failed to read JSON data: \(error.localizedDescription)")
+        }
+    }
 }
