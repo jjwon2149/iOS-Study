@@ -9,7 +9,7 @@ import UIKit
 import CoreLocation
 
 class AddJournalEntryViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate, CLLocationManagerDelegate {
-
+    
     @IBOutlet var titleTextField: UITextField!
     @IBOutlet var bodyTextView: UITextView!
     @IBOutlet var photoImageView: UIImageView!
@@ -49,7 +49,7 @@ class AddJournalEntryViewController: UIViewController, UITextFieldDelegate, UITe
         newJournalEntry = JournalEntry(rating: rating, title: title,
                                        body: body, photo: photo, latitude: lat, longitude: lon)
     }
-
+    
     // MARK: - UITextFieldDelegate
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -60,7 +60,7 @@ class AddJournalEntryViewController: UIViewController, UITextFieldDelegate, UITe
         updateSaveButtonState()
         return true
     }
-        
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
         updateSaveButtonState()
     }
@@ -98,7 +98,7 @@ class AddJournalEntryViewController: UIViewController, UITextFieldDelegate, UITe
         let textFieldText = titleTextField.text ?? ""
         let textViewText = bodyTextView.text ?? ""
         if getLocationSwitch.isOn {
-            saveButton.isEnabled = !textFieldText.isEmpty && currentLocation != nil
+            saveButton.isEnabled = !textFieldText.isEmpty && !textViewText.isEmpty && currentLocation != nil
         } else {
             saveButton.isEnabled = !textFieldText.isEmpty && !textViewText.isEmpty
         }
