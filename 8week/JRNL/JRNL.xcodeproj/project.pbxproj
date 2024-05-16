@@ -18,6 +18,7 @@
 		376D26D32BEDDD3200B2E67B /* AddJournalEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376D26D22BEDDD3200B2E67B /* AddJournalEntryViewController.swift */; };
 		376D26D62BEE01E100B2E67B /* JournalEntryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376D26D52BEE01E100B2E67B /* JournalEntryDetailViewController.swift */; };
 		4A193D942BF32838008B5BC9 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A193D932BF32838008B5BC9 /* MapViewController.swift */; };
+		4A193D962BF587F6008B5BC9 /* SharedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A193D952BF587F6008B5BC9 /* SharedData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		376D26D22BEDDD3200B2E67B /* AddJournalEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJournalEntryViewController.swift; sourceTree = "<group>"; };
 		376D26D52BEE01E100B2E67B /* JournalEntryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEntryDetailViewController.swift; sourceTree = "<group>"; };
 		4A193D932BF32838008B5BC9 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		4A193D952BF587F6008B5BC9 /* SharedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 		376D26CB2BEDB86000B2E67B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4A193D952BF587F6008B5BC9 /* SharedData.swift */,
 				376D26CD2BEDB8CD00B2E67B /* JournalEntry.swift */,
 			);
 			path = Model;
@@ -201,6 +204,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A193D962BF587F6008B5BC9 /* SharedData.swift in Sources */,
 				3764AF7F2BE9F85F00A21A1B /* JournalListViewController.swift in Sources */,
 				3764AF7B2BE9F85F00A21A1B /* AppDelegate.swift in Sources */,
 				376D26CE2BEDB8CD00B2E67B /* JournalEntry.swift in Sources */,
