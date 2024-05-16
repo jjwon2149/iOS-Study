@@ -8,13 +8,13 @@
 import UIKit
 import MapKit
 
-class JournalEntry: NSObject, MKAnnotation {
+class JournalEntry: NSObject, MKAnnotation, Codable {
     // MARK: - Properties
-    let date: Date
+    let dateString: String
     let rating: Int
     let entryTitle: String
     let entryBody: String
-    let photo: UIImage?
+    let photoData: Data?
     let latitude: Double?
     let longitude: Double?
     
@@ -24,30 +24,32 @@ class JournalEntry: NSObject, MKAnnotation {
         if title.isEmpty || body.isEmpty || rating < 0 || rating > 5 {
             return nil
         }
-        self.date = Date()
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        self.dateString = formatter.string(from: Date())
         self.rating = rating
         self.entryTitle = title
         self.entryBody = body
-        self.photo = photo
+        self.photoData = photo?.jpegData(compressionQuality: 1.0)
         self.latitude = latitude
         self.longitude = longitude
     }
     
     var coordinate: CLLocationCoordinate2D {
         guard let lat = latitude,
-              let lon = longitude else {
+              let long = longitude else {
             return CLLocationCoordinate2D()
         }
-        return CLLocationCoordinate2D(latitude: lat, longitude: lon)
+        return CLLocationCoordinate2D(latitude: lat, longitude: long)
     }
+    
     var title: String? {
-        date.formatted(.dateTime.year().month().day())
+        dateString
     }
     
     var subtitle: String? {
         entryTitle
     }
-    
 }
 
 // MARK: - Sample data
@@ -63,8 +65,8 @@ struct SampleJournalEntryData {
             fatalError("Unable to instantiate journalEntry1")
         }
         guard let journalEntry2 = JournalEntry(rating: 0, title: "Bad",
-                                               body: "Today is bad day", photo: photo2,  latitude: 37.3318, longitude: -122.0312
-        ) else {
+                                               body: "Today is bad day", photo: photo2,
+                                               latitude: 37.56661, longitude: 126.978388) else {
             fatalError("Unable to instantiate journalEntry2")
         }
         guard let journalEntry3 = JournalEntry(rating: 3, title: "Ok",
