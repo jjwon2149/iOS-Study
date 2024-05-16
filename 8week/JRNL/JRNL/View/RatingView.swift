@@ -42,8 +42,8 @@ class RatingView: UIStackView {
             button.setImage(highlightedStar, for: .highlighted)
             button.setImage(highlightedStar, for: [.highlighted, .selected])
             button.translatesAutoresizingMaskIntoConstraints = false
-            button.widthAnchor.constraint(equalToConstant: buttonSize.width).isActive = true
-            button.heightAnchor.constraint(equalToConstant: buttonSize.height).isActive = true
+//            button.widthAnchor.constraint(equalToConstant: buttonSize.width).isActive = true
+//            button.heightAnchor.constraint(equalToConstant: buttonSize.height).isActive = true
             button.addTarget(self, action: #selector(ratingButtonTapped(button:)), for: .touchUpInside)
             addArrangedSubview(button)
             ratingButtons.append(button)
