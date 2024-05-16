@@ -40,7 +40,7 @@ class RatingView: UIStackView {
             button.widthAnchor.constraint(equalToConstant: buttonSize.width).isActive = true
             button.heightAnchor.constraint(equalToConstant: buttonSize.height).isActive = true
             addArrangedSubview(button)
-            ratingButtons.append(contentsOf: button)
+            ratingButtons.append(button)
         }
     }
 }
