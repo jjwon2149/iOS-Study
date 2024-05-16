@@ -6,8 +6,8 @@
 //
 
 import UIKit
-import MapKit
 import CoreLocation
+import MapKit
 
 class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
@@ -17,7 +17,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
@@ -25,26 +24,27 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         mapView.delegate = self
     }
     
-    //MARK: - CLLocationManagerDelegate
+    override func viewIsAppearing(_ animated: Bool) {
+        super.viewIsAppearing(animated)
+        locationManager.requestLocation()
+    }
+    
+    // MARK: - CLLocationManagerDelegate
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let myLocation = locations.first {
             let lat = myLocation.coordinate.latitude
-            let lon = myLocation.coordinate.longitude
+            let long = myLocation.coordinate.longitude
             self.navigationItem.title = "Map"
-            mapView.region = setInitialRegion(lat: lat, lon: lon)
+            mapView.region = setInitialRegion(lat: lat, long: long)
             mapView.addAnnotations(SharedData.shared.getAllJournalEntries())
         }
-    }
-    
-    override func viewIsAppearing(_ animated: Bool) {
-        locationManager.requestLocation()
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("Failed to find user's location: \(error.localizedDescription)")
     }
     
-    //MARK: - MapViewDelegate
+    // MARK: - MKMapViewDelegate
     func mapView(_ mapView: MKMapView, viewFor annotation: any MKAnnotation) -> MKAnnotationView? {
         let identifier = "mapAnnotation"
         if annotation is JournalEntry {
@@ -83,8 +83,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         entryDetailViewController.selectedJournalEntry = selectedJournalEntry
     }
     
-    //MARK: - Methods
-    func setInitialRegion(lat: CLLocationDegrees, lon: CLLocationDegrees) -> MKCoordinateRegion {
-        MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: lat, longitude: lon), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)) //중앙의 범위
+    // MARK: - Methods
+    func setInitialRegion(lat: CLLocationDegrees, long: CLLocationDegrees) -> MKCoordinateRegion {
+        MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: lat, longitude: long),
+                           span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
     }
 }
