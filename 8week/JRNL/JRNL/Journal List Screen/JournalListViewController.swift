@@ -13,7 +13,7 @@ class JournalListViewController: UIViewController, UITableViewDataSource, UITabl
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        SharedData.shared.loadJournalEntiriesData()
+        SharedData.shared.loadJournalEntriesData()
     }
     
     // MARK: - UITableViewDataSource
@@ -49,7 +49,7 @@ class JournalListViewController: UIViewController, UITableViewDataSource, UITabl
     @IBAction func unwindNewEntrySave(segue: UIStoryboardSegue) {
         if let sourceViewController = segue.source as? AddJournalEntryViewController,
            let newJournalEntry = sourceViewController.newJournalEntry {
-            SharedData.shared.addJournalEntry(newJournalEntries: newJournalEntry)
+            SharedData.shared.addJournalEntry(newJournalEntry: newJournalEntry)
             SharedData.shared.saveJournalEntriesData()
             tableView.reloadData()
         } else {
