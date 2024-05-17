@@ -12,7 +12,6 @@ import CoreLocation
 class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
     let locationManager = CLLocationManager()
-    var sampleJournalEntryData = SampleJournalEntryData()
     
     private lazy var mapView: MKMapView = {
         let mapView = MKMapView()
@@ -25,14 +24,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         super.viewDidLoad()
         view.backgroundColor = .white
         
-        sampleJournalEntryData.createSampleJournalEntryData()
-        
-        mapView.addAnnotations(sampleJournalEntryData.journalEntries)
-        
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
+        locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
         self.navigationItem.title = "Loading..."
-        locationManager.requestLocation()
         
         navigationItem.title = "Map"
         view.addSubview(mapView)
@@ -44,6 +39,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             mapView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
             mapView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor)
         ])
+    }
+    
+    override func viewIsAppearing(_ animated: Bool) {
+        super.viewIsAppearing(animated)
+        locationManager.requestLocation()
     }
     
     //MARK: - MKMapViewDelegate
@@ -80,6 +80,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             self.navigationItem.title = "Map"
             
             mapView.region = setInitialRegion(lat: lat, lon: lon)
+            mapView.addAnnotations(SharedData.shared.getAllJournalEntries())
         }
     }
     

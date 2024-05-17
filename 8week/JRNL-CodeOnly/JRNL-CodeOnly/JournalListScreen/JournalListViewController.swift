@@ -12,11 +12,9 @@ class JournalListViewController: UIViewController, UITableViewDataSource, UITabl
         let tableView = UITableView()
         return tableView
     }()
-    var sampleJournalEntryData = SampleJournalEntryData()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        sampleJournalEntryData.createSampleJournalEntryData()
 
         tableView.dataSource = self
         tableView.delegate = self
@@ -45,25 +43,32 @@ class JournalListViewController: UIViewController, UITableViewDataSource, UITabl
     
     // MARK: - UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        sampleJournalEntryData.journalEntries.count
+        SharedData.shared.numberOfJournalEntries()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "journalCell", for: indexPath) as! JournalListTableViewCell
-        let journalEntry = sampleJournalEntryData.journalEntries[indexPath.row]
+        let  journalEntry = SharedData.shared.getJournalEntry(index: indexPath.row)
         cell.configureCell(journalEntry: journalEntry)
         return cell
     }
     
     // MARK: - UITableViewDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let journalEntry = sampleJournalEntryData.journalEntries[indexPath.row]
+        let journalEntry = SharedData.shared.getJournalEntry(index: indexPath.row)
         let journalDetailViewController = JournalDetailViewController(journalEntry: journalEntry)
         show(journalDetailViewController, sender: self)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         90
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            SharedData.shared.removeJournalEntry(index: indexPath.row)
+            tableView.reloadData()
+        }
     }
 
     
@@ -76,7 +81,7 @@ class JournalListViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     public func saveJournalEntry(_ journalEntry: JournalEntry) {
-        sampleJournalEntryData.journalEntries.append(journalEntry)
+        SharedData.shared.addJournalEntry(newJournalEntry: journalEntry)
         tableView.reloadData()
     }
 
