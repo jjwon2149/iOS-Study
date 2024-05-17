@@ -12,6 +12,7 @@ import CoreLocation
 class MapViewController: UIViewController, CLLocationManagerDelegate {
     
     let locationManager = CLLocationManager()
+    var sampleJournalEntryData = SampleJournalEntryData()
     
     private lazy var mapView: MKMapView = {
         let mapView = MKMapView()
@@ -22,6 +23,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        
+        sampleJournalEntryData.createSampleJournalEntryData()
+        
+        mapView.addAnnotations(sampleJournalEntryData.journalEntries)
         
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
