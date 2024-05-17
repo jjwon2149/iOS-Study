@@ -68,10 +68,10 @@
 		4A193D722BF191E8008B5BC9 /* JRNL-CodeOnly */ = {
 			isa = PBXGroup;
 			children = (
-				4A193D902BF1E4EC008B5BC9 /* JournalEntry.swift */,
-				4A47466C2BF721110057F82E /* SharedData.swift */,
 				4A193D732BF191E8008B5BC9 /* AppDelegate.swift */,
 				4A193D752BF191E8008B5BC9 /* SceneDelegate.swift */,
+				4A47466F2BF73D4C0057F82E /* View */,
+				4A47466E2BF73D2D0057F82E /* Model */,
 				4A193D8F2BF1B586008B5BC9 /* JournalListScreen */,
 				4A193D8B2BF1B3F3008B5BC9 /* JournalDetailViewController.swift */,
 				4A193D892BF1A2AB008B5BC9 /* AddJournalViewController.swift */,
@@ -88,9 +88,25 @@
 			isa = PBXGroup;
 			children = (
 				4A193D772BF191E8008B5BC9 /* JournalListViewController.swift */,
-				4A193D8D2BF1B575008B5BC9 /* JournalListTableViewCell.swift */,
 			);
 			path = JournalListScreen;
+			sourceTree = "<group>";
+		};
+		4A47466E2BF73D2D0057F82E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4A193D902BF1E4EC008B5BC9 /* JournalEntry.swift */,
+				4A47466C2BF721110057F82E /* SharedData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4A47466F2BF73D4C0057F82E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4A193D8D2BF1B575008B5BC9 /* JournalListTableViewCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
