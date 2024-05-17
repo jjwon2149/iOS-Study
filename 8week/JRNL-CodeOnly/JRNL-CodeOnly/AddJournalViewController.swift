@@ -175,7 +175,7 @@ class AddJournalViewController: UIViewController, CLLocationManagerDelegate, UIT
             rating: 3,
             title: title,
             body: body,
-            photo: UIImage(systemName: "face.smiling"),
+            photo: UIImage(systemName: "face.smiling")?.withRenderingMode(.alwaysOriginal),
             latitude: lat, longitude: lon)!
         delegate?.saveJournalEntry(journalEntry)
         dismiss(animated: true)
