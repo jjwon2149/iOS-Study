@@ -68,6 +68,8 @@ class JournalDetailViewController: UITableViewController {
         super.viewDidLoad()
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: "customCell")
+
         navigationItem.title = "Detail"
         // Do any additional setup after loading the view.
     }

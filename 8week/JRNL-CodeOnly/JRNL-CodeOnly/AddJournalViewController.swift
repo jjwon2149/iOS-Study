@@ -8,14 +8,19 @@
 import UIKit
 import CoreLocation
 
-protocol AddJournalControllerDelegate: NSObject {
+protocol AddJournalControllerDelegate: NSObject, UITextViewDelegate {
     func saveJournalEntry(_ journalEntry: JournalEntry)
 }
 
-class AddJournalViewController: UIViewController, CLLocationManagerDelegate {
+class AddJournalViewController: UIViewController, CLLocationManagerDelegate, UITextViewDelegate {
     
     weak var delegate: AddJournalControllerDelegate?
     let locationManager = CLLocationManager()
+    var locationSwitchIsOn = false {
+        didSet {
+            updateSaveButtonState()
+        }
+    }
     var currentLocation: CLLocation?
     let LABEL_VIEW_TAG = 99
     
@@ -56,12 +61,14 @@ class AddJournalViewController: UIViewController, CLLocationManagerDelegate {
     private lazy var titleTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "Journal Title"
+        textField.addTarget(self, action: #selector(textChanged(textField:)), for: .editingChanged)
         return textField
     }()
     
     private lazy var bodyTextView: UITextView = {
         let textView = UITextView()
         textView.text = "Journal Body"
+        textView.delegate = self
         return textView
     }()
     
@@ -80,6 +87,7 @@ class AddJournalViewController: UIViewController, CLLocationManagerDelegate {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save,
                                                             target: self,
                                                             action: #selector(save))
+        navigationItem.rightBarButtonItem?.isEnabled = false
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel,
                                                            target: self,
@@ -125,6 +133,31 @@ class AddJournalViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
         
+    }
+    
+    //MARK: - Methods
+    
+    func updateSaveButtonState() {
+        if locationSwitchIsOn {
+            guard let title = titleTextField.text, !title.isEmpty,
+                  let body = bodyTextView.text, !body.isEmpty,
+                  let _ = currentLocation else {
+                navigationItem.rightBarButtonItem?.isEnabled = false
+                return
+            }
+            navigationItem.rightBarButtonItem?.isEnabled = true
+        } else {
+            guard let title = titleTextField.text, !title.isEmpty,
+                  let body = bodyTextView.text, !body.isEmpty else {
+                navigationItem.rightBarButtonItem?.isEnabled = false
+                return
+            }
+            navigationItem.rightBarButtonItem?.isEnabled = true
+        }
+    }
+    
+    @objc func textChanged(textField: UITextField) {
+        updateSaveButtonState()
     }
     
     @objc private func cancle() {

@@ -20,6 +20,8 @@ class JournalListViewController: UIViewController, UITableViewDataSource, UITabl
 
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+
         tableView.register(JournalListTableViewCell.self, forCellReuseIdentifier: "journalCell")
 
         view.backgroundColor = .white
