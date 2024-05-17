@@ -17,6 +17,7 @@
 		4A193D8C2BF1B3F3008B5BC9 /* JournalDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A193D8B2BF1B3F3008B5BC9 /* JournalDetailViewController.swift */; };
 		4A193D8E2BF1B575008B5BC9 /* JournalListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A193D8D2BF1B575008B5BC9 /* JournalListTableViewCell.swift */; };
 		4A193D912BF1E4EC008B5BC9 /* JournalEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A193D902BF1E4EC008B5BC9 /* JournalEntry.swift */; };
+		4A47466B2BF6E4D60057F82E /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A47466A2BF6E4D60057F82E /* CustomTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		4A193D8B2BF1B3F3008B5BC9 /* JournalDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalDetailViewController.swift; sourceTree = "<group>"; };
 		4A193D8D2BF1B575008B5BC9 /* JournalListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalListTableViewCell.swift; sourceTree = "<group>"; };
 		4A193D902BF1E4EC008B5BC9 /* JournalEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEntry.swift; sourceTree = "<group>"; };
+		4A47466A2BF6E4D60057F82E /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 				4A193D8F2BF1B586008B5BC9 /* JournalListScreen */,
 				4A193D8B2BF1B3F3008B5BC9 /* JournalDetailViewController.swift */,
 				4A193D892BF1A2AB008B5BC9 /* AddJournalViewController.swift */,
+				4A47466A2BF6E4D60057F82E /* CustomTableViewCell.swift */,
 				4A193D7C2BF191F1008B5BC9 /* Assets.xcassets */,
 				4A193D7E2BF191F1008B5BC9 /* LaunchScreen.storyboard */,
 				4A193D812BF191F1008B5BC9 /* Info.plist */,
@@ -157,6 +160,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A47466B2BF6E4D60057F82E /* CustomTableViewCell.swift in Sources */,
 				4A193D782BF191E8008B5BC9 /* JournalListViewController.swift in Sources */,
 				4A193D8C2BF1B3F3008B5BC9 /* JournalDetailViewController.swift in Sources */,
 				4A193D912BF1E4EC008B5BC9 /* JournalEntry.swift in Sources */,
@@ -311,6 +315,8 @@
 				DEVELOPMENT_TEAM = 2TXBC7N5Q5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "JRNL-CodeOnly/Info.plist";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용 할때만 사용";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -338,6 +344,8 @@
 				DEVELOPMENT_TEAM = 2TXBC7N5Q5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "JRNL-CodeOnly/Info.plist";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용 할때만 사용";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
