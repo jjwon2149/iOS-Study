@@ -7,8 +7,11 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
-class MapViewController: UIViewController {
+class MapViewController: UIViewController, CLLocationManagerDelegate {
+    
+    let locationManager = CLLocationManager()
     
     private lazy var mapView: MKMapView = {
         let mapView = MKMapView()
@@ -18,8 +21,13 @@ class MapViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         view.backgroundColor = .white
+        
+        locationManager.delegate = self
+        locationManager.requestAlwaysAuthorization()
+        self.navigationItem.title = "Loading..."
+        locationManager.requestLocation()
+        
         navigationItem.title = "Map"
         view.addSubview(mapView)
         
@@ -32,15 +40,26 @@ class MapViewController: UIViewController {
         ])
     }
     
+    //MARK: - CLLocationManagerDelegate
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let myCurrentLocation = locations.first {
+            let lat = myCurrentLocation.coordinate.latitude
+            let lon = myCurrentLocation.coordinate.longitude
+                
+            self.navigationItem.title = "Map"
+            
+            mapView.region = setInitialRegion(lat: lat, lon: lon)
+        }
+    }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: any Error) {
+        print("Failed to find user's location: \(error.localizedDescription)")
+    }
+    //MARK: - Methods
+    func setInitialRegion(lat: CLLocationDegrees, lon: CLLocationDegrees) -> MKCoordinateRegion {
+        MKCoordinateRegion(
+            center: CLLocationCoordinate2D(latitude: lat, longitude: lon),
+            span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+        )
+    }
 }

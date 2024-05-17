@@ -66,13 +66,14 @@
 		4A193D722BF191E8008B5BC9 /* JRNL-CodeOnly */ = {
 			isa = PBXGroup;
 			children = (
+				4A193D902BF1E4EC008B5BC9 /* JournalEntry.swift */,
 				4A193D732BF191E8008B5BC9 /* AppDelegate.swift */,
 				4A193D752BF191E8008B5BC9 /* SceneDelegate.swift */,
-				4A193D872BF1966C008B5BC9 /* MapViewController.swift */,
 				4A193D8F2BF1B586008B5BC9 /* JournalListScreen */,
 				4A193D8B2BF1B3F3008B5BC9 /* JournalDetailViewController.swift */,
 				4A193D892BF1A2AB008B5BC9 /* AddJournalViewController.swift */,
 				4A47466A2BF6E4D60057F82E /* CustomTableViewCell.swift */,
+				4A193D872BF1966C008B5BC9 /* MapViewController.swift */,
 				4A193D7C2BF191F1008B5BC9 /* Assets.xcassets */,
 				4A193D7E2BF191F1008B5BC9 /* LaunchScreen.storyboard */,
 				4A193D812BF191F1008B5BC9 /* Info.plist */,
@@ -85,7 +86,6 @@
 			children = (
 				4A193D772BF191E8008B5BC9 /* JournalListViewController.swift */,
 				4A193D8D2BF1B575008B5BC9 /* JournalListTableViewCell.swift */,
-				4A193D902BF1E4EC008B5BC9 /* JournalEntry.swift */,
 			);
 			path = JournalListScreen;
 			sourceTree = "<group>";
