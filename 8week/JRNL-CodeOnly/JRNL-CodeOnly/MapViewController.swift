@@ -64,6 +64,13 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         return nil
     }
     
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if let journalEntries = view.annotation as? JournalEntry {
+            let journalDetailViewController = JournalDetailViewController(journalEntry: journalEntries)
+            show(journalDetailViewController, sender: nil)
+        }
+    }
+    
     //MARK: - CLLocationManagerDelegate
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let myCurrentLocation = locations.first {
