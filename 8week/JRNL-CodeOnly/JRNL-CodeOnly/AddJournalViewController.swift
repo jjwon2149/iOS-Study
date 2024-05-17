@@ -33,11 +33,10 @@ class AddJournalViewController: UIViewController, CLLocationManagerDelegate, UIT
         return stackView
     }()
     
-    private lazy var ratingView: UIStackView = {
-        let stackView = UIStackView(frame: CGRect(x: 0, y: 0, width: 252, height: 44))
-        stackView.axis = .horizontal
-        stackView.backgroundColor = .systemCyan
-        return stackView
+    private lazy var ratingView: RatingView = {
+        let ratingView = RatingView(frame: CGRect(x: 0, y: 0, width: 252, height: 44))
+        ratingView.distribution = .fillEqually
+        return ratingView
     }()
     
     private lazy var toggleView: UIStackView = {
@@ -168,11 +167,12 @@ class AddJournalViewController: UIViewController, CLLocationManagerDelegate, UIT
         
         guard let title = titleTextField.text, !title.isEmpty, let body = bodyTextView.text, !body.isEmpty else { return }
         
+        let rating = ratingView.rating
         let lat = currentLocation?.coordinate.latitude
         let lon = currentLocation?.coordinate.longitude
         
         let journalEntry = JournalEntry(
-            rating: 3,
+            rating: rating,
             title: title,
             body: body,
             photo: UIImage(systemName: "face.smiling")?.withRenderingMode(.alwaysOriginal),
