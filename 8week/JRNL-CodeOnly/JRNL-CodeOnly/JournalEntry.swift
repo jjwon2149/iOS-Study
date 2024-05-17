@@ -14,7 +14,7 @@ class JournalEntry: NSObject, MKAnnotation, Codable {
     let rating: Int
     let entryTitle: String
     let entryBody: String
-    let photo: UIImage? {
+    var photo: UIImage? {
         get {
             guard let data = photoData else { return nil }
             return UIImage(data: data)
