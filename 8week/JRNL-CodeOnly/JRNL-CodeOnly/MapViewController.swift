@@ -9,13 +9,14 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class MapViewController: UIViewController, CLLocationManagerDelegate {
+class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
     let locationManager = CLLocationManager()
     var sampleJournalEntryData = SampleJournalEntryData()
     
     private lazy var mapView: MKMapView = {
         let mapView = MKMapView()
+        mapView.delegate = self
         mapView.translatesAutoresizingMaskIntoConstraints = false
         return mapView
     }()
@@ -43,6 +44,24 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             mapView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
             mapView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor)
         ])
+    }
+    
+    //MARK: - MKMapViewDelegate
+    func mapView(_ mapView: MKMapView, viewFor annotation: any MKAnnotation) -> MKAnnotationView? {
+        let identifire = "mapAnnotation"
+        if annotation is JournalEntry {
+            if let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifire) {
+                annotationView.annotation = annotation
+                return annotationView
+            } else {
+                let annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifire)
+                annotationView.canShowCallout = true
+                let callOutButton = UIButton(type: .detailDisclosure)
+                annotationView.rightCalloutAccessoryView = callOutButton
+                return annotationView
+            }
+        }
+        return nil
     }
     
     //MARK: - CLLocationManagerDelegate
