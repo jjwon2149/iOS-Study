@@ -17,6 +17,12 @@ class ViewController: UIViewController {
         circleView.layer.cornerRadius = 50
         circleView.layer.borderWidth = 2
         circleView.layer.borderColor = UIColor.black.cgColor
+//        circleView.clipsToBounds = true //빠져나오는 텍스트를 잘라줌
+//
+//        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 20))
+//        label.text = "Hello World"
+//        circleView.addSubview(label)
+        
         self.view.addSubview(circleView)
         
         let squreView = UIView()
