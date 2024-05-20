@@ -22,8 +22,9 @@ class ViewController: UIViewController {
 //            label.centerYAnchor.constraint(equalTo: view.centerYAnchor)
 //        ])
             //OR 같은 코드.
-        label.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        label.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        label.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = false
+        label.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = false
+        label.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
     }
 
 
