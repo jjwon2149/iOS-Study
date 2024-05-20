@@ -17,10 +17,13 @@ class ViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(label)
         
-        NSLayoutConstraint.activate([
-            label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            label.centerYAnchor.constraint(equalTo: view.centerYAnchor)
-        ])
+//        NSLayoutConstraint.activate([
+//            label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+//            label.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+//        ])
+            //OR 같은 코드.
+        label.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        label.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
 
 
