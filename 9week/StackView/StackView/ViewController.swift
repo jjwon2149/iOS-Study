@@ -15,43 +15,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        label.text = "Switch is OFF"
-        label.textAlignment = .center
-        
-//        toggleSwitch.addTarget(self, action: #selector(switchChanged), for: .valueChanged)
-        toggleSwitch.addAction(UIAction{ [weak self] _ in
-            if let isOn = self?.toggleSwitch.isOn, isOn {
-                self?.label.text = "Switch is ON"
-            } else {
-                self?.label.text = "Switch is OFF"
-            }
-            
-        },for: .valueChanged)
-        
-        let stackView = UIStackView(arrangedSubviews: [label, toggleSwitch])
-        stackView.axis = .vertical
-        stackView.spacing = 10
-        stackView.alignment = .center
-        
-        view.addSubview(stackView)
-        
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
-        ])
         
     }
 }
-
-extension ViewController {
-    @objc func switchChanged(_ sender: UISwitch) {
-        if sender.isOn {
-            label.text = "Switch is ON"
-        } else {
-            label.text = "Switch is OFF"
-        }
-    }
-}
-
