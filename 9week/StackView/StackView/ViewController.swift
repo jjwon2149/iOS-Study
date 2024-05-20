@@ -9,7 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    let stepper = UIStepper()
+    let slider = UISlider()
     let label = UILabel()
     
     override func viewDidLoad() {
@@ -17,18 +17,18 @@ class ViewController: UIViewController {
         
         label.text = "값: 0"
         
-        stepper.minimumValue = 0
-        stepper.maximumValue = 10
-        stepper.stepValue = 1
-        stepper.value = 0
-        stepper.addAction(UIAction{ [weak self] _ in
-            self?.label.text = "값: \(Int(self?.stepper.value ?? 0))"
+        slider.minimumValue = 0
+        slider.maximumValue = 1
+        slider.value = 0.5
+        slider.isContinuous = true
+        slider.addAction(UIAction{ [weak self] _ in
+            self?.label.text = "값: \(String(format: "%.1f", self?.slider.value ?? 0))"
         }, for: .valueChanged)
         
-        let stackView = UIStackView(arrangedSubviews: [label, stepper])
+        let stackView = UIStackView(arrangedSubviews: [label, slider])
         stackView.axis = .vertical
         stackView.spacing = 10
-        stackView.alignment = .center
+        stackView.alignment = .fill
         
         view.addSubview(stackView)
         
@@ -36,7 +36,8 @@ class ViewController: UIViewController {
         
         NSLayoutConstraint.activate([
             stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+            stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            stackView.widthAnchor.constraint(equalToConstant: 200)
         ])
     }
 }
