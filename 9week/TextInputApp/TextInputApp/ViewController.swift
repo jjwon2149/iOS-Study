@@ -17,6 +17,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        textView.delegate = self
+        
         displayLabel.text = ""
         
         textField.borderStyle = .roundedRect
@@ -47,3 +49,19 @@ class ViewController: UIViewController {
     }
 }
 
+extension ViewController: UITextViewDelegate {
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == .lightGray {
+            textView.text = ""
+            textView.textColor = .black
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            self.textView.text = "Enter your text here...."
+            textView.textColor = .lightGray
+        }
+    }
+}
