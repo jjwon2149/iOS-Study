@@ -7,8 +7,8 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIColorPickerViewControllerDelegate {
- 
+class ViewController: UIViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,3 +40,12 @@ class ViewController: UIViewController, UIColorPickerViewControllerDelegate {
     
 }
 
+extension ViewController: UIColorPickerViewControllerDelegate {
+    func colorPickerViewController(_ viewController: UIColorPickerViewController, didSelect color: UIColor, continuously: Bool) {
+        view.backgroundColor = viewController.selectedColor
+    }
+    
+    func colorPickerViewControllerDidFinish(_ viewController: UIColorPickerViewController) {
+        dismiss(animated: true)
+    }
+}
