@@ -8,14 +8,15 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    var count = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let button = UIButton(type: .system)
         button.setTitle("Click Me!", for: .normal)
-        button.addAction( UIAction {  _ in
-            print("Button Tapped")
+        button.addAction( UIAction { [weak self ]_ in
+            self?.count += 1
+            print("Button Tapped, count: \(String(describing: self?.count))")
         }, for: .touchUpInside)
         
         button.translatesAutoresizingMaskIntoConstraints = false
