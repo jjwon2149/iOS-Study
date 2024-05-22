@@ -8,7 +8,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,14 +20,15 @@ class ViewController: UIViewController {
         
         view.addSubview(rectangle)
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
-        tapGesture.numberOfTapsRequired = 2 //2번 탭을 해야만 함
-        rectangle.addGestureRecognizer(tapGesture)
+        let gesture = UILongPressGestureRecognizer(target: self, action: #selector(handleGesture))
+        gesture.minimumPressDuration = 2.0
+        rectangle.addGestureRecognizer(gesture)
         
     }
-
-    @objc func handleTap(_ sender: UITapGestureRecognizer) {
-        if let view = sender.view {
+    
+    @objc func handleGesture(_ sender: UILongPressGestureRecognizer) {
+        print("\(sender.state)")
+        if let view = sender.view, sender.state == .began {
             view.backgroundColor = (view.backgroundColor == UIColor.yellow) ? .red : .yellow
         }
     }
