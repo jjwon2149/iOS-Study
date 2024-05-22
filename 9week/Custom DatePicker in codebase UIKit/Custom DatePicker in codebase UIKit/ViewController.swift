@@ -11,27 +11,34 @@ import UIKit
 
 class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
    
-    private lazy var datePicker: UIPickerView = {
-        let picker = UIPickerView()
-        picker.delegate = self
-        picker.dataSource = self
-        return picker
+    private lazy var customDatePicker: UIPickerView = {
+        let customDatePicker = UIPickerView()
+        customDatePicker.delegate = self
+        customDatePicker.dataSource = self
+        customDatePicker.translatesAutoresizingMaskIntoConstraints = false
+        return customDatePicker
     }()
     
     let years = [Int](2024...2050)
     let months = [Int](1...12)
     let days = [Int](1...31)
     
+    var datePicker: UIDatePicker = {
+        let datePicker = UIDatePicker()
+        datePicker.frame = CGRect(x: 0, y: 0, width: 200, height: 300)
+        return datePicker
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+
         
-        datePicker.translatesAutoresizingMaskIntoConstraints = false
-        
+        view.addSubview(customDatePicker)
         view.addSubview(datePicker)
         
         NSLayoutConstraint.activate([
-            datePicker.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            datePicker.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            customDatePicker.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            customDatePicker.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
     }
 
