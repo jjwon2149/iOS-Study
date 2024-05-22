@@ -18,16 +18,18 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         customDatePicker.translatesAutoresizingMaskIntoConstraints = false
         return customDatePicker
     }()
-    
-    let years = [Int](2024...2050)
-    let months = [Int](1...12)
-    let days = [Int](1...31)
-    
     var datePicker: UIDatePicker = {
         let datePicker = UIDatePicker()
         datePicker.frame = CGRect(x: 0, y: 0, width: 200, height: 300)
         return datePicker
     }()
+    let years = [Int](2000...2050)
+    let months = [Int](1...12)
+    let days = [Int](1...31)
+    var selectedYear = 0
+    var selectedMonth = 0
+    var selectedDay = 0
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,7 +56,15 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         case 1: //month
             return months.count
         case 2: //day
-            return days.count
+            if selectedMonth == 2 {
+                return selectedYear % 4 == 0 &&
+                        selectedYear % 100 != 0 ||
+                        selectedYear % 400 == 0 ? 29 : 38
+            } else if [4, 6, 9, 11].contains(selectedMonth) {
+                return 30
+            } else {
+                return days.count
+            }
         default:
             return 0
         }
@@ -73,6 +83,19 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
             return nil
         }
     }
-
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        switch component {
+        case 0: //year
+            selectedYear = years[row]
+        case 1: //month
+            selectedMonth = months[row]
+        case 2: //day
+            selectedDay = days[row]
+        default:
+            return
+        }
+        customDatePicker.reloadAllComponents()
+    }
 }
 
