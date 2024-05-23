@@ -27,14 +27,28 @@ class ViewController: UIViewController {
         //        formOneTextField.addAction(UIAction { [weak self] _ in
         //            self?.resultLabelOne.text = "폼 #1 = \(self?.formOneTextField.text ?? "")"
         //        }, for: .editingChanged)
-        //        
+        //
         //        formOneTextField.addAction(UIAction { [weak self] _ in
         //            self?.resultLabelTwo.text = "폼 #1 = \(self?.formTwoTextField.text ?? "")"
         //        }, for: .editingChanged)
         
+        //메모리가 해제안됨 라이프사이클로 옮겨사용
+//        formOneTextField.addAction(UIAction(handler: textFieldDidChange), for: .editingChanged)
+//        formTwoTextField.addAction(UIAction(handler: textFieldDidChange), for: .editingChanged)
+        
+    }
+    
+    override func viewIsAppearing(_ animated: Bool) {
+        super.viewIsAppearing(animated)
         formOneTextField.addAction(UIAction(handler: textFieldDidChange), for: .editingChanged)
         formTwoTextField.addAction(UIAction(handler: textFieldDidChange), for: .editingChanged)
-        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        //메모리 해제 코드
+        formOneTextField.removeAction(UIAction(handler: textFieldDidChange), for: .editingChanged)
+        formTwoTextField.removeAction(UIAction(handler: textFieldDidChange), for: .editingChanged)
     }
     
     func setupFormOne() {
