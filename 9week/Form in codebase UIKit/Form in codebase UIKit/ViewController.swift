@@ -7,7 +7,14 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDataSource {
+    
+    lazy var tableView: UITableView = {
+        let tableView = UITableView(frame: view.bounds, style: .insetGrouped)
+        tableView.dataSource = self
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        return tableView
+    }()
     
     let formOneLabel = UILabel()
     let formOneTextField = UITextField()
@@ -20,22 +27,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         
-        setupFormOne()
-        setupFormTwo()
-        setupResult()
-        
-        //        formOneTextField.addAction(UIAction { [weak self] _ in
-        //            self?.resultLabelOne.text = "폼 #1 = \(self?.formOneTextField.text ?? "")"
-        //        }, for: .editingChanged)
-        //
-        //        formOneTextField.addAction(UIAction { [weak self] _ in
-        //            self?.resultLabelTwo.text = "폼 #1 = \(self?.formTwoTextField.text ?? "")"
-        //        }, for: .editingChanged)
-        
-        //메모리가 해제안됨 라이프사이클로 옮겨사용
-//        formOneTextField.addAction(UIAction(handler: textFieldDidChange), for: .editingChanged)
-//        formTwoTextField.addAction(UIAction(handler: textFieldDidChange), for: .editingChanged)
-        
+        view.addSubview(tableView)
     }
     
     override func viewIsAppearing(_ animated: Bool) {
@@ -116,6 +108,36 @@ class ViewController: UIViewController {
         } else {
             resultLabelTwo.text = "폼 #2 = \(textField.text ?? "")"
         }
+    }
+    
+    //MARK: - UITableView DataSource Methods
+    
+    func numberOfSections(in tableView: UITableView) -> Int { 3 }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { 2 }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 2 {
+            return "결과"
+        } else {
+            return nil
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        switch section {
+        case 0:
+            return "폼 #1"
+        case 1:
+            return "폼 #2"
+        default:
+            return nil
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        return cell
     }
 }
 
