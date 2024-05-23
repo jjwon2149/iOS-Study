@@ -32,6 +32,17 @@ class ViewController: UIViewController {
                                          target: self,
                                          action: #selector(extraButtonTapped))
         self.navigationItem.rightBarButtonItems = [rightButton, extraButton]
+        
+        let button = UIButton(type: .system)
+        button.setTitle("다음 화면으로", for: .normal)
+        button.addAction(UIAction { _ in
+            let nextVC = UIViewController()
+            nextVC.view.backgroundColor = .white
+            self.show(nextVC, sender: nil)
+        }, for: .touchUpInside)
+        
+        button.frame = CGRect(x: 100, y: 100, width: 200, height: 50)
+        view.addSubview(button)
     }
 
     @objc func leftButtonTapped() {
