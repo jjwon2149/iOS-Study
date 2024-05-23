@@ -43,8 +43,8 @@ class ViewController: UIViewController {
         let button = UIButton(type: .system)
         button.setTitle("다음 화면으로", for: .normal)
         button.addAction(UIAction { _ in
-            let nextVC = UIViewController()
-            nextVC.view.backgroundColor = .white
+            let nextVC = NextViewController(animal: Animal(name: "Dog"))
+            nextVC.delegate = self
             self.show(nextVC, sender: nil)
         }, for: .touchUpInside)
         
@@ -65,3 +65,8 @@ class ViewController: UIViewController {
     }
 }
 
+extension ViewController: NextViewControllerDelegate {
+    func save(animal: Animal) {
+        print(animal)
+    }
+}
