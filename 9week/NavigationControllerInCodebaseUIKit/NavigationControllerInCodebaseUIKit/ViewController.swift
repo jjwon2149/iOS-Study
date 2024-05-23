@@ -14,10 +14,17 @@ class ViewController: UIViewController {
         //둘다 가능
         self.navigationItem.title = "네비게이션 타이틀"
 //        self.title = "네비게이션 타이틀"
-        self.navigationController?.navigationBar.barStyle = .default
-        self.navigationController?.navigationBar.isTranslucent = true
-        self.navigationController?.navigationBar.backgroundColor = .systemRed
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        
+        let appearence = UINavigationBarAppearance()
+        appearence.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        appearence.backgroundColor = .systemBackground
+        appearence.backgroundColor = .systemBrown
+        self.navigationController?.navigationBar.scrollEdgeAppearance = appearence
+//        self.navigationController?.navigationBar.barStyle = .default
+//        self.navigationController?.navigationBar.isTranslucent = true
+//        self.navigationController?.navigationBar.scrollEdgeAppearance?.backgroundColor = .systemBrown
+//        self.navigationController?.navigationBar.backgroundColor = .systemBrown
+//        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         
         let leftButton = UIBarButtonItem(barButtonSystemItem: .add,
                                          target: self,
