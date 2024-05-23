@@ -7,11 +7,42 @@
 
 import UIKit
 
+class CustomCell: UITableViewCell {
+    let animalImageView = UIImageView()
+    let nameLabel = UILabel()
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        animalImageView.contentMode = .scaleAspectFit
+        
+        animalImageView.translatesAutoresizingMaskIntoConstraints = false
+        nameLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        contentView.addSubview(animalImageView)
+        contentView.addSubview(nameLabel)
+        
+        NSLayoutConstraint.activate([
+            animalImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            animalImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            animalImageView.widthAnchor.constraint(equalToConstant: 50),
+            animalImageView.heightAnchor.constraint(equalToConstant: 50),
+            
+            nameLabel.leadingAnchor.constraint(equalTo: animalImageView.trailingAnchor, constant: 16),
+            nameLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
+        ])
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+}
+
 struct Animal {
     let name: String
     let image: UIImage
 }
-
 
 class ViewController: UIViewController, UITableViewDataSource {
     
@@ -22,10 +53,10 @@ class ViewController: UIViewController, UITableViewDataSource {
     ]
     override func viewDidLoad() {
         super.viewDidLoad()
- 
+        
         let tableView = UITableView(frame: view.bounds)
         tableView.dataSource = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(CustomCell.self, forCellReuseIdentifier: "cell")
         view.addSubview(tableView)
         
     }
@@ -36,11 +67,13 @@ class ViewController: UIViewController, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell",for: indexPath)
-        var configuration = cell.defaultContentConfiguration()
-        configuration.text = animals[indexPath.row].name
-        configuration.image = animals[indexPath.row].image
-        cell.contentConfiguration = configuration
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell",for: indexPath) as! CustomCell
+        //        var configuration = cell.defaultContentConfiguration()
+        //        configuration.text = animals[indexPath.row].name
+        //        configuration.image = animals[indexPath.row].image
+        //        cell.contentConfiguration = configuration
+        cell.animalImageView.image = animals[indexPath.row].image
+        cell.nameLabel.text = animals[indexPath.row].name
         return cell
     }
 }
