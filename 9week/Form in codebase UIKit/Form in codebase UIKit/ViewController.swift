@@ -24,13 +24,16 @@ class ViewController: UIViewController {
         setupFormTwo()
         setupResult()
         
-        formOneTextField.addAction(UIAction { [weak self] _ in
-            self?.resultLabelOne.text = "폼 #1 = \(self?.formOneTextField.text ?? "")"
-        }, for: .editingChanged)
+        //        formOneTextField.addAction(UIAction { [weak self] _ in
+        //            self?.resultLabelOne.text = "폼 #1 = \(self?.formOneTextField.text ?? "")"
+        //        }, for: .editingChanged)
+        //        
+        //        formOneTextField.addAction(UIAction { [weak self] _ in
+        //            self?.resultLabelTwo.text = "폼 #1 = \(self?.formTwoTextField.text ?? "")"
+        //        }, for: .editingChanged)
         
-        formOneTextField.addAction(UIAction { [weak self] _ in
-            self?.resultLabelTwo.text = "폼 #1 = \(self?.formTwoTextField.text ?? "")"
-        }, for: .editingChanged)
+        formOneTextField.addAction(UIAction(handler: textFieldDidChange), for: .editingChanged)
+        formTwoTextField.addAction(UIAction(handler: textFieldDidChange), for: .editingChanged)
         
     }
     
@@ -89,6 +92,16 @@ class ViewController: UIViewController {
             resultLabelTwo.topAnchor.constraint(equalTo: resultLabelOne.bottomAnchor, constant: 10),
             resultLabelTwo.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20)
         ])
+    }
+    
+    func textFieldDidChange(_ action: UIAction) {
+        guard let textField = action.sender as? UITextField else { return }
+        
+        if textField == formOneTextField {
+            resultLabelOne.text = "폼 #1 = \(textField.text ?? "")"
+        } else {
+            resultLabelTwo.text = "폼 #2 = \(textField.text ?? "")"
+        }
     }
 }
 
