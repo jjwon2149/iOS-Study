@@ -23,6 +23,8 @@ class ViewController: UIViewController, UITableViewDataSource {
     let formTwoTextField = UITextField()
     let resultLabelOne = UILabel()
     let resultLabelTwo = UILabel()
+    let formOneSwitch = UISwitch()
+    let resultButton = UIButton(type: .system)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,6 +67,16 @@ class ViewController: UIViewController, UITableViewDataSource {
                 formOneTextField.centerYAnchor.constraint(equalTo: view.centerYAnchor),
                 formOneTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
                 formOneTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
+            ])
+        case 2:
+            formOneSwitch.translatesAutoresizingMaskIntoConstraints = false
+            
+            formOneSwitch.addAction(UIAction { [weak self] _ in self?.tableView.reloadData() }, for: .valueChanged)
+            
+            view.addSubview(formOneSwitch)
+            NSLayoutConstraint.activate([
+                formOneSwitch.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                formOneSwitch.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             ])
         default:
             break
@@ -117,7 +129,17 @@ class ViewController: UIViewController, UITableViewDataSource {
                 resultLabelTwo.centerYAnchor.constraint(equalTo: view.centerYAnchor),
                 resultLabelTwo.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16)
             ])
+        case 2:
+            resultButton.translatesAutoresizingMaskIntoConstraints = false
             
+            resultButton.setTitle("클릭하세요.", for: .normal)
+            resultButton.isEnabled = formOneSwitch.isOn
+            view.addSubview(resultButton)
+            
+            NSLayoutConstraint.activate([
+                resultButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                resultButton.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+            ])
         default:
             break
         }
@@ -137,7 +159,22 @@ class ViewController: UIViewController, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int { 3 }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { 2 }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if section == 0 {
+            return 3
+        }
+        switch section {
+        case 0:
+            return 3
+        case 1:
+            return formOneSwitch.isOn ? 2 : 0
+        case 2:
+            return 3
+        default:
+            return 0
+        }
+    }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 2 {
@@ -152,7 +189,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         case 0:
             return "폼 #1"
         case 1:
-            return "폼 #2"
+            return formOneSwitch.isOn ? "폼 #2" : nil
         default:
             return nil
         }
@@ -160,6 +197,7 @@ class ViewController: UIViewController, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.contentView.subviews.forEach({ view in view.removeFromSuperview() })
         
         switch indexPath.section {
         case 0:

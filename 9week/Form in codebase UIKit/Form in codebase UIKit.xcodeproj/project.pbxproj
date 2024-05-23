@@ -13,6 +13,7 @@
 		4A8321FF2BFED168001C7D46 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 4A8321FE2BFED168001C7D46 /* Base */; };
 		4A8322012BFED169001C7D46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A8322002BFED169001C7D46 /* Assets.xcassets */; };
 		4A8322042BFED169001C7D46 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 4A8322032BFED169001C7D46 /* Base */; };
+		4A83220C2BFF16B9001C7D46 /* GroupBoxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A83220B2BFF16B9001C7D46 /* GroupBoxViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		4A8322002BFED169001C7D46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4A8322032BFED169001C7D46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4A8322052BFED169001C7D46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4A83220B2BFF16B9001C7D46 /* GroupBoxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupBoxViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				4A8321F92BFED168001C7D46 /* SceneDelegate.swift */,
 				4A8321FB2BFED168001C7D46 /* ViewController.swift */,
 				4A8321FD2BFED168001C7D46 /* Main.storyboard */,
+				4A83220B2BFF16B9001C7D46 /* GroupBoxViewController.swift */,
 				4A8322002BFED169001C7D46 /* Assets.xcassets */,
 				4A8322022BFED169001C7D46 /* LaunchScreen.storyboard */,
 				4A8322052BFED169001C7D46 /* Info.plist */,
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A83220C2BFF16B9001C7D46 /* GroupBoxViewController.swift in Sources */,
 				4A8321FC2BFED168001C7D46 /* ViewController.swift in Sources */,
 				4A8321F82BFED168001C7D46 /* AppDelegate.swift in Sources */,
 				4A8321FA2BFED168001C7D46 /* SceneDelegate.swift in Sources */,
