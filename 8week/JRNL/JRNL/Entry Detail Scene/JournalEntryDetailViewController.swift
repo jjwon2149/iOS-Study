@@ -30,7 +30,8 @@ class JournalEntryDetailViewController: UITableViewController {
         }
         getMapSnapshot()
     }
-    //MARK: - Methods
+    
+    // MARK: - Private Methods
     private func getMapSnapshot() {
         if let lat = selectedJournalEntry?.latitude,
            let long = selectedJournalEntry?.longitude {
