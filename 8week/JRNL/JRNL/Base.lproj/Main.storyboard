@@ -398,7 +398,7 @@
                         <outlet property="dateLabel" destination="lSQ-aL-EEz" id="ydg-2W-cQW"/>
                         <outlet property="mapImageView" destination="A1W-Rw-cTq" id="878-fd-4LS"/>
                         <outlet property="photoImageView" destination="xGg-HL-BPt" id="oO0-1R-5Zp"/>
-                        <outlet property="ratingView" destination="ZNU-D7-6yp" id="jRC-Ck-vv8"/>
+                        <outlet property="ratingView" destination="ZNU-D7-6yp" id="Fsi-RE-Jl2"/>
                         <outlet property="titleLabel" destination="24j-JC-8o2" id="Llm-eX-hmM"/>
                     </connections>
                 </tableViewController>

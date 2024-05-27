@@ -16,7 +16,6 @@ class JournalEntryDetailViewController: UITableViewController {
     @IBOutlet var photoImageView: UIImageView!
     @IBOutlet var mapImageView: UIImageView!
     @IBOutlet var ratingView: RatingView!
-    
     var selectedJournalEntry: JournalEntry?
     
     override func viewDidLoad() {
