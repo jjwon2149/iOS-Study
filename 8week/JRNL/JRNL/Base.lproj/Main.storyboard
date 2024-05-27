@@ -28,7 +28,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="uHR-cK-OV3">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="journalCell" id="uHR-cK-OV3" customClass="JournalListCollectionViewCell" customModule="JRNL" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="3fM-dD-zYH">
@@ -68,10 +68,17 @@
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="375" height="90"/>
                                         <connections>
+                                            <outlet property="dateLabel" destination="Eom-vW-QwM" id="8mK-yi-7oq"/>
+                                            <outlet property="photoImageView" destination="8yA-bD-8Cb" id="iMf-CD-Weh"/>
+                                            <outlet property="titleLabel" destination="jUL-tk-H0U" id="JI7-Uk-Gz0"/>
                                             <segue destination="xx1-0d-BGn" kind="show" identifier="entryDetail" id="w88-wt-O7M"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="6oC-i6-eHz"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="tdg-Bx-eVH"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -90,6 +97,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="collectionView" destination="coJ-pI-3X7" id="mQe-NI-N6m"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
