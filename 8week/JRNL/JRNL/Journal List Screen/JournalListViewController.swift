@@ -26,7 +26,7 @@ class JournalListViewController: UIViewController, UITableViewDataSource, UITabl
     // MARK: - UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if search.isActive {
-            return filteredTableData.count
+            return self.filteredTableData.count
         } else {
             return SharedData.shared.numberOfJournalEntries()
         }
@@ -35,6 +35,7 @@ class JournalListViewController: UIViewController, UITableViewDataSource, UITabl
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let journalCell = tableView.dequeueReusableCell(withIdentifier: "journalCell", for: indexPath) as! JournalListTableViewCell
+        
         let journalEntry: JournalEntry
         if self.search.isActive {
             journalEntry = filteredTableData[indexPath.row]
@@ -59,9 +60,11 @@ class JournalListViewController: UIViewController, UITableViewDataSource, UITabl
         }
     }
     
-    //MARK: - UISearchResultsUpdatingDelegate
+    // MARK: - UISearchResultsUpdating
     func updateSearchResults(for searchController: UISearchController) {
-        guard let searchBarText = searchController.searchBar.text else { return }
+        guard let searchBarText = searchController.searchBar.text else {
+            return
+        }
         filteredTableData.removeAll()
         for journalEntry in SharedData.shared.getAllJournalEntries() {
             if journalEntry.entryTitle.lowercased().contains(searchBarText.lowercased()) {

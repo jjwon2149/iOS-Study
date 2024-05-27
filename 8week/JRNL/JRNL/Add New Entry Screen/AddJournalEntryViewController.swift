@@ -93,7 +93,7 @@ class AddJournalEntryViewController:
         }
     }
     
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: any Error) {
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("failed to find user's location: \(error.localizedDescription)")
     }
     
