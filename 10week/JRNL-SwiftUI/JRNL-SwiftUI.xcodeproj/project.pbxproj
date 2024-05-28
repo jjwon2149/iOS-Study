@@ -14,6 +14,7 @@
 		4A55773F2C05C79D00D4626F /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A55773E2C05C79D00D4626F /* MapView.swift */; };
 		4A5577412C05C7A900D4626F /* JournalListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5577402C05C7A900D4626F /* JournalListView.swift */; };
 		4A5577432C05C9FA00D4626F /* AddJournalEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5577422C05C9FA00D4626F /* AddJournalEntryView.swift */; };
+		4A5577452C05CDA800D4626F /* JournalEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5577442C05CDA800D4626F /* JournalEntry.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		4A55773E2C05C79D00D4626F /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		4A5577402C05C7A900D4626F /* JournalListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalListView.swift; sourceTree = "<group>"; };
 		4A5577422C05C9FA00D4626F /* AddJournalEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJournalEntryView.swift; sourceTree = "<group>"; };
+		4A5577442C05CDA800D4626F /* JournalEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEntry.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				4A55773E2C05C79D00D4626F /* MapView.swift */,
 				4A5577402C05C7A900D4626F /* JournalListView.swift */,
 				4A5577422C05C9FA00D4626F /* AddJournalEntryView.swift */,
+				4A5577462C05CDAD00D4626F /* Model */,
 			);
 			path = "JRNL-SwiftUI";
 			sourceTree = "<group>";
@@ -74,6 +77,14 @@
 				4A5577372C05C73D00D4626F /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4A5577462C05CDAD00D4626F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4A5577442C05CDA800D4626F /* JournalEntry.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,6 +157,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A5577452C05CDA800D4626F /* JournalEntry.swift in Sources */,
 				4A5577332C05C73C00D4626F /* ContentView.swift in Sources */,
 				4A55773F2C05C79D00D4626F /* MapView.swift in Sources */,
 				4A5577412C05C7A900D4626F /* JournalListView.swift in Sources */,
