@@ -7,8 +7,10 @@
 
 import UIKit
 import MapKit
+import SwiftData
 
-class JournalEntry: NSObject, MKAnnotation, Codable {
+@Model
+class JournalEntry {
     // MARK: - Properties
     var key = UUID().uuidString
     let dateString: String
@@ -20,8 +22,13 @@ class JournalEntry: NSObject, MKAnnotation, Codable {
     let longitude: Double?
     
     // MARK: - Intialization
-    init?(rating: Int, title: String, body: String,
-          photo: UIImage? = nil, latitude: Double? = nil, longitude: Double? = nil) {
+    init?(rating: Int,
+          title: String,
+          body: String,
+          photo: UIImage? = nil,
+          latitude: Double? = nil,
+          longitude: Double? = nil
+    ){
         if title.isEmpty || body.isEmpty || rating < 0 || rating > 5 {
             return nil
         }
@@ -36,21 +43,21 @@ class JournalEntry: NSObject, MKAnnotation, Codable {
         self.longitude = longitude
     }
     
-    var coordinate: CLLocationCoordinate2D {
-        guard let lat = latitude,
-              let long = longitude else {
-            return CLLocationCoordinate2D()
-        }
-        return CLLocationCoordinate2D(latitude: lat, longitude: long)
-    }
-    
-    var title: String? {
-        dateString
-    }
-    
-    var subtitle: String? {
-        entryTitle
-    }
+//    var coordinate: CLLocationCoordinate2D {
+//        guard let lat = latitude,
+//              let long = longitude else {
+//            return CLLocationCoordinate2D()
+//        }
+//        return CLLocationCoordinate2D(latitude: lat, longitude: long)
+//    }
+//    
+//    var title: String? {
+//        dateString
+//    }
+//    
+//    var subtitle: String? {
+//        entryTitle
+//    }
 }
 
 // MARK: - Sample data
