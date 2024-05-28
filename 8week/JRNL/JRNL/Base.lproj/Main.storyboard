@@ -102,6 +102,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="GaD-yF-HFS" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1961.0687022900763" y="3.5211267605633805"/>
         </scene>
@@ -184,12 +185,12 @@
                     <navigationItem key="navigationItem" title="New Entry" id="o4V-AB-VVV">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="hZz-Km-26q">
                             <connections>
-                                <segue destination="eww-Xj-D84" kind="unwind" unwindAction="unwindNewEntryCancelWithSegue:" id="utC-4P-egL"/>
+                                <segue destination="GaD-yF-HFS" kind="unwind" unwindAction="unwindNewEntryCancelWithSegue:" id="hPI-f8-Lnf"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="Bic-hn-tmc">
                             <connections>
-                                <segue destination="eww-Xj-D84" kind="unwind" unwindAction="unwindNewEntrySaveWithSegue:" id="3il-Fl-9na"/>
+                                <segue destination="GaD-yF-HFS" kind="unwind" unwindAction="unwindNewEntrySaveWithSegue:" id="AMP-ac-dXQ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -204,7 +205,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LiV-YP-B5C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="eww-Xj-D84" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="Oau-my-Lon">
                     <connections>
                         <action selector="getPhoto:" destination="L6K-Dk-VRq" id="hiU-Nq-zRh"/>

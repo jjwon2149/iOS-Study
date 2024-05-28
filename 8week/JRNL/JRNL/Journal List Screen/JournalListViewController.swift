@@ -13,24 +13,24 @@ class JournalListViewController: UIViewController, UICollectionViewDelegate, UIC
     // MARK: - Properties
     @IBOutlet var collectionView: UICollectionView!
     let search = UISearchController(searchResultsController: nil)
+    
     var journalEntries: [JournalEntry] = []
     var filteredTableData: [JournalEntry] = []
     
     var container: ModelContainer?
     var context: ModelContext?
-    let descriptor = FetchDescriptor<JournalEntry>(sortBy: [SortDescriptor<JournalEntry>(\.dateString)])
+    let descrptor = FetchDescriptor<JournalEntry>(sortBy: [SortDescriptor<JournalEntry>(\.dateString)])
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //SwiftData
-        guard let container = try? ModelContainer(for: JournalEntry.self) else {
-            fatalError("Could not initialze Container")
+        guard let _container = try? ModelContainer(for: JournalEntry.self) else {
+            fatalError("Could not initialize Container")
         }
-        self.container = container
-        self.context = ModelContext(container)
+        container = _container
+        context = ModelContext(_container)
         fetchJournalEntries()
-        
         
         setupCollectionView()
         
@@ -83,25 +83,23 @@ class JournalListViewController: UIViewController, UICollectionViewDelegate, UIC
     
     // MARK: - UICollectionViewDelegate
     private func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemsAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
-        let configuration = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { [weak self] (elements) -> UIMenu? in
-            let delete = UIAction(title: "Delete") { (action) in
-                if let search = self?.search,
-                   search.isActive,
-                   let selectedJournalEntry = self?.filteredTableData[indexPath.item]
-                {
+        let config = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { (elements) -> UIMenu? in
+            let delete = UIAction(title: "Delete") { [weak self] (action) in
+                if let search = self?.search, search.isActive,
+                   let selectedJournalEntry = self?.filteredTableData[indexPath.item] {
                     self?.filteredTableData.remove(at: indexPath.item)
                     self?.context?.delete(selectedJournalEntry)
                 } else {
-                    if let selectedJourEntry = self?.journalEntries[indexPath.item] {
-                        self?.journalEntries.remove(at: indexPath.row)
-                        self?.context?.delete(selectedJourEntry)
+                    if let selectedJournalEntry = self?.journalEntries[indexPath.item] {
+                        self?.journalEntries.remove(at: indexPath.item)
+                        self?.context?.delete(selectedJournalEntry)
                     }
                 }
                 collectionView.reloadData()
             }
             return UIMenu(title: "", image: nil, identifier: nil, options: [], children: [delete])
         }
-        return configuration
+        return config
     }
     
     // MARK: - UISearchResultsUpdating
@@ -134,8 +132,7 @@ class JournalListViewController: UIViewController, UICollectionViewDelegate, UIC
     
     // MARK: - Methods
     func fetchJournalEntries() {
-        let descriptor = FetchDescriptor<JournalEntry>(sortBy: [SortDescriptor<JournalEntry>(\.dateString)])
-        if let journalEntries = try? context?.fetch(descriptor) {
+        if let journalEntries = try? context?.fetch(descrptor) {
             self.journalEntries = journalEntries
         }
     }
@@ -143,6 +140,7 @@ class JournalListViewController: UIViewController, UICollectionViewDelegate, UIC
     @IBAction func unwindNewEntryCancel(segue: UIStoryboardSegue) {
         
     }
+    
     @IBAction func unwindNewEntrySave(segue: UIStoryboardSegue) {
         if let sourceViewController = segue.source as? AddJournalEntryViewController,
            let newJournalEntry = sourceViewController.newJournalEntry {
