@@ -11,6 +11,8 @@
 		4A5577332C05C73C00D4626F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5577322C05C73C00D4626F /* ContentView.swift */; };
 		4A5577352C05C73D00D4626F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A5577342C05C73D00D4626F /* Assets.xcassets */; };
 		4A5577382C05C73D00D4626F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A5577372C05C73D00D4626F /* Preview Assets.xcassets */; };
+		4A55773F2C05C79D00D4626F /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A55773E2C05C79D00D4626F /* MapView.swift */; };
+		4A5577412C05C7A900D4626F /* JournalListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5577402C05C7A900D4626F /* JournalListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		4A5577322C05C73C00D4626F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4A5577342C05C73D00D4626F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4A5577372C05C73D00D4626F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4A55773E2C05C79D00D4626F /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		4A5577402C05C7A900D4626F /* JournalListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +59,8 @@
 				4A5577322C05C73C00D4626F /* ContentView.swift */,
 				4A5577342C05C73D00D4626F /* Assets.xcassets */,
 				4A5577362C05C73D00D4626F /* Preview Content */,
+				4A55773E2C05C79D00D4626F /* MapView.swift */,
+				4A5577402C05C7A900D4626F /* JournalListView.swift */,
 			);
 			path = "JRNL-SwiftUI";
 			sourceTree = "<group>";
@@ -138,6 +144,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A5577332C05C73C00D4626F /* ContentView.swift in Sources */,
+				4A55773F2C05C79D00D4626F /* MapView.swift in Sources */,
+				4A5577412C05C7A900D4626F /* JournalListView.swift in Sources */,
 				4A5577312C05C73C00D4626F /* JRNL_SwiftUIApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
