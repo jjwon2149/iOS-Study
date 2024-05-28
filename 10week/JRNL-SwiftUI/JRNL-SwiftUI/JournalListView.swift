@@ -8,8 +8,29 @@
 import SwiftUI
 
 struct JournalListView: View {
+    
+    @State private var isShowAddJournalView = false
+    
     var body: some View {
-        Text("JournalListView")
+        NavigationStack {
+            List {
+                
+            }
+            .navigationTitle("Journal List")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        isShowAddJournalView = true
+                    } label: {
+                        Label("Add", systemImage: "plus")
+                    }
+                }
+            }
+            .sheet(isPresented: $isShowAddJournalView) {
+                AddJournalEntryView()
+            }
+        }
     }
 }
 

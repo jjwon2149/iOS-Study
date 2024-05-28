@@ -13,6 +13,7 @@
 		4A5577382C05C73D00D4626F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A5577372C05C73D00D4626F /* Preview Assets.xcassets */; };
 		4A55773F2C05C79D00D4626F /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A55773E2C05C79D00D4626F /* MapView.swift */; };
 		4A5577412C05C7A900D4626F /* JournalListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5577402C05C7A900D4626F /* JournalListView.swift */; };
+		4A5577432C05C9FA00D4626F /* AddJournalEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5577422C05C9FA00D4626F /* AddJournalEntryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		4A5577372C05C73D00D4626F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4A55773E2C05C79D00D4626F /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		4A5577402C05C7A900D4626F /* JournalListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalListView.swift; sourceTree = "<group>"; };
+		4A5577422C05C9FA00D4626F /* AddJournalEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJournalEntryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				4A5577362C05C73D00D4626F /* Preview Content */,
 				4A55773E2C05C79D00D4626F /* MapView.swift */,
 				4A5577402C05C7A900D4626F /* JournalListView.swift */,
+				4A5577422C05C9FA00D4626F /* AddJournalEntryView.swift */,
 			);
 			path = "JRNL-SwiftUI";
 			sourceTree = "<group>";
@@ -147,6 +150,7 @@
 				4A55773F2C05C79D00D4626F /* MapView.swift in Sources */,
 				4A5577412C05C7A900D4626F /* JournalListView.swift in Sources */,
 				4A5577312C05C73C00D4626F /* JRNL_SwiftUIApp.swift in Sources */,
+				4A5577432C05C9FA00D4626F /* AddJournalEntryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
