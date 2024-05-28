@@ -135,8 +135,7 @@ class JournalListViewController: UIViewController, UICollectionViewDelegate, UIC
     // MARK: - Methods
     func fetchJournalEntries() {
         let descriptor = FetchDescriptor<JournalEntry>(sortBy: [SortDescriptor<JournalEntry>(\.dateString)])
-        if let context = self.context,
-           let journalEntries = try? context.fetch(descriptor) {
+        if let journalEntries = try? context?.fetch(descriptor) {
             self.journalEntries = journalEntries
         }
     }
