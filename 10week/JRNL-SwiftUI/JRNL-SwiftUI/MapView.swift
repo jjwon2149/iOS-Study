@@ -16,6 +16,7 @@ struct MapUIView: UIViewRepresentable {
     @Binding var region: MKCoordinateRegion
     @Binding var annotations: [MKAnnotation]
     @Binding var isDetailViewActive: Bool
+    @Binding var selectedAnnotation: JournalMapAnnotation?
     
     func makeUIView(context: Context) -> MKMapView {
         let mapView = MKMapView()
@@ -55,6 +56,14 @@ struct MapUIView: UIViewRepresentable {
             }
             return nil
         }
+        
+        func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+            if let journalAnnotation = view.annotation as? JournalMapAnnotation {
+                print(journalAnnotation.journal.entryTitle)
+                parent.selectedAnnotation = journalAnnotation
+                parent.isDetailViewActive = true
+            }
+        }
     }
     
 }
@@ -65,6 +74,7 @@ struct MapView: View {
                                                    span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
     @State private var annotations: [MKAnnotation] = []
     @State private var isDetailViewActive = false
+    @State private var selectedAnnotation: JournalMapAnnotation?
     
     @StateObject private var locationManager = LocationManager()
     @Query(sort: \JournalEntry.date) var journalEntries: [JournalEntry]
@@ -73,18 +83,27 @@ struct MapView: View {
     var body: some View {
         NavigationStack {
             MapUIView(region: $region, annotations: $annotations,
-                      isDetailViewActive: $isDetailViewActive)                .onAppear {
+                      isDetailViewActive: $isDetailViewActive,
+                      selectedAnnotation: $selectedAnnotation
+            )
+            .onAppear {
                 locationManager.requestLocation()
             }
-                      .onReceive(locationManager.$location) { location in
-                          if let location = location {
-                              region = MKCoordinateRegion(center: location.coordinate,
-                                                          span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
-                              annotations = []
-                          }
-                      }
-                      .navigationTitle("Map")
-                      .navigationBarTitleDisplayMode(.inline)
+            
+            .onReceive(locationManager.$location) { location in
+                if let location = location {
+                    region = MKCoordinateRegion(center: location.coordinate,
+                                                span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+                    annotations = journalEntries.map { JournalMapAnnotation(journal: $0) }
+                }
+            }
+            .navigationTitle("Map")
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationDestination(isPresented: $isDetailViewActive) {
+                if let journalEntry = selectedAnnotation?.journal {
+                    JournalEntryDetailView(journalEntry: journalEntry)
+                }
+            }
         }
     }
 }
