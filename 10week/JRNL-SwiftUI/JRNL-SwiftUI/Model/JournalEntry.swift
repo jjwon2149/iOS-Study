@@ -14,15 +14,11 @@ class JournalEntry {
     let rating: Int
     let entryTitle: String
     let entryBody: String
-    let latitude: String?
-    let longitude: String?
+    let latitude: Double?
+    let longitude: Double?
     
-    init(rating: Int,
-         entryTitle: String,
-         entryBody: String,
-         latitude: String,
-         longitude: String
-    ) {
+    init(rating: Int, entryTitle: String, entryBody: String,
+         latitude: Double?, longitude: Double?) {
         self.date = Date()
         self.rating = rating
         self.entryTitle = entryTitle
