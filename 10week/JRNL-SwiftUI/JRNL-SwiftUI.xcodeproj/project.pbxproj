@@ -20,6 +20,7 @@
 		4AA77B102C06B99500565BF8 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA77B0F2C06B99500565BF8 /* ImagePicker.swift */; };
 		4AA77B122C06B9FE00565BF8 /* JournalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA77B112C06B9FE00565BF8 /* JournalCell.swift */; };
 		4AA77B142C06BDB000565BF8 /* JournalEntryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA77B132C06BDB000565BF8 /* JournalEntryDetailView.swift */; };
+		4AA77B162C06E12800565BF8 /* JournalMapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA77B152C06E12800565BF8 /* JournalMapAnnotation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		4AA77B0F2C06B99500565BF8 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		4AA77B112C06B9FE00565BF8 /* JournalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalCell.swift; sourceTree = "<group>"; };
 		4AA77B132C06BDB000565BF8 /* JournalEntryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEntryDetailView.swift; sourceTree = "<group>"; };
+		4AA77B152C06E12800565BF8 /* JournalMapAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalMapAnnotation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 				4A5577342C05C73D00D4626F /* Assets.xcassets */,
 				4A5577362C05C73D00D4626F /* Preview Content */,
 				4A55773E2C05C79D00D4626F /* MapView.swift */,
+				4AA77B152C06E12800565BF8 /* JournalMapAnnotation.swift */,
 				4A5577402C05C7A900D4626F /* JournalListView.swift */,
 				4A5577422C05C9FA00D4626F /* AddJournalEntryView.swift */,
 				4AA77B132C06BDB000565BF8 /* JournalEntryDetailView.swift */,
@@ -189,6 +192,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A5577452C05CDA800D4626F /* JournalEntry.swift in Sources */,
+				4AA77B162C06E12800565BF8 /* JournalMapAnnotation.swift in Sources */,
 				4A5577332C05C73C00D4626F /* ContentView.swift in Sources */,
 				4A55773F2C05C79D00D4626F /* MapView.swift in Sources */,
 				4AA77B122C06B9FE00565BF8 /* JournalCell.swift in Sources */,
