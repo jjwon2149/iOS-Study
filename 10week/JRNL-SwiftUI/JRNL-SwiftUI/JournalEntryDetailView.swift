@@ -9,10 +9,8 @@ import SwiftUI
 import MapKit
 
 struct JournalEntryDetailView: View {
-    
-    @State private var mapImage: UIImage?
-    
     var journalEntry: JournalEntry
+    @State private var mapImage: UIImage?
     
     var body: some View {
         ScrollView {
@@ -42,7 +40,7 @@ struct JournalEntryDetailView: View {
                     .resizable()
                     .frame(width: 300, height: 300)
             }
-            padding()
+            .padding()
         }
         .navigationTitle("Entry Detail")
         .navigationBarTitleDisplayMode(.inline)
@@ -53,25 +51,24 @@ struct JournalEntryDetailView: View {
     
     private func getMapSnapshot() {
         if let lat = journalEntry.latitude,
-           let lon = journalEntry.longitude {
+           let long = journalEntry.longitude {
             let options = MKMapSnapshotter.Options()
-            options.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: lat, longitude: lon),
-                                                span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+            options.region = MKCoordinateRegion(
+                center: CLLocationCoordinate2D(latitude: lat, longitude: long),
+                span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
             options.size = CGSize(width: 300, height: 300)
             options.preferredConfiguration = MKStandardMapConfiguration()
             
             let snapShotter = MKMapSnapshotter(options: options)
-            snapShotter.start { snapShot, error in
-                if let snap = snapShot {
+            snapShotter.start { snapshot, error in
+                if let snap = snapshot {
                     mapImage = snap.image
                 } else if let error = error {
-                    print("Error: \(error.localizedDescription)")
+                    print("error: \(error.localizedDescription)")
                 }
-                
             }
         } else {
             mapImage = UIImage(systemName: "map")
         }
     }
-    
 }

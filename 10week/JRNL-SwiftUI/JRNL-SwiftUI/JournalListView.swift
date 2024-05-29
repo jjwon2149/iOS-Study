@@ -9,15 +9,12 @@ import SwiftUI
 import SwiftData
 
 struct JournalListView: View {
-    
-    @Query(sort: \JournalEntry.date) var journalEntries: [JournalEntry]
-    
     @State private var isShowAddJournalView = false
+    @Query(sort:\JournalEntry.date) var journalEntries: [JournalEntry]
     
     var body: some View {
         NavigationStack {
             List(journalEntries) { journalEntry in
-                JournalCell(journalEntry: journalEntry)
                 NavigationLink(value: journalEntry) {
                     JournalCell(journalEntry: journalEntry)
                 }
@@ -30,10 +27,8 @@ struct JournalListView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button {
+                    Button("Add", systemImage: "plus") {
                         isShowAddJournalView = true
-                    } label: {
-                        Label("Add", systemImage: "plus")
                     }
                 }
             }
@@ -43,6 +38,7 @@ struct JournalListView: View {
         }
     }
 }
+
 
 #Preview {
     JournalListView()
