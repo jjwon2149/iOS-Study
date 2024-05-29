@@ -6,24 +6,8 @@
 //
 
 import SwiftUI
+import CoreLocation
 
-struct RatingView: View {
-    
-    @Binding var rating: Int
-    
-    var body: some View {
-        HStack(spacing: 10) {
-            ForEach(0..<5) { index in
-                Image(systemName: index < rating ? "star.fill" : "star.")
-                    .foregroundStyle(.blue)
-                    .onTapGesture {
-                        rating = index + 1
-                    }
-            }
-        }
-        .frame(maxWidth: .infinity, alignment: .center)
-    }
-}
 
 struct AddJournalEntryView: View {
     
@@ -33,7 +17,10 @@ struct AddJournalEntryView: View {
     @State private var isGetLocationOn = false
     @State private var entryTitle = ""
     @State private var entryBody = ""
+    @State private var locationLabel = "Get Location"
+    @State private var currentLocation: CLLocation?
     @State private var rating = 0
+    @StateObject private var locationManager = LocationManager()
     
     var body: some View {
         NavigationStack {
@@ -42,9 +29,24 @@ struct AddJournalEntryView: View {
                 Section(header: Text("Rating")) {
                     Rectangle()
                         RatingView(rating: $rating)
+                        .frame(maxWidth: .infinity, alignment: .center)
                 }
                 Section(header: Text("Location")) {
-                    Toggle("Get Location", isOn: $isGetLocationOn)
+                    Toggle(locationLabel, isOn: $isGetLocationOn)
+                        .onChange(of: isGetLocationOn) {
+                            if isGetLocationOn {
+                                locationLabel = "Get Location..."
+                                locationManager.requestLocation()
+                            } else {
+                                locationLabel = "Get Location"
+                            }
+                        }
+                        .onReceive(locationManager.$location) { location in
+                            if isGetLocationOn {
+                                currentLocation = location
+                                locationLabel = "Done"
+                            }
+                        }
                 }
                 Section(header: Text("Title")) {
                     TextField("Enter title", text: $entryTitle)
@@ -66,7 +68,7 @@ struct AddJournalEntryView: View {
                 }
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Save") {
-                        let journalEntry = JournalEntry(rating: 3, entryTitle: entryTitle, entryBody: entryBody, latitude: nil, longitude: nil)
+                        let journalEntry = JournalEntry(rating: 3, entryTitle: entryTitle, entryBody: entryBody, latitude: currentLocation?.coordinate.latitude, longitude: currentLocation?.coordinate.longitude)
                         dismiss()
                     }
                 }

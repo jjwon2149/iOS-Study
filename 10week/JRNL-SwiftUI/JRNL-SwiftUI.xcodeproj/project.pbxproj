@@ -15,6 +15,8 @@
 		4A5577412C05C7A900D4626F /* JournalListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5577402C05C7A900D4626F /* JournalListView.swift */; };
 		4A5577432C05C9FA00D4626F /* AddJournalEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5577422C05C9FA00D4626F /* AddJournalEntryView.swift */; };
 		4A5577452C05CDA800D4626F /* JournalEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5577442C05CDA800D4626F /* JournalEntry.swift */; };
+		4AA77B0C2C06AFDB00565BF8 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA77B0B2C06AFDB00565BF8 /* RatingView.swift */; };
+		4AA77B0E2C06B00000565BF8 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA77B0D2C06B00000565BF8 /* LocationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,8 @@
 		4A5577402C05C7A900D4626F /* JournalListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalListView.swift; sourceTree = "<group>"; };
 		4A5577422C05C9FA00D4626F /* AddJournalEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJournalEntryView.swift; sourceTree = "<group>"; };
 		4A5577442C05CDA800D4626F /* JournalEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEntry.swift; sourceTree = "<group>"; };
+		4AA77B0B2C06AFDB00565BF8 /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
+		4AA77B0D2C06B00000565BF8 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,12 +65,14 @@
 			children = (
 				4A5577302C05C73C00D4626F /* JRNL_SwiftUIApp.swift */,
 				4A5577322C05C73C00D4626F /* ContentView.swift */,
+				4A5577462C05CDAD00D4626F /* Model */,
+				4AA77B0A2C06AFCB00565BF8 /* View */,
+				4AA77B092C06AFC800565BF8 /* Coordinate */,
 				4A5577342C05C73D00D4626F /* Assets.xcassets */,
 				4A5577362C05C73D00D4626F /* Preview Content */,
 				4A55773E2C05C79D00D4626F /* MapView.swift */,
 				4A5577402C05C7A900D4626F /* JournalListView.swift */,
 				4A5577422C05C9FA00D4626F /* AddJournalEntryView.swift */,
-				4A5577462C05CDAD00D4626F /* Model */,
 			);
 			path = "JRNL-SwiftUI";
 			sourceTree = "<group>";
@@ -85,6 +91,22 @@
 				4A5577442C05CDA800D4626F /* JournalEntry.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		4AA77B092C06AFC800565BF8 /* Coordinate */ = {
+			isa = PBXGroup;
+			children = (
+				4AA77B0D2C06B00000565BF8 /* LocationManager.swift */,
+			);
+			path = Coordinate;
+			sourceTree = "<group>";
+		};
+		4AA77B0A2C06AFCB00565BF8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4AA77B0B2C06AFDB00565BF8 /* RatingView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -161,8 +183,10 @@
 				4A5577332C05C73C00D4626F /* ContentView.swift in Sources */,
 				4A55773F2C05C79D00D4626F /* MapView.swift in Sources */,
 				4A5577412C05C7A900D4626F /* JournalListView.swift in Sources */,
+				4AA77B0E2C06B00000565BF8 /* LocationManager.swift in Sources */,
 				4A5577312C05C73C00D4626F /* JRNL_SwiftUIApp.swift in Sources */,
 				4A5577432C05C9FA00D4626F /* AddJournalEntryView.swift in Sources */,
+				4AA77B0C2C06AFDB00565BF8 /* RatingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +323,10 @@
 				DEVELOPMENT_TEAM = 2TXBC7N5Q5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = .;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = .;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = .;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = .;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -328,6 +356,10 @@
 				DEVELOPMENT_TEAM = 2TXBC7N5Q5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = .;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = .;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = .;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = .;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
