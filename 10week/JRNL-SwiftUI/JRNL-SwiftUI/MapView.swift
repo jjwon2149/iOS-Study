@@ -99,6 +99,7 @@ struct MapView: View {
             }
             .navigationTitle("Map")
             .navigationBarTitleDisplayMode(.inline)
+            //TODO: https://github.com/APP-iOS5th/UIKit-06/commit/7227033e4dc8baac97881d70e0eadffb03b1ec3e
             .navigationDestination(isPresented: $isDetailViewActive) {
                 if let journalEntry = selectedAnnotation?.journal {
                     JournalEntryDetailView(journalEntry: journalEntry)
