@@ -50,13 +50,27 @@ struct MapView: View {
     
     @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37.7749, longitude: -122.4149),
                                                    span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
-    @State private var annoations: [MKAnnotation] = []
+    @State private var annotations: [MKAnnotation] = []
     @State private var journalEntry: JournalEntry?
     @State private var isDetailViewActive = false
     
+    @StateObject private var locationManager = LocationManager()
+    
     var body: some View {
         NavigationStack {
-            mapUIView(region: $region, annotations: $annoations, journalEntry: $journalEntry, isDetailViewActive: $isDetailViewActive)
+            mapUIView(region: $region, annotations: $annotations, journalEntry: $journalEntry, isDetailViewActive: $isDetailViewActive)
+                .onAppear {
+                    locationManager.requestLocation()
+                }
+                .onReceive(locationManager.$location) { location in
+                    if let location = location {
+                        region = MKCoordinateRegion(center: location.coordinate,
+                                                    span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+                        annotations = []
+                    }
+                }
+                .navigationTitle("Map")
+                .navigationBarTitleDisplayMode(.inline)
         }
     }
 }
