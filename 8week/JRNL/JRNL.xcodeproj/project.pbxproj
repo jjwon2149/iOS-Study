@@ -77,6 +77,7 @@
 		4A9FFBED2C0801CF00B68974 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4A9FFBEF2C0801CF00B68974 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A9FFBF92C080B6700B68974 /* JRNL.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JRNL.entitlements; sourceTree = "<group>"; };
+		4AA1614B2C0833E8008DA50A /* JRNLWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JRNLWidgetExtension.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +103,7 @@
 		3764AF6E2BE9F85F00A21A1B = {
 			isa = PBXGroup;
 			children = (
+				4AA1614B2C0833E8008DA50A /* JRNLWidgetExtension.entitlements */,
 				3764AF792BE9F85F00A21A1B /* JRNL */,
 				4A9FFBE82C0801CD00B68974 /* JRNLWidget */,
 				4A9FFBE32C0801CD00B68974 /* Frameworks */,
@@ -494,8 +496,10 @@
 				DEVELOPMENT_TEAM = 2TXBC7N5Q5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JRNL/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "이 앱은 일기 항목 생성을 위해 사용자의 카메라를 사용합니다.";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "위치 허용하시겠습니까?";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "이 앱은 일기 항목 생성을 위해 포토 라이브러리를 사용합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -506,7 +510,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = kr.co.codegrove.JRNL;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mabatakismith;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -526,8 +530,10 @@
 				DEVELOPMENT_TEAM = 2TXBC7N5Q5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JRNL/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "이 앱은 일기 항목 생성을 위해 사용자의 카메라를 사용합니다.";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "위치 허용하시겠습니까?";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "이 앱은 일기 항목 생성을 위해 포토 라이브러리를 사용합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -538,7 +544,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = kr.co.codegrove.JRNL;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mabatakismith;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -551,8 +557,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = JRNLWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2TXBC7N5Q5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JRNLWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = JRNLWidget;
@@ -564,7 +572,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = kr.co.codegrove.JRNL.JRNLWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mabatakismith;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -578,8 +586,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = JRNLWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2TXBC7N5Q5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JRNLWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = JRNLWidget;
@@ -591,7 +601,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = kr.co.codegrove.JRNL.JRNLWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mabatakismith;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
