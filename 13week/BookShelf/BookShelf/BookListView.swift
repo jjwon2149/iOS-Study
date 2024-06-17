@@ -11,8 +11,7 @@ struct BookListView: View {
     var books: [Book] = Book.sampleBooks
     
     var body: some View {
-        
-        List(books, id: \.title) { book in
+        List(books) { book in
             BookRowView(book: book)
         }
         .listStyle(.plain)
