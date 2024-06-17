@@ -7,11 +7,15 @@
 
 import SwiftUI
 
+class BooksViewModel: ObservableObject {
+    @Published var books: [Book] = Book.sampleBooks
+}
+
 struct BookListView: View {
-    var books: [Book] = Book.sampleBooks
+    @StateObject var booksViewModel = BooksViewModel()
     
     var body: some View {
-        List(books) { book in
+        List(booksViewModel.books) { book in
             BookRowView(book: book)
         }
         .listStyle(.plain)

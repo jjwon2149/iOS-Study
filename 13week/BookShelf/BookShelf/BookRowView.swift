@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct BookRowView: View {
     var book: Book
@@ -26,4 +27,8 @@ struct BookRowView: View {
             Spacer()
         }
     }
+}
+
+#Preview {
+    BookRowView(book: Book(title: "", author: "", isbn: "", pages: 0))
 }
