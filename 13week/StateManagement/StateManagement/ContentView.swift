@@ -7,18 +7,26 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct ParentView: View {
+    @State var favoriteNumber: Int
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Text("Your favorite number is \(favoriteNumber)")
+            ChildView(number: $favoriteNumber)
         }
         .padding()
     }
 }
 
-#Preview {
-    ContentView()
+struct ChildView: View {
+    @Binding var number: Int
+    var body: some View {
+        VStack {
+            Stepper("\(number)", value: $number, in: 0...100)
+        }
+    }
 }
+//
+//#Preview {
+//    ContentView()
+//}
