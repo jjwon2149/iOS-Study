@@ -15,10 +15,16 @@ struct BookListView: View {
     @StateObject var booksViewModel = BooksViewModel()
     
     var body: some View {
-        List(booksViewModel.books) { book in
-            BookRowView(book: book)
+        NavigationStack{
+            List($booksViewModel.books) { $book in
+                NavigationLink(destination: BookDetailView(book: $book)) {
+                    BookRowView(book: book)
+                }
+                
+            }
+            .listStyle(.plain)
+            .navigationTitle("Books")
         }
-        .listStyle(.plain)
     }
 }
 
