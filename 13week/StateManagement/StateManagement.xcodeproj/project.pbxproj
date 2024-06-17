@@ -14,6 +14,7 @@
 		4A88ECB32C1FF23C00D156AC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A88ECB22C1FF23C00D156AC /* ContentView.swift */; };
 		4A88ECB52C1FF6AD00D156AC /* EnviromentObjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A88ECB42C1FF6AD00D156AC /* EnviromentObjectView.swift */; };
 		4A88ECB72C1FFC5500D156AC /* SettingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A88ECB62C1FFC5500D156AC /* SettingScreen.swift */; };
+		4A88ECB92C1FFEB900D156AC /* UserProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A88ECB82C1FFEB900D156AC /* UserProfileScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		4A88ECB22C1FF23C00D156AC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4A88ECB42C1FF6AD00D156AC /* EnviromentObjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnviromentObjectView.swift; sourceTree = "<group>"; };
 		4A88ECB62C1FFC5500D156AC /* SettingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingScreen.swift; sourceTree = "<group>"; };
+		4A88ECB82C1FFEB900D156AC /* UserProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				4A88ECB22C1FF23C00D156AC /* ContentView.swift */,
 				4A88ECB42C1FF6AD00D156AC /* EnviromentObjectView.swift */,
 				4A88ECB62C1FFC5500D156AC /* SettingScreen.swift */,
+				4A88ECB82C1FFEB900D156AC /* UserProfileScreen.swift */,
 				4A88ECA82C1FEF7F00D156AC /* Assets.xcassets */,
 				4A88ECAA2C1FEF7F00D156AC /* Preview Content */,
 			);
@@ -146,6 +149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A88ECB92C1FFEB900D156AC /* UserProfileScreen.swift in Sources */,
 				4A88ECB72C1FFC5500D156AC /* SettingScreen.swift in Sources */,
 				4A88ECB52C1FF6AD00D156AC /* EnviromentObjectView.swift in Sources */,
 				4A88ECA72C1FEF7E00D156AC /* ParentView.swift in Sources */,

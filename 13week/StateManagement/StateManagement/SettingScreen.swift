@@ -9,7 +9,15 @@ import SwiftUI
 
 struct SettingScreen: View {
     var body: some View {
-        Text("Hello, World!")
+        VStack {
+            Form {
+                Section {
+                    NavigationLink(destination: UserProfileScreen()) {
+                        Text("User Profile")
+                    }
+                }
+            }
+        }
     }
 }
 
