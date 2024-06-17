@@ -7,27 +7,38 @@
  
 import SwiftUI
 
+private class PersonViewModel: ObservableObject {
+    @Published var firstName = ""
+    @Published var lastName = ""
+    
+    func save() {
+        print("Save to disk")
+    }
+}
+
 struct ContentView: View {
-    @State var text: String = ""
+    @State var dirty = false
+    @StateObject private var viewModel = PersonViewModel()
+    
     var body: some View {
-        List {
-            Label("Hello, World", systemImage: "globe")
-            HStack {
-                Image(systemName: "globe")
-                    .imageScale(.large)
-                    .foregroundStyle(Color.accentColor)
-                Text("Hello, World")
+        Form {
+            Section("\(self.dirty ? "* " : "")Input fields") {
+                TextField("First name", text: $viewModel.firstName)
+                    .onChange(of: viewModel.firstName) {
+                        self.dirty = true
+                    }
+                TextField("Last name", text: $viewModel.lastName)
+                    .onChange(of: viewModel.lastName) {
+                        self.dirty = true
+                    }
             }
-            .font(.system(.body, design: .monospaced))
-            TextField("TextField", text: $text)
-            Button("Tap Me") {
-                print("Tap 실행")
-                self.text = "You Tapped Me!"
+            .onSubmit {
+                viewModel.save()
+                self.dirty = false
             }
         }
     }
 }
-
 #Preview {
     ContentView()
 }
