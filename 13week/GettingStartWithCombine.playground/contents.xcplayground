@@ -3,6 +3,7 @@
     <pages>
         <page name='PizzaOrdering'/>
         <page name='PizzaOrdering2'/>
+        <page name='PizzaOrdering3'/>
         <page name='Simple Publisher'/>
     </pages>
 </playground>
