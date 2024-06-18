@@ -14,6 +14,7 @@
 		4A7CDB722C1FC491004A8B40 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7CDB712C1FC491004A8B40 /* Book.swift */; };
 		4A88ECD92C2027DB00D156AC /* BookRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A88ECD82C2027DB00D156AC /* BookRowView.swift */; };
 		4A88ECDB2C202AAB00D156AC /* BookDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A88ECDA2C202AAB00D156AC /* BookDetailView.swift */; };
+		4A88ECDD2C21080900D156AC /* BookEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A88ECDC2C21080900D156AC /* BookEditView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		4A7CDB712C1FC491004A8B40 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		4A88ECD82C2027DB00D156AC /* BookRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookRowView.swift; sourceTree = "<group>"; };
 		4A88ECDA2C202AAB00D156AC /* BookDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailView.swift; sourceTree = "<group>"; };
+		4A88ECDC2C21080900D156AC /* BookEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookEditView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				4A7CDB622C1FC30F004A8B40 /* BookShelfApp.swift */,
 				4A7CDB642C1FC30F004A8B40 /* BookListView.swift */,
 				4A88ECDA2C202AAB00D156AC /* BookDetailView.swift */,
+				4A88ECDC2C21080900D156AC /* BookEditView.swift */,
 				4A88ECD82C2027DB00D156AC /* BookRowView.swift */,
 				4A7CDB662C1FC311004A8B40 /* Assets.xcassets */,
 				4A7CDB682C1FC311004A8B40 /* Preview Content */,
@@ -159,6 +162,7 @@
 				4A88ECD92C2027DB00D156AC /* BookRowView.swift in Sources */,
 				4A7CDB722C1FC491004A8B40 /* Book.swift in Sources */,
 				4A88ECDB2C202AAB00D156AC /* BookDetailView.swift in Sources */,
+				4A88ECDD2C21080900D156AC /* BookEditView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
