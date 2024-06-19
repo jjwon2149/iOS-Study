@@ -55,7 +55,7 @@ class SignUpFormViewModel: ObservableObject {
             .debounce(for: 0.5, scheduler: RunLoop.main) //username이 바뀌어도 속도 조절해서 서버에 request
             .removeDuplicates()
             .flatMap{ username -> AnyPublisher<Bool, Never> in
-                self.authenticationService.checkUserNameAvailableNaive(userName: username)
+                self.authenticationService.checkUserNameAvailable(userName: username)
             }
             .receive(on: DispatchQueue.main)
             .share()
