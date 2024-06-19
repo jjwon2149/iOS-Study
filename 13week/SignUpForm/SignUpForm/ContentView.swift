@@ -8,7 +8,19 @@
 import SwiftUI
 import Combine
 
+extension Publisher {
+    func asResult() -> AnyPublisher<Result<Output, Failure>, Never> {
+        self.map(Result.success)
+            .catch { error in
+                Just(.failure(error))
+            }
+            .eraseToAnyPublisher()
+    }
+}
+
 class SignUpFormViewModel: ObservableObject {
+    typealias Available = Result<Bool, Error>
+    
     @Published var username: String = ""
     @Published var password: String = ""
     @Published var passwordConfirmation: String = ""
@@ -23,10 +35,12 @@ class SignUpFormViewModel: ObservableObject {
     
     private var cancellables: Set<AnyCancellable> = []
     
+    //username이 3자리 이상인지 확인하는 스트림
     private lazy var isUsernameLengthValidPublisher: AnyPublisher<Bool, Never> = {
         $username.map { $0.count >= 3 }.eraseToAnyPublisher()
     }()
     
+    //비밀번호가 비어있는지 확인하는 스트림
     private lazy var isPasswordEmptyPublisher: AnyPublisher<Bool, Never> = {
         $password.map(\.isEmpty).eraseToAnyPublisher()
     }()
@@ -38,33 +52,39 @@ class SignUpFormViewModel: ObservableObject {
             .eraseToAnyPublisher()
     }()
     
+    //비밀번호 유효성 검사 스트림
     private lazy var isPasswordValidPublisher: AnyPublisher<Bool, Never> = {
         Publishers.CombineLatest(isPasswordEmptyPublisher, isPasswordMatchingPublisher)
             .map { !$0 && $1 }
             .eraseToAnyPublisher()
     }()
     
+    //폼전체의 유효성 검사 스트림
     private lazy var isFormValidPublisher: AnyPublisher<Bool, Never> = {
-        Publishers.CombineLatest3(isUsernameLengthValidPublisher, isPasswordValidPublisher, $isUserNameAvailable)
-            .map { $0 && $1 && $2}
+        Publishers.CombineLatest3(isUsernameLengthValidPublisher, isUsernameAvailablePublisher, isPasswordValidPublisher)
+            .map { isUsernameLengthValid, isUsernameAvailable, isPasswordValid in
+                switch isUsernameAvailable {
+                case .success(let isAvailable):
+                    return isUsernameLengthValid && isAvailable && isPasswordValid
+                case .failure:
+                    return false
+                }
+            }
             .eraseToAnyPublisher()
     }()
     
-    private lazy var isUsernameAvailablePublisher: AnyPublisher<Bool, Never> = {
+    private lazy var isUsernameAvailablePublisher: AnyPublisher<Available, Never> = {
         $username
             .debounce(for: 0.5, scheduler: RunLoop.main) //username이 바뀌어도 속도 조절해서 서버에 request
             .removeDuplicates()
-            .flatMap{ username -> AnyPublisher<Bool, Never> in
-                self.authenticationService.checkUserNameAvailable(userName: username)
-                    .catch { error in
-                        return Just(false)
-                    }
-                    .eraseToAnyPublisher()
+            .flatMap{ username -> AnyPublisher<Available, Never> in
+                self.authenticationService.checkUserNameAvailable(userName: username) //사용자 이름 확인, Result<Bool, Error>의 형태 반환
+                    .asResult() // Result<Bool, Error>의 타입을 AnyPublisher<Result<Bool, Error>>의 타입으로 변환
             }
-            .receive(on: DispatchQueue.main)
+            .receive(on: DispatchQueue.main) //메인 스레드에서 사용하기 위함
             .share()
             .print("share")
-            .eraseToAnyPublisher()
+            .eraseToAnyPublisher() //최종적으로 AnyPublisher<Result<Bool, Error>>타입으로 반환
     }()
     
 //    func checkUserNameAvailable(_ userName: String) {
@@ -87,11 +107,14 @@ class SignUpFormViewModel: ObservableObject {
         
         Publishers.CombineLatest(isUsernameLengthValidPublisher, isUsernameAvailablePublisher)
             .map { isUsernameLengthValid, isUserNameAvailable in
-                if !isUsernameLengthValid {
-                    return "Username must be at least three chracters!"
-                } else if !isUserNameAvailable {
-                    return "This username is already taken"
-                } else {
+                switch (isUsernameLengthValid, isUserNameAvailable) {
+                case (false, _):
+                    return "Username must be at least three characters!"
+                case (_, .failure(let error)):
+                    return "Error checking username availability: \(error.localizedDescription)"
+                case (_, .success(false)):
+                    return "This username is already taken."
+                default:
                     return ""
                 }
             }
