@@ -50,31 +50,38 @@ class SignUpFormViewModel: ObservableObject {
             .eraseToAnyPublisher()
     }()
     
-    func checkUserNameAvailable(_ userName: String) {
-        authenticationService.checkUserNameAvailableWithClosure(userName: userName) { [weak self] result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let isAvailable):
-                    self?.isUserNameAvailable = isAvailable
-                case .failure(let error):
-                    print("error: \(error)")
-                    self?.isUserNameAvailable = false
-                }
+    private lazy var isUsernameAvailablePublisher: AnyPublisher<Bool, Never> = {
+        $username
+            .debounce(for: 0.5, scheduler: RunLoop.main) //username이 바뀌어도 속도 조절해서 서버에 request
+            .removeDuplicates()
+            .flatMap{ username -> AnyPublisher<Bool, Never> in
+                self.authenticationService.checkUserNameAvailableNaive(userName: username)
             }
-        }
-    }
+            .receive(on: DispatchQueue.main)
+            .share()
+            .print("share")
+            .eraseToAnyPublisher()
+    }()
+    
+//    func checkUserNameAvailable(_ userName: String) {
+//        authenticationService.checkUserNameAvailableWithClosure(userName: userName) { [weak self] result in
+//            DispatchQueue.main.async {
+//                switch result {
+//                case .success(let isAvailable):
+//                    self?.isUserNameAvailable = isAvailable
+//                case .failure(let error):
+//                    print("error: \(error)")
+//                    self?.isUserNameAvailable = false
+//                }
+//            }
+//        }
+//    }
     
     init() {
-        $username
-            .debounce(for: 0.5, scheduler: DispatchQueue.main) //username이 바뀌어도 속도 조절해서 서버에 request
-            .sink { [weak self] userName in
-                self?.checkUserNameAvailable(userName)
-            }
-            .store(in: &cancellables)
         
         isFormValidPublisher.assign(to: &$isValid)
         
-        Publishers.CombineLatest(isUsernameLengthValidPublisher, $isUserNameAvailable)
+        Publishers.CombineLatest(isUsernameLengthValidPublisher, isUsernameAvailablePublisher)
             .map { isUsernameLengthValid, isUserNameAvailable in
                 if !isUsernameLengthValid {
                     return "Username must be at least three chracters!"
@@ -109,7 +116,7 @@ struct ContentView: View {
             // Username
             Section {
                 TextField("Username", text: $viewModel.username)
-                    .textInputAutocapitalization(.none)
+                    .textInputAutocapitalization(.never)
                     .autocorrectionDisabled()
             } footer: {
                 Text(viewModel.usernameMessage)
