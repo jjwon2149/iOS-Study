@@ -45,8 +45,8 @@ class SignUpFormViewModel: ObservableObject {
     }()
     
     private lazy var isFormValidPublisher: AnyPublisher<Bool, Never> = {
-        Publishers.CombineLatest(isUsernameLengthValidPublisher, isPasswordValidPublisher)
-            .map { $0 && $1 }
+        Publishers.CombineLatest3(isUsernameLengthValidPublisher, isPasswordValidPublisher, $isUserNameAvailable)
+            .map { $0 && $1 && $2}
             .eraseToAnyPublisher()
     }()
     
@@ -73,8 +73,20 @@ class SignUpFormViewModel: ObservableObject {
             .store(in: &cancellables)
         
         isFormValidPublisher.assign(to: &$isValid)
-        isUsernameLengthValidPublisher.map { $0 ? "" : "Username must be at least three characters!"}
+        
+        Publishers.CombineLatest(isUsernameLengthValidPublisher, $isUserNameAvailable)
+            .map { isUsernameLengthValid, isUserNameAvailable in
+                if !isUsernameLengthValid {
+                    return "Username must be at least three chracters!"
+                } else if !isUserNameAvailable {
+                    return "This username is already taken"
+                } else {
+                    return ""
+                }
+            }
             .assign(to: &$usernameMessage)
+//        isUsernameLengthValidPublisher.map { $0 ? "" : "Username must be at least three characters!"}
+//            .assign(to: &$usernameMessage)
         
         Publishers.CombineLatest(isPasswordEmptyPublisher, isPasswordMatchingPublisher)
             .map { isPasswordEmpty, isPasswordMatching in
