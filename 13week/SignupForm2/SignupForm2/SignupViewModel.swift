@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+class SignupViewModel: ObservableObject {
+    @Published var username: String = ""
+    @Published var usernameMessage: String = ""
+    @Published var isValid: Bool = false
+    @Published var showUpdateDialog: Bool = false
+    
+}
