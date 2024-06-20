@@ -57,7 +57,7 @@ struct AuthenticationService {
         //                }
         //                throw error //APIError.serverError아닌 에러라면 다시 쓰로우
         //            }
-            .retry(10, withDelay: 3) { error in //위의 tryCatch Operater Custom
+            .retry(10, withBackkoff: 3) { error in //위의 tryCatch Operater Custom
                 if case APIError.serverError = error {
                     return true
                 }
