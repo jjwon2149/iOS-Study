@@ -44,8 +44,28 @@ struct AuthenticationService {
                 return (data, response)
             }
         return dataTaskPublisher
+            .tryCatch { error -> AnyPublisher<(data: Data, response: URLResponse), Error> in // 퍼블리셔에 에러가 발생했을때
+                if case APIError.serverError = error { //APIError.serverError인 경우 재시도
+                    return Just(Void()) //즉시 emit 퍼블리셔
+                        .delay(for: 3, scheduler: DispatchQueue.global())
+                        .flatMap { _ in
+                            return dataTaskPublisher
+                        } // flatMap으로 dataTaskPublisher를 다시 호출
+                        .print("before retry")
+                        .retry(10) // 최대 10번 재시도
+                        .eraseToAnyPublisher()
+                }
+                throw error //APIError.serverError아닌 에러라면 다시 쓰로우
+            }
             .map(\.data) // dataTaskPublisher에서 데이터를 추출합니다.
-            .decode(type: UserNameAvailableMessage.self, decoder: JSONDecoder()) // JSON 데이터를 UserNameAvailableMessage 타입으로 디코딩
+            .tryMap { data -> UserNameAvailableMessage in
+                let decoder = JSONDecoder()
+                do {
+                    return try decoder.decode(UserNameAvailableMessage.self, from: data)
+                } catch {
+                    throw APIError.decodingError(error)
+                }
+            }
             .map(\.isAvailable) // UserNameAvailableMessage 객체의 isAvailable 속성을 추출하여 Bool 값을 emit
             .eraseToAnyPublisher() // AnyPublisher<Bool, Error>로 반환
     }
