@@ -17,7 +17,7 @@ struct UserNameAvailableMessage: Codable {
 // 에러와 에러 메세지
 struct APIErrorMessage: Decodable {
     var error: Bool
-    var reson: String
+    var reason: String
 }
 
 enum APIError: LocalizedError {
