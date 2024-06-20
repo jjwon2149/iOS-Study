@@ -44,9 +44,9 @@ struct AuthenticationService {
                 return (data, response)
             }
         return dataTaskPublisher
-            .map(\.data)
-            .decode(type: UserNameAvailableMessage.self, decoder: JSONDecoder())
-            .map(\.isAvailable)
-            .eraseToAnyPublisher()
+            .map(\.data) // dataTaskPublisher에서 데이터를 추출합니다.
+            .decode(type: UserNameAvailableMessage.self, decoder: JSONDecoder()) // JSON 데이터를 UserNameAvailableMessage 타입으로 디코딩
+            .map(\.isAvailable) // UserNameAvailableMessage 객체의 isAvailable 속성을 추출하여 Bool 값을 emit
+            .eraseToAnyPublisher() // AnyPublisher<Bool, Error>로 반환
     }
 }
