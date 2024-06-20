@@ -44,5 +44,15 @@ class SignupViewModel: ObservableObject {
             }
         }
         .assign(to: &$isValid)// 매핑된 결과를 isValid에 할당
+        
+        isUsernameAvailablePublisher.map { result in
+            switch result {
+            case .success(let isAvailable):
+                return isAvailable ? "" : "This UserName Is Not Available"
+            case .failure(let error):
+                return error.localizedDescription
+            }
+        }
+        .assign(to: &$usernameMessage)
     }
 }
