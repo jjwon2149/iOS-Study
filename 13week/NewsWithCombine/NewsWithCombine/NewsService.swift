@@ -8,6 +8,37 @@
 import Foundation
 import Combine
 
+struct APIErrorMessage: Decodable {
+    var error: Bool
+    var reason: String
+}
+
+enum APIError: LocalizedError {
+    case invalidResponse
+    case invalidRequestError(String)
+    case transportError(Error)
+    case validationError(String)
+    case decodingError(Error)
+    case serverError(statusCode: Int, reason: String? = nil, retryAfter: String? = nil)
+
+    var errorDescription: String? {
+        switch self {
+        case .invalidRequestError(let message):
+            return "Invalid request: \(message)"
+        case .transportError(let error):
+            return "Transport error: \(error)"
+        case .invalidResponse:
+            return "Invalid response"
+        case .validationError(let reason):
+            return "Validation error: \(reason)"
+        case .decodingError:
+            return "The server returned data in an unexpected format. Try updating the app."
+        case .serverError(let statusCode, let reason, let retryAfter):
+            return "Server error with code \(statusCode), reason: \(reason ?? "no reason given"), retry after: \(retryAfter ?? "no retry after provided")"
+        }
+    }
+}
+
 class NewsService: ObservableObject {
     private let baseURL = "https://openapi.naver.com/v1/search/news.json"
     private let clientID: String
@@ -42,6 +73,29 @@ class NewsService: ObservableObject {
         request.addValue(clientSecret, forHTTPHeaderField: "X-Naver-Client-Secret")
         
         return URLSession.shared.dataTaskPublisher(for: request)
+            //에러처리
+            .mapError { error -> Error in
+                return APIError.transportError(error)
+            }
+            .tryMap { (data, response) -> (data: Data, response: URLResponse) in
+                print("Received reponse from server, now checking status code")
+
+                guard let urlResponse = response as? HTTPURLResponse else {
+                    throw APIError.invalidResponse
+                }
+
+                if (200..<300) ~= urlResponse.statusCode { }
+                else {
+                    let decoder = JSONDecoder()
+                    let apiError = try decoder.decode(APIErrorMessage.self, from: data)
+
+                    if urlResponse.statusCode == 400 {
+                        throw APIError.validationError(apiError.reason)
+                    }
+                }
+                return (data, response)
+            }
+        
             .map(\.data)
             .decode(type: NewsResponse.self, decoder: JSONDecoder())
             .eraseToAnyPublisher()
@@ -51,8 +105,6 @@ class NewsService: ObservableObject {
      
      완료핸들러를 사용하지 않아 가독성 있는 코드
      유지보수가 좋아짐
-     
-     
      
      components로 하며 객체지향 설계에 더욱 가까워짐? 요소를 컨트롤하니오류률 줄임,
      injection query

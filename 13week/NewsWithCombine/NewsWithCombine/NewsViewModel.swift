@@ -11,7 +11,8 @@ import Combine
 class NewsViewModel: ObservableObject {
     @Published var newsItems: [NewsItem] = []
     @Published var searchQuery: String = ""
-    
+    @Published var errorMessage: String?
+
     private let newsService = NewsService()
     private var cancellables = Set<AnyCancellable>()
     
@@ -31,25 +32,33 @@ class NewsViewModel: ObservableObject {
     //퍼블리셔를 연결
     init() {
         searchNewsPublisher
+            .catch { _ in Empty() }
             .map(\.items)
-            .sink(receiveCompletion: { completion in
-                switch completion {
-                case .finished:
-                    break
-                case .failure(let error):
-                    print("error: \(error.localizedDescription)")
-                }
-            }, receiveValue: { newsItems in
-                self.newsItems = newsItems
-            })
+            .assign(to: \.newsItems, on: self)
             .store(in: &cancellables)
         
-//        정만 센세가 작성한 코드
-//        searchNewsPublisher
-//            .catch { _ in Empty() }
-//            .sink { [weak self] response in
-//                self?.newsItems = response.items
-//            }
-//            .store(in: &cancellables)
+        //        내가 작성한 코드
+        //            .map(\.items)
+        //            .sink(receiveCompletion: { completion in
+        //                switch completion {
+        //                case .finished:
+        //                    break
+        //                case .failure(let error):
+        //                    print("error: \(error.localizedDescription)")
+        //                }
+        //            }, receiveValue: { newsItems in
+        //                self.newsItems = newsItems
+        //            })
+        //            .store(in: &cancellables)
+        
+        // 에러 메시지 출력 스트림
+        searchNewsPublisher
+            .map { _ in nil as String? }
+            .catch { error -> AnyPublisher<String?, Never> in
+                Just(error.localizedDescription).eraseToAnyPublisher()
+            }
+            .print("error")
+            .assign(to: \.errorMessage, on: self)
+            .store(in: &cancellables)
     }
 }
