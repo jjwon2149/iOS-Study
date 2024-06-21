@@ -46,4 +46,15 @@ class NewsService: ObservableObject {
             .decode(type: NewsResponse.self, decoder: JSONDecoder())
             .eraseToAnyPublisher()
     }
+    /*
+     URLSession 기본방식과 위 코드의 차이
+     
+     완료핸들러를 사용하지 않아 가독성 있는 코드
+     유지보수가 좋아짐
+     
+     
+     
+     components로 하며 객체지향 설계에 더욱 가까워짐? 요소를 컨트롤하니오류률 줄임,
+     injection query
+     */
 }

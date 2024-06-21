@@ -8,14 +8,21 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var viewModel = NewsViewModel()
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack {
+            List(viewModel.newsItems) { item in
+                Text(item.title)
+                    .font(.headline)
+                Text(item.pubDate)
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            }
         }
-        .padding()
+        .listStyle(PlainListStyle())
+        .navigationTitle("뉴스 검색 (\(viewModel.newsItems.count) 건)")
+        .searchable(text: $viewModel.searchQuery, prompt: "검색어를 입력하세요")
     }
 }
 
