@@ -33,6 +33,9 @@ struct WordDetailView: View {
             }
         }
         .navigationTitle(word)
+        .task {
+            await viewModel.excuteQuery(for: word)
+        }
     }
 }
 
