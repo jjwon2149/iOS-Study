@@ -13,32 +13,35 @@ struct ContentView: View {
     @State var isAddNewWordDialogPresented = false
     
     var body: some View {
-        
-        List {
-            SectionView(title: "Random word", words: [viewModel.randomWord])
-            SectionView(title: "Peter's Tips", words: viewModel.filteredTips)
-            SectionView(title: "My Favorites", words: viewModel.filteredFavorites)
-        } //List
-        .searchable(text: $viewModel.searchText)
-        .textInputAutocapitalization(.never)
-        .navigationTitle("Library")
-        .refreshable {
-            await viewModel.refresh()
-        }
-        .toolbar {
-            ToolbarItem(placement: .primaryAction) {
-                Button {
-                    isAddNewWordDialogPresented.toggle()
-                } label: {
-                    Image(systemName: "plus")
-                }
+        NavigationStack {
+            List {
+                SectionView(title: "Random word", words: [viewModel.randomWord])
+                SectionView(title: "Peter's Tips", words: viewModel.filteredTips)
+                SectionView(title: "My Favorites", words: viewModel.filteredFavorites)
+            } //List
+            .searchable(text: $viewModel.searchText)
+            .textInputAutocapitalization(.never)
+            .navigationTitle("Library")
+            .refreshable {
+                print("\(#function) is on main thread BEFORE await: \(Thread.isMainThread)")
+                await viewModel.refresh()
+                print("\(#function) is on main thread AFTER await: \(Thread.isMainThread)")
             }
-        } //toolbar
-        .sheet(isPresented: $isAddNewWordDialogPresented) {
-            NavigationStack {
-                AddWordView() { word in
-                    print(word)
-                    viewModel.addFavorite(word)
+            .toolbar {
+                ToolbarItem(placement: .primaryAction) {
+                    Button {
+                        isAddNewWordDialogPresented.toggle()
+                    } label: {
+                        Image(systemName: "plus")
+                    }
+                }
+            } //toolbar
+            .sheet(isPresented: $isAddNewWordDialogPresented) {
+                NavigationStack {
+                    AddWordView() { word in
+                        print(word)
+                        viewModel.addFavorite(word)
+                    }
                 }
             }
         }
