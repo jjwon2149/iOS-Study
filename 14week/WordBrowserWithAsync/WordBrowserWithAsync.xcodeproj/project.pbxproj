@@ -12,6 +12,7 @@
 		4A2462732C29297B00966E04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A2462722C29297B00966E04 /* Assets.xcassets */; };
 		4A2462762C29297B00966E04 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A2462752C29297B00966E04 /* Preview Assets.xcassets */; };
 		4A24627F2C292E1800966E04 /* LibraryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A24627E2C292E1800966E04 /* LibraryViewModel.swift */; };
+		4A2462812C2935FF00966E04 /* AddWordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2462802C2935FF00966E04 /* AddWordView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		4A24627C2C29299F00966E04 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		4A24627D2C292A6500966E04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		4A24627E2C292E1800966E04 /* LibraryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewModel.swift; sourceTree = "<group>"; };
+		4A2462802C2935FF00966E04 /* AddWordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWordView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 				4A24627D2C292A6500966E04 /* Info.plist */,
 				4A24626E2C29297A00966E04 /* WordBrowserWithAsyncApp.swift */,
 				4A2462702C29297A00966E04 /* ContentView.swift */,
+				4A2462802C2935FF00966E04 /* AddWordView.swift */,
 				4A24627E2C292E1800966E04 /* LibraryViewModel.swift */,
 				4A2462722C29297B00966E04 /* Assets.xcassets */,
 				4A24627C2C29299F00966E04 /* Config.xcconfig */,
@@ -144,6 +147,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A2462812C2935FF00966E04 /* AddWordView.swift in Sources */,
 				4A2462712C29297A00966E04 /* ContentView.swift in Sources */,
 				4A24627F2C292E1800966E04 /* LibraryViewModel.swift in Sources */,
 				4A24626F2C29297A00966E04 /* WordBrowserWithAsyncApp.swift in Sources */,

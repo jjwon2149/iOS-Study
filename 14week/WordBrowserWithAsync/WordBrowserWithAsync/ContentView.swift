@@ -7,8 +7,10 @@
 
 import SwiftUI
 
+//MARK: - ContentView
 struct ContentView: View {
     @StateObject var viewModel = LibraryViewModel()
+    @State var isAddNewWordDialogPresented = false
     
     var body: some View {
         
@@ -23,15 +25,21 @@ struct ContentView: View {
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
                 Button {
-                    
+                    isAddNewWordDialogPresented.toggle()
                 } label: {
                     Image(systemName: "plus")
                 }
+            }
+        } //toolbar
+        .sheet(isPresented: $isAddNewWordDialogPresented) {
+            NavigationStack {
+                AddWordView()
             }
         }
     }
 }
 
+//MARK: - SectionView
 struct SectionView: View {
     var title: String
     var words: [String]
@@ -50,8 +58,8 @@ struct SectionView: View {
                     Text(word)
                 }
             }
-        }
-    }
+        } //Section
+    } //body
 }
 
 #Preview {

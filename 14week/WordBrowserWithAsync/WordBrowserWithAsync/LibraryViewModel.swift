@@ -8,6 +8,7 @@
 import Foundation
 
 class LibraryViewModel: ObservableObject {
+    //MARK: - Prpperties
     @Published var randomWord = "partially"
     @Published var searchText = ""
     @Published var tips: [String] = ["Swift", "authentication", "authorization"]
