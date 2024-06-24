@@ -7,6 +7,12 @@
 
 import Foundation
 
+// MARK: Error
+enum WordsAPIError: Error {
+  case invalidServerResponse
+}
+
+
 // MARK: - Word
 struct Word {
     let word: String
