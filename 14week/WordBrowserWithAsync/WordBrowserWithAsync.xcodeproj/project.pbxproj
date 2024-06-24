@@ -19,6 +19,8 @@
 		4A2462702C29297A00966E04 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4A2462722C29297B00966E04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4A2462752C29297B00966E04 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4A24627C2C29299F00966E04 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		4A24627D2C292A6500966E04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +53,10 @@
 		4A24626D2C29297A00966E04 /* WordBrowserWithAsync */ = {
 			isa = PBXGroup;
 			children = (
+				4A24627D2C292A6500966E04 /* Info.plist */,
 				4A24626E2C29297A00966E04 /* WordBrowserWithAsyncApp.swift */,
 				4A2462702C29297A00966E04 /* ContentView.swift */,
+				4A24627C2C29299F00966E04 /* Config.xcconfig */,
 				4A2462722C29297B00966E04 /* Assets.xcassets */,
 				4A2462742C29297B00966E04 /* Preview Content */,
 			);
@@ -147,6 +151,7 @@
 /* Begin XCBuildConfiguration section */
 		4A2462772C29297B00966E04 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4A24627C2C29299F00966E04 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -210,6 +215,7 @@
 		};
 		4A2462782C29297B00966E04 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4A24627C2C29299F00966E04 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -266,6 +272,7 @@
 		};
 		4A24627A2C29297B00966E04 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4A24627C2C29299F00966E04 /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -275,6 +282,7 @@
 				DEVELOPMENT_TEAM = 2TXBC7N5Q5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WordBrowserWithAsync/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -295,6 +303,7 @@
 		};
 		4A24627B2C29297B00966E04 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4A24627C2C29299F00966E04 /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -304,6 +313,7 @@
 				DEVELOPMENT_TEAM = 2TXBC7N5Q5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WordBrowserWithAsync/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
