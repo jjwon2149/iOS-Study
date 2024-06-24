@@ -17,20 +17,43 @@ class LibraryViewModel: ObservableObject {
     @Published var filteredTips = [String]()
     @Published var filteredFavorites = [String]()
     
+    private var cancellables = Set<AnyCancellable>()
+    
     init() {
-        Publishers.CombineLatest($searchText, $tips).map { query, items in
-            items.filter { item in
-                query.isEmpty ? true : item.contains(query)
+//        Publishers.CombineLatest($searchText, $tips).map { query, items in
+//            items.filter { item in
+//                query.isEmpty ? true : item.contains(query)
+//            }
+//        }
+//        .assign(to: &$filteredTips)
+//        
+//        Publishers.CombineLatest($searchText, $favorites).map { query, items in
+//            items.filter { item in 
+//                query.isEmpty ? true : item.contains(query)
+//            }
+//        }
+//        .assign(to: &$filteredFavorites)
+        Publishers.CombineLatest($searchText, $tips)
+            .map { query, items in
+                items.filter { item in
+                    query.isEmpty ? true : item.contains(query)
+                }
             }
-        }
-        .assign(to: &$filteredTips)
+            .sink { [weak self] filtered in
+                self?.filteredTips = filtered
+            }
+            .store(in: &cancellables)
         
-        Publishers.CombineLatest($searchText, $favorites).map { query, items in
-            items.filter { item in 
-                query.isEmpty ? true : item.contains(query)
+        Publishers.CombineLatest($searchText, $favorites)
+            .map { query, items in
+                items.filter { item in
+                    query.isEmpty ? true : item.contains(query)
+                }
             }
-        }
-        .assign(to: &$filteredFavorites)
+            .sink { [weak self] filtered in
+                self?.filteredFavorites = filtered
+            }
+            .store(in: &cancellables)
     }
     
     func addFavorite(_ word: String) {
