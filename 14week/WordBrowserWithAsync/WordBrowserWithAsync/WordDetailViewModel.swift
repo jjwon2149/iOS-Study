@@ -6,3 +6,12 @@
 //
 
 import Foundation
+import Combine
+
+class WordDetailViewModel: ObservableObject {
+    @Published private var result = Word.empty
+    @Published var isSearching = false
+    @Published var definitions = [Definition]()
+
+
+}
