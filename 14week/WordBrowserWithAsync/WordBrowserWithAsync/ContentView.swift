@@ -33,7 +33,9 @@ struct ContentView: View {
         } //toolbar
         .sheet(isPresented: $isAddNewWordDialogPresented) {
             NavigationStack {
-                AddWordView()
+                AddWordView() { word in
+                    print(word)
+                }
             }
         }
     }
