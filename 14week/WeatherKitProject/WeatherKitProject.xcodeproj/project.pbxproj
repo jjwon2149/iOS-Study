@@ -11,6 +11,7 @@
 		4A2462982C2A78E700966E04 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2462972C2A78E700966E04 /* ContentView.swift */; };
 		4A24629A2C2A78E800966E04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A2462992C2A78E800966E04 /* Assets.xcassets */; };
 		4A24629D2C2A78E800966E04 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A24629C2C2A78E800966E04 /* Preview Assets.xcassets */; };
+		4A2462A92C2A800900966E04 /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2462A82C2A800900966E04 /* WeatherViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,8 @@
 		4A2462972C2A78E700966E04 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4A2462992C2A78E800966E04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4A24629C2C2A78E800966E04 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4A2462A72C2A7AE600966E04 /* WeatherKitProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WeatherKitProject.entitlements; sourceTree = "<group>"; };
+		4A2462A82C2A800900966E04 /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +54,10 @@
 		4A2462942C2A78E700966E04 /* WeatherKitProject */ = {
 			isa = PBXGroup;
 			children = (
+				4A2462A72C2A7AE600966E04 /* WeatherKitProject.entitlements */,
 				4A2462952C2A78E700966E04 /* WeatherKitProjectApp.swift */,
 				4A2462972C2A78E700966E04 /* ContentView.swift */,
+				4A2462A82C2A800900966E04 /* WeatherViewModel.swift */,
 				4A2462992C2A78E800966E04 /* Assets.xcassets */,
 				4A24629B2C2A78E800966E04 /* Preview Content */,
 			);
@@ -137,6 +142,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A2462A92C2A800900966E04 /* WeatherViewModel.swift in Sources */,
 				4A2462982C2A78E700966E04 /* ContentView.swift in Sources */,
 				4A2462962C2A78E700966E04 /* WeatherKitProjectApp.swift in Sources */,
 			);
@@ -269,12 +275,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = WeatherKitProject/WeatherKitProject.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WeatherKitProject/Preview Content\"";
 				DEVELOPMENT_TEAM = 59FP2PXRXK;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = .;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -285,7 +293,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mabataki.smithwrld999.WeatherKitProject;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.co.codegrove.smith;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -298,12 +306,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = WeatherKitProject/WeatherKitProject.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WeatherKitProject/Preview Content\"";
 				DEVELOPMENT_TEAM = 59FP2PXRXK;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = .;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -314,7 +324,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mabataki.smithwrld999.WeatherKitProject;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.co.codegrove.smith;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
