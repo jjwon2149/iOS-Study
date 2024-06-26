@@ -20,86 +20,158 @@ struct ContentView: View {
     
     var body: some View {
         ZStack {
-            Color.black.ignoresSafeArea(edges: .all)
+            Color.black.edgesIgnoringSafeArea(.all)
+            GeometryReader { proxy in
+                Image("sky")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .clipped()
+                    .edgesIgnoringSafeArea(.all)
+            }
             
-            ScrollView{
-                VStack {
-                    Text("SeongNam-Si")
-                        .font(.system(size: 40))
-                    
-                    Text("21º")
-                        .font(.system(size: 120,weight: .thin))
-                    
-                    Text("Partly Cloudy")
-                        .font(.system(size: 25))
-                    HStack {
-                        Text("H: 29º")
-                        Text("L: 15º")
-                    }
-                    .font(.system(size: 25))
-                    
-                    Spacer()
-                        .frame(height: 60)
-                    Text("Cloudy Conditions from 1AM-9AM, with\nshowers expected at 9AM.")
-                        .foregroundStyle(.white)
-                    Rectangle()
-                        .fill(.white)
-                        .frame(height: 0.5)
-                    ScrollView(.horizontal){
-                        LazyHStack {
-                            ForEach(0 ..< 11) { index in
-                                VStack(alignment: .center) {
-                                    Text("\(index)PM")
-                                    Spacer()
-                                    Image(systemName: "cloud.fill")
-                                        .font(.largeTitle)
-                                    Spacer()
-                                    Text("21º")
-                                        .font(.system(size: 21, weight: .semibold))
-                                }
-                            }
-                            
-                        }
-                        .frame(maxWidth: .infinity)
-                    }
-                    Spacer()
-                        .frame(height: 40)
-                    
+            ScrollView {
+                LazyVStack(pinnedViews: [.sectionHeaders]) {
                     Section {
-                        ForEach(0 ..< 11) { _ in
-                            VStack {
-                                HStack {
-                                    Text("test")
-                                    Image(systemName: "sun.max.fill")
-                                        .renderingMode(.original)
-                                    Text("21º")
-                                        .foregroundStyle(.gray)
-                                    ProgressView(value: 0.5)
-                                        .tint(.orange)
-                                    Text("25º")
-                                        .foregroundStyle(.gray)
+                        CardView(title: "TEST") {
+                            Text("Cloudy conditions from 1AM-9AM, with showers expected at 9AM.")
+                            Text("Cloudy conditions from 1AM-9AM, with showers expected at 9AM.")
+                            
+                        }
+                        
+                        CardView(title: "TEST1") {
+                            ScrollView(.horizontal) {
+                                LazyHStack {
+                                    ForEach(0..<10) { index in
+                                        VStack {
+                                            Text("\(index)PM")
+                                            Spacer()
+                                            Image(systemName: "cloud.fill")
+                                                .font(.largeTitle)
+                                            Spacer()
+                                            Text("21°")
+                                                .font(.system(size: 21, weight: .semibold))
+                                        }
+                                    }
                                 }
                             }
+                            .frame(height: 120)
                         }
-                        .padding(2)
-                        .font(.system(size: 21, weight: .semibold))
-                        .foregroundStyle(.white)
-                        .frame(maxWidth: .infinity)
-                    } header: {
+                        
+                        
                         HStack {
-                            Label("10-Day FORCAST", systemImage: "calendar")
-                            
-                            Spacer()
+                            Label("10-DAY FORCAST", systemImage: "calendar")
                         }
-                        Rectangle()
-                            .fill(.white)
-                            .frame(height: 0.5)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        
+                        CardView(title: "TEST2") {
+                            Text("Cloudy conditions from 1AM-9AM, with showers expected at 9AM.")
+                            Text("Cloudy conditions from 1AM-9AM, with showers expected at 9AM.")
+                            
+                        }
+                        
+                        VStack(alignment: .leading) {
+                            ForEach(0..<100) { index in
+                                VStack {
+                                    HStack {
+                                        Text("Mon")
+                                        Image(systemName: "sun.max.fill")
+                                        Text("15°")
+                                            .foregroundStyle(.gray)
+                                        ProgressView(value: 0.5)
+                                            .tint(Color.orange)
+                                        Text("29°")
+                                    }
+                                }
+                                .padding(4)
+                                .font(.system(size: 21, weight: .semibold))
+                                .foregroundStyle(.white)
+                                .frame(maxWidth: .infinity)
+                            }
+                        }
+                        
+                    } header: {
+                        HeaderView()
+                            .padding(.bottom, 20)
                     }
                 }
                 .foregroundStyle(.white)
                 .padding()
             }
         }
+    }
+}
+
+//MARK: - HeaderView
+struct HeaderView: View {
+    var body: some View {
+        VStack {
+            Text("Seongnam-si")
+                .font(.system(size: 40))
+            Text("21°")
+                .font(.system(size: 110, weight: .thin))
+            Text("Partly Cloudy")
+                .font(.system(size: 25))
+            HStack {
+                Text("H:29°")
+                Text("L:15°")
+            }
+            .font(.system(size: 23))
+        }
+        .foregroundStyle(.white)
+        .frame(maxWidth: .infinity)
+    }
+}
+
+//MARK: - ScrollOffsetKey
+struct ScrollOffsetKey: PreferenceKey {
+    static var defaultValue: CGFloat = 0
+    
+    static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
+        value = nextValue()
+    }
+}
+
+//MARK: - CardView
+struct CardView<Content: View>: View {
+    var title: String
+    
+    let content: Content
+    
+    init(title: String, @ViewBuilder content: () -> Content) {
+        self.title = title
+        self.content = content()
+    }
+    
+    @State var scrollOffset: CGFloat = 0
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            GeometryReader { proxy in
+                Color.clear
+                    .preference(key: ScrollOffsetKey.self, value: proxy.frame(in: .global).minY)
+                    .onAppear {
+                        self.scrollOffset = proxy.frame(in: .global).minY
+                    }
+                    .onChange(of: proxy.frame(in: .global).minY) { old, newValue in
+                        self.scrollOffset = newValue
+                        print("\(title) changed by: \(newValue)")
+                    }
+            }
+            .frame(height: 0)
+            Text(title)
+                .font(.title)
+                .bold()
+            content
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding()
+        .background(
+            .ultraThinMaterial,
+            in: RoundedRectangle(cornerRadius: 20, style: .continuous)
+        )
+        .opacity(scrollOffset < 250 ? 0 : min(1,((scrollOffset - 250) / 250.0)))
+        .shadow(radius: 10)
     }
 }
 
