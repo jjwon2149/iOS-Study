@@ -11,14 +11,10 @@ struct ContentView: View {
     
     @State private var message = ""
     
-    
     var body: some View {
         VStack {
             Text("Hello, \(message)")
-            HStack {
-                Text("Send a greeting:")
-                TextField("Type a message Here", text: $message)
-            }
+            DisplayTextField(message: $message)
         }
         .padding()
     }
