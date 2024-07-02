@@ -9,12 +9,26 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State var createText = ""
+    let placeHolder = "텍스트를 입력하세요."
+    @State var createText = "텍스트를 입력하세요."
     @State var displayText = ""
+    @FocusState var textFieldFocus: Bool
     
     var body: some View {
         VStack {
             TextEditor(text: $createText)
+                .foregroundStyle(placeHolder == createText ? .gray : .black)
+                .focused($textFieldFocus)
+                .onChange(of: textFieldFocus) {
+                    // 텍스트 필드에 포커스 이동시 플레이스 홀더가 표시되어 있으면, 입력텍스트 필드 입력 대기상태로 만듬
+                    if textFieldFocus, placeHolder == createText {
+                        createText = ""
+                        
+                        
+                    } else if !textFieldFocus, createText.isEmpty {
+                        createText = placeHolder
+                    }
+                }
             
             HStack {
                 Button {
