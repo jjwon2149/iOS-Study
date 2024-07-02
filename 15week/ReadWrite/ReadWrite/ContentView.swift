@@ -18,13 +18,28 @@ struct ContentView: View {
             
             HStack {
                 Button {
-                    
+                    let fm = FileManager.default
+                    let urls = fm.urls(for: .documentDirectory, in: .userDomainMask)
+                    let url = urls.last?.appendingPathComponent("file.text") //  ~~~/file.text 만들어줌
+                    do {
+                        try createText.write(to: url!, atomically: true, encoding: .utf8)
+                    } catch {
+                        print("File Writing Error")
+                    }
                 } label: {
                     Text("Write File")
                 }
                 
                 Button {
-                    
+                    let fm = FileManager.default
+                    let urls = fm.urls(for: .documentDirectory, in: .userDomainMask)
+                    let url = urls.last?.appendingPathComponent("file.text") //  ~~~/file.text 만들어줌
+                    do {
+                        let fileContent = try String(contentsOf: url!, encoding: .utf8)
+                        displayText = fileContent
+                    } catch {
+                        print("File Reading Error")
+                    }
                 } label: {
                     Text("Read File")
                 }
