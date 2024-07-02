@@ -8,17 +8,33 @@
 import SwiftUI
 
 struct ContentView: View {
+    let coreDM: CoreDataManager
+    
+    @State var petName = ""
+    @State var petBreed = ""
+    @State var petArray = [Animal]()
+    
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            TextField("Enter Pet Name", text: $petName)
+                .textFieldStyle(.roundedBorder)
+            TextField("Enter Pet Breed", text: $petBreed)
+                .textFieldStyle(.roundedBorder)
+
+            Button {
+                coreDM.savePet(name: petName, breed: petBreed)
+                
+                petName = ""
+                petBreed = ""
+            } label: {
+                Text("Save")
+            }
         }
         .padding()
     }
 }
 
 #Preview {
-    ContentView()
+    ContentView(coreDM: CoreDataManager())
 }
