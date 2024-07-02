@@ -12,11 +12,15 @@ class CoreDataManager {
     
     init() {
         persistentContainer = NSPersistentContainer(name: "DataModel")
+        // in memory
+        persistentContainer.persistentStoreDescriptions.first?.url = URL(fileURLWithPath: "/dev/null")
+        
         persistentContainer.loadPersistentStores { (description, error) in
             if let error = error {
                 fatalError("Core Data Initialize Failed error: \(error.localizedDescription)")
             }
         }
+        persistentContainer.viewContext.automaticallyMergesChangesFromParent = true
     }
     
     // Create

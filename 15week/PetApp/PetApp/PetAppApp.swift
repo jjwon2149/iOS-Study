@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct PetAppApp: App {
+    let coreDM = CoreDataManager()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView(coreDM: CoreDataManager())
+            ContentView()
+                .environment(\.managedObjectContext, coreDM.persistentContainer.viewContext)
         }
     }
 }
