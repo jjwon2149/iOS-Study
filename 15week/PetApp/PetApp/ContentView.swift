@@ -22,16 +22,30 @@ struct ContentView: View {
             TextField("Enter Pet Breed", text: $petBreed)
                 .textFieldStyle(.roundedBorder)
 
-            Button {
+            Button("Save") {
                 coreDM.savePet(name: petName, breed: petBreed)
-                
+                displayPets()
                 petName = ""
                 petBreed = ""
-            } label: {
-                Text("Save")
+            }
+            
+            List {
+                ForEach(petArray, id: \.self) { pet in
+                    VStack {
+                        Text(pet.name ?? "")
+                        Text(pet.breed ?? "")
+                    }
+                }
             }
         }
         .padding()
+        .onAppear {
+            displayPets()
+        }
+    }
+    
+    func displayPets() {
+        petArray = coreDM.getAllPets()
     }
 }
 
