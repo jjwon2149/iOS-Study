@@ -20,12 +20,13 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            Text("Hello\(cat.name)")
-            Text("Hello\(cat.breed)")
-            Text("Hello\(cat.age)")
-            Text("Hello\(cat.weight)")
+            Text("Hello, \(cat.name)")
+            Text("Hello, \(cat.breed)")
+            Text("Hello, \(cat.age)")
+            Text("Hello, \(cat.weight)")
             
-            DisplayTextField(creature: cat)
+            DisplayTextField()
+                .environmentObject(cat)
         }
         .padding()
     }
