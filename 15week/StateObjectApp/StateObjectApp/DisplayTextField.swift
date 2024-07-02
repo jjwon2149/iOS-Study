@@ -8,11 +8,27 @@
 import SwiftUI
 
 struct DisplayTextField: View {
+    
+    @ObservedObject var creature: AnimalModel
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            HStack {
+                Text("Name:")
+                TextField("Type a name here", text: $creature.name)
+            }
+            HStack {
+                Text("Breed:")
+                TextField("Type a breed here", text: $creature.breed)
+            }
+            HStack {
+                Text("Age:")
+                Slider(value: $creature.age, in: 0...20)
+            }
+            HStack {
+                Text("Weight:")
+                Slider(value: $creature.weight, in: 0...20)
+            }
+        }
     }
-}
-
-#Preview {
-    DisplayTextField()
 }
