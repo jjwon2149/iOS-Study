@@ -14,8 +14,9 @@ struct PersistenceController {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
         for _ in 0..<10 {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
+            let newItem = Animal(context: viewContext)
+            newItem.name = "animal \(index)"
+            newItem.breed = "-"
         }
         do {
             try viewContext.save()
@@ -52,5 +53,40 @@ struct PersistenceController {
             }
         })
         container.viewContext.automaticallyMergesChangesFromParent = true
+    }
+    
+    // Create
+    func savePet(name: String, breed: String) {
+        let pet = Animal(context: container.viewContext)
+        pet.name = name
+        pet.breed = breed
+        do {
+            try container.viewContext.save()
+            print("pet saved!")
+        } catch {
+            print("Failed to save \(error.localizedDescription)")
+        }
+    }
+    
+    // Read
+    func getAllPets() -> [Animal] {
+        let fetchRequest: NSFetchRequest<Animal> = Animal.fetchRequest()
+        
+        do {
+            return try container.viewContext.fetch(fetchRequest)
+        } catch {
+            return []
+        }
+    }
+    
+    // Delete
+    func deletePet(animal: Animal) {
+        container.viewContext.delete(animal)
+        do {
+            try container.viewContext.save()
+        } catch {
+            container.viewContext.rollback()
+            print("Failed to save Error \(error.localizedDescription)")
+        }
     }
 }

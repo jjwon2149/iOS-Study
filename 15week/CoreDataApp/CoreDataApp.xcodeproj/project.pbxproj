@@ -13,7 +13,6 @@
 		4A82C2172C339BB5001496D6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A82C2162C339BB5001496D6 /* Preview Assets.xcassets */; };
 		4A82C2192C339BB5001496D6 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A82C2182C339BB5001496D6 /* Persistence.swift */; };
 		4A82C21C2C339BB5001496D6 /* CoreDataApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4A82C21A2C339BB5001496D6 /* CoreDataApp.xcdatamodeld */; };
-		4A82C2232C339DEC001496D6 /* coreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A82C2222C339DEC001496D6 /* coreDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,7 +23,6 @@
 		4A82C2162C339BB5001496D6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4A82C2182C339BB5001496D6 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		4A82C21B2C339BB5001496D6 /* CoreDataApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataApp.xcdatamodel; sourceTree = "<group>"; };
-		4A82C2222C339DEC001496D6 /* coreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = coreDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +61,6 @@
 				4A82C2182C339BB5001496D6 /* Persistence.swift */,
 				4A82C21A2C339BB5001496D6 /* CoreDataApp.xcdatamodeld */,
 				4A82C2152C339BB5001496D6 /* Preview Content */,
-				4A82C2222C339DEC001496D6 /* coreDataManager.swift */,
 			);
 			path = CoreDataApp;
 			sourceTree = "<group>";
@@ -147,7 +144,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A82C21C2C339BB5001496D6 /* CoreDataApp.xcdatamodeld in Sources */,
-				4A82C2232C339DEC001496D6 /* coreDataManager.swift in Sources */,
 				4A82C2192C339BB5001496D6 /* Persistence.swift in Sources */,
 				4A82C2122C339BB3001496D6 /* ContentView.swift in Sources */,
 				4A82C2102C339BB3001496D6 /* CoreDataAppApp.swift in Sources */,

@@ -12,18 +12,18 @@ struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
 
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
+        sortDescriptors: [NSSortDescriptor(keyPath: \Animal.name, ascending: true)],
         animation: .default)
-    private var items: FetchedResults<Item>
+    private var animals: FetchedResults<Animal>
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             List {
-                ForEach(items) { item in
+                ForEach(animals) { animal in
                     NavigationLink {
-                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
+                        Text("Animal at \(animal.name ?? "")")
                     } label: {
-                        Text(item.timestamp!, formatter: itemFormatter)
+                        Text(animal.name ?? "-")
                     }
                 }
                 .onDelete(perform: deleteItems)
@@ -44,9 +44,9 @@ struct ContentView: View {
 
     private func addItem() {
         withAnimation {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
-
+            let newAnimal = Animal(context: viewContext)
+            newAnimal.name = ""
+            newAnimal.breed = ""
             do {
                 try viewContext.save()
             } catch {
@@ -60,7 +60,7 @@ struct ContentView: View {
 
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
-            offsets.map { items[$0] }.forEach(viewContext.delete)
+            offsets.map { animals[$0] }.forEach(viewContext.delete)
 
             do {
                 try viewContext.save()
@@ -73,13 +73,6 @@ struct ContentView: View {
         }
     }
 }
-
-private let itemFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .short
-    formatter.timeStyle = .medium
-    return formatter
-}()
 
 #Preview {
     ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
