@@ -8,12 +8,30 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var createText = ""
+    @State var displayText = ""
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            TextEditor(text: $createText)
+            
+            HStack {
+                Button {
+                    
+                } label: {
+                    Text("Write File")
+                }
+                
+                Button {
+                    
+                } label: {
+                    Text("Read File")
+                }
+            }
+            .padding()
+            
+            TextEditor(text: $displayText)
         }
         .padding()
     }
