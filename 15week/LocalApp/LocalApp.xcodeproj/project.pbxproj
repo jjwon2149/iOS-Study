@@ -11,6 +11,7 @@
 		4AA4CFBF2C34D11900364A01 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA4CFBE2C34D11900364A01 /* ContentView.swift */; };
 		4AA4CFC12C34D11A00364A01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AA4CFC02C34D11A00364A01 /* Assets.xcassets */; };
 		4AA4CFC42C34D11A00364A01 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AA4CFC32C34D11A00364A01 /* Preview Assets.xcassets */; };
+		4AA4CFCE2C34D2C800364A01 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4AA4CFCC2C34D2C800364A01 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,10 @@
 		4AA4CFBE2C34D11900364A01 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4AA4CFC02C34D11A00364A01 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4AA4CFC32C34D11A00364A01 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4AA4CFCD2C34D2C800364A01 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4AA4CFCF2C34D2CB00364A01 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4AA4CFD02C34D2CE00364A01 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4AA4CFD12C34D2CE00364A01 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +40,7 @@
 		4AA4CFB02C34D11900364A01 = {
 			isa = PBXGroup;
 			children = (
+				4AA4CFCC2C34D2C800364A01 /* Localizable.strings */,
 				4AA4CFBB2C34D11900364A01 /* LocalApp */,
 				4AA4CFBA2C34D11900364A01 /* Products */,
 			);
@@ -104,11 +110,14 @@
 			};
 			buildConfigurationList = 4AA4CFB42C34D11900364A01 /* Build configuration list for PBXProject "LocalApp" */;
 			compatibilityVersion = "Xcode 14.0";
-			developmentRegion = en;
+			developmentRegion = ko;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
+				ko,
+				fr,
+				es,
 			);
 			mainGroup = 4AA4CFB02C34D11900364A01;
 			productRefGroup = 4AA4CFBA2C34D11900364A01 /* Products */;
@@ -126,6 +135,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4AA4CFC42C34D11A00364A01 /* Preview Assets.xcassets in Resources */,
+				4AA4CFCE2C34D2C800364A01 /* Localizable.strings in Resources */,
 				4AA4CFC12C34D11A00364A01 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -143,6 +153,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		4AA4CFCC2C34D2C800364A01 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4AA4CFCD2C34D2C800364A01 /* ko */,
+				4AA4CFCF2C34D2CB00364A01 /* en */,
+				4AA4CFD02C34D2CE00364A01 /* fr */,
+				4AA4CFD12C34D2CE00364A01 /* es */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		4AA4CFC52C34D11A00364A01 /* Debug */ = {

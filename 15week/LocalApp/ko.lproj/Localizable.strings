@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  LocalApp
+
+  Created by 정종원 on 7/3/24.
+  
+*/
+
+"greeting-label" = "안녕하세요";
+"button-label" = "탭 하세요";

@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  LocalApp
+
+  Created by 정종원 on 7/3/24.
+  
+*/
+
+"greeting-label" = "Hello, World";
+"button-label" = "Tap Me";
