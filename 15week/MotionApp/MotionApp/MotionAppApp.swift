@@ -11,7 +11,7 @@ import SwiftUI
 struct MotionAppApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RotationView()
         }
     }
 }
