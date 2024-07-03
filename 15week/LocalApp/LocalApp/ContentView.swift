@@ -12,6 +12,13 @@ struct ContentView: View {
     @State var message: String = ""
 
     var placeHolder: LocalizedStringKey = "placeholder-label"
+    let date = Date()
+    let dateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .full
+        dateFormatter.timeStyle = .full
+        return dateFormatter
+    }()
     
     var body: some View {
         VStack {
@@ -25,6 +32,7 @@ struct ContentView: View {
             }
             
             TextField(placeHolder, text: $message)
+            Text(date, formatter: dateFormatter)
         }
         .padding()
         .background(changeColor ? .red : .yellow)
