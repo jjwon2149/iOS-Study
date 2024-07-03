@@ -6,5 +6,6 @@
   
 */
 
-"greeting-label" = "Bonjour le monde";
+"greeting-label %@" = "Bonjour, %@";
 "button-label" = "Tape moi";
+"placeholder-label" = "Écrivez ici";
