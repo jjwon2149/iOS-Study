@@ -8,16 +8,32 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var searchText = ""
+    
+    let petArray = ["Cat", "Dog", "Fish", "Donkey", "Canary", "Camel", "Frog"]
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack {
+            PetListView(animals: petArray)
         }
-        .padding()
+        .searchable(text: $searchText) {
+            ForEach(petArray.filter { $0.hasPrefix(searchText)}, id: \.self) { name in
+                Text(name)
+            }
+        }
     }
 }
+
+struct PetListView: View {
+    let animals: [String]
+    var body: some View {
+        List(animals, id: \.self) { animal in
+            Text(animal)
+        }
+    }
+}
+
 
 #Preview {
     ContentView()
