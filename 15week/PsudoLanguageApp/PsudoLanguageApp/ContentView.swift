@@ -16,6 +16,7 @@ struct ContentView: View {
             
             Text("This is a lot of text to display in a small amount of space to test how well Xcode can truncate large amounts of text.")
                 .padding()
+                .lineLimit(2)
                 .background(Color.mint)
         }
         .padding()
