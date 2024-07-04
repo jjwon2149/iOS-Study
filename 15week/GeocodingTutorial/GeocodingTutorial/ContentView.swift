@@ -8,10 +8,10 @@ struct ContentView: View {
     
     @State var searchText = ""
     let searchRoute = ""
-//    @State private var route: MKRoute?
+    //    @State private var route: MKRoute?
     
     @State var route: [CLLocationCoordinate2D] = [
-//        CLLocationCoordinate2D(latitude: 37.785834,longitude: -122.406417)
+        //        CLLocationCoordinate2D(latitude: 37.785834,longitude: -122.406417)
     ]
     let strokeStyle = StrokeStyle(
         lineWidth: 3,
@@ -27,10 +27,16 @@ struct ContentView: View {
             VStack {
                 HStack {
                     TextField("장소 검색", text: $searchText)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
                     
-                    Button(action: {
-                    }) {
+                    Button{
+                        reverseGeocoding(to: searchText) { result in
+                            if let result = result {
+                                route.append(locationManager.location!)
+                                route.append(result)
+                            }
+                        }
+                    } label: {
                         Text("검색")
                     }
                 }
@@ -51,31 +57,42 @@ struct ContentView: View {
             .navigationBarTitleDisplayMode(.inline)
         } //NavigationStack
     }
-}
-
-//MARK: - LocationManager
-class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
-    let manager = CLLocationManager()
-
-    @Published var location: CLLocationCoordinate2D?
     
-    override init() {
-        super.init()
-        manager.delegate = self
-        manager.desiredAccuracy = kCLLocationAccuracyBest
-        manager.requestWhenInUseAuthorization()
-        manager.startUpdatingLocation()
+    func reverseGeocoding(to place: String, completion: @escaping (CLLocationCoordinate2D?) -> Void) {
+        let geocoder = CLGeocoder()
+        geocoder.geocodeAddressString(place) { placemarks, error in
+            if let placemark = placemarks?.first, let location = placemark.location {
+                completion(CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude))
+            } else {
+                completion(nil)
+            }
+        }
+    }
+    
+    //MARK: - LocationManager
+    class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
+        let manager = CLLocationManager()
         
-    }
-    
-    func requestLocation() {
-        manager.requestLocation()
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = locations.first?.coordinate {
-            DispatchQueue.main.async {
-                self.location = locations.first?.coordinate
+        @Published var location: CLLocationCoordinate2D?
+        
+        override init() {
+            super.init()
+            manager.delegate = self
+            manager.desiredAccuracy = kCLLocationAccuracyBest
+            manager.requestWhenInUseAuthorization()
+            manager.startUpdatingLocation()
+            
+        }
+        
+        func requestLocation() {
+            manager.requestLocation()
+        }
+        
+        func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+            if let location = locations.first?.coordinate {
+                DispatchQueue.main.async {
+                    self.location = locations.first?.coordinate
+                }
             }
         }
     }
