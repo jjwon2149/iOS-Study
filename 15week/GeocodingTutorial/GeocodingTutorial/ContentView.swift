@@ -53,7 +53,10 @@ struct ContentView: View {
                     }
                     MapPolyline(coordinates: route)
                         .stroke(gradient, style: strokeStyle)
-                    
+                }
+                //유저의 위치로 이동
+                .mapControls {
+                    MapUserLocationButton()
                 }
                 
                 
