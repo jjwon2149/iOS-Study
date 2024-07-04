@@ -25,6 +25,10 @@ struct ContentView: View {
                                 .clipShape(Circle())
                         }
                     }
+                    if let route = viewModel.route {
+                        MapPolyline(route.polyline)
+                            .stroke(.blue, lineWidth: 4)
+                    }
                 }
                 .mapControls {
                     MapScaleView()
