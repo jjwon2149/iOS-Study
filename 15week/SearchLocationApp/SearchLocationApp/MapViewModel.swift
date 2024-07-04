@@ -7,10 +7,32 @@
 
 import SwiftUI
 import MapKit
+import CoreLocation
 
 @Observable
-class MapViewModel {
+class MapViewModel: NSObject, CLLocationManagerDelegate {
     var cameraPosition: MapCameraPosition = .userLocation(fallback: .automatic)
-    var searchText: String = ""
+    var searchText = ""
     var mapStyle: MapStyle = .standard
+
+    private var locationManager: CLLocationManager = CLLocationManager()
+
+    override init() {
+        super.init()
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+    }
+
+    func moveToCurrentLocation() {
+        cameraPosition = .userLocation(fallback: .automatic)
+    }
+
+    // MARK: CLLocationManagerDelegate
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+
+    }
+
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: any Error) {
+        print("error \(error.localizedDescription)")
+    }
 }
