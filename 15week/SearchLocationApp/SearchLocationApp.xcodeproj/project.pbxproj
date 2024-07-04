@@ -13,6 +13,7 @@
 		4AF940212C368098006E1935 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AF940202C368098006E1935 /* Preview Assets.xcassets */; };
 		4AF940282C368149006E1935 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4AF940272C368149006E1935 /* README.md */; };
 		4AF9402A2C3681B2006E1935 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF940292C3681B2006E1935 /* MapViewModel.swift */; };
+		4AF9402D2C3691C5006E1935 /* PlaceInfoPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF9402C2C3691C5006E1935 /* PlaceInfoPanel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		4AF940202C368098006E1935 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4AF940272C368149006E1935 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4AF940292C3681B2006E1935 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		4AF9402C2C3691C5006E1935 /* PlaceInfoPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceInfoPanel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			children = (
 				4AF940192C368097006E1935 /* SearchLocationAppApp.swift */,
 				4AF9401B2C368097006E1935 /* ContentView.swift */,
+				4AF9402C2C3691C5006E1935 /* PlaceInfoPanel.swift */,
 				4AF940292C3681B2006E1935 /* MapViewModel.swift */,
 				4AF9401D2C368098006E1935 /* Assets.xcassets */,
 				4AF9401F2C368098006E1935 /* Preview Content */,
@@ -144,6 +147,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AF9402D2C3691C5006E1935 /* PlaceInfoPanel.swift in Sources */,
 				4AF9401C2C368097006E1935 /* ContentView.swift in Sources */,
 				4AF9401A2C368097006E1935 /* SearchLocationAppApp.swift in Sources */,
 				4AF9402A2C3681B2006E1935 /* MapViewModel.swift in Sources */,

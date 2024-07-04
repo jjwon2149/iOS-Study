@@ -14,6 +14,7 @@ class MapViewModel: NSObject, CLLocationManagerDelegate {
     var searchText = ""
     var mapStyle: MapStyle = .standard
     var searchResults: [MKMapItem] = []
+    var selectedPlace: MKMapItem?
     
     private var locationManager: CLLocationManager = CLLocationManager()
     
@@ -28,8 +29,6 @@ class MapViewModel: NSObject, CLLocationManagerDelegate {
     }
     
     func searchLocation() {
-        print("search!")
-        
         let request = MKLocalSearch.Request()
         request.naturalLanguageQuery = searchText
         request.resultTypes = .pointOfInterest
@@ -40,6 +39,14 @@ class MapViewModel: NSObject, CLLocationManagerDelegate {
             guard let response = response else { return }
             self?.searchResults = response.mapItems
         }
+    }
+    
+    func getDirection() {
+        print("direction")
+    }
+    
+    func shareLocation() {
+        print("share location")
     }
     
     // MARK: CLLocationManagerDelegate
