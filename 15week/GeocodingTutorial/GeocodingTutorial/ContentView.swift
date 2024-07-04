@@ -7,11 +7,11 @@ struct ContentView: View {
     @StateObject var locationManager = LocationManager()
     
     @State var searchText = ""
+    let searchRoute = ""
 //    @State private var route: MKRoute?
     
-    let route: [CLLocationCoordinate2D] = [
-        CLLocationCoordinate2D(latitude: 37.46516037012654,longitude: 126.69189283068387),
-        CLLocationCoordinate2D(latitude: 37.785834,longitude: -122.406417)
+    @State var route: [CLLocationCoordinate2D] = [
+//        CLLocationCoordinate2D(latitude: 37.785834,longitude: -122.406417)
     ]
     let strokeStyle = StrokeStyle(
         lineWidth: 3,
@@ -23,22 +23,33 @@ struct ContentView: View {
     let gradient = Gradient(colors: [.red, .green, .blue])
     
     var body: some View {
-        VStack {
-            Map {
-                if let location = locationManager.location {
-                    Marker("Current Aea", coordinate: location)
-                        .tint(.blue)
+        NavigationStack {
+            VStack {
+                HStack {
+                    TextField("장소 검색", text: $searchText)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    
+                    Button(action: {
+                    }) {
+                        Text("검색")
+                    }
                 }
-                MapPolyline(coordinates: route)
-                    .stroke(gradient, style: strokeStyle)
+                Map {
+                    if let location = locationManager.location {
+                        Marker("Current Aea", coordinate: location)
+                            .tint(.blue)
+                    }
+                    MapPolyline(coordinates: route)
+                        .stroke(gradient, style: strokeStyle)
+                    
+                }
+                
                 
             }
-            
-            
-        }
-        .padding()
-        .searchable(text: $searchText)
-        
+            .padding()
+            .navigationTitle("MapTutorial")
+            .navigationBarTitleDisplayMode(.inline)
+        } //NavigationStack
     }
 }
 
@@ -65,7 +76,6 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         if let location = locations.first?.coordinate {
             DispatchQueue.main.async {
                 self.location = locations.first?.coordinate
-                print(locations.first?.coordinate)
             }
         }
     }
