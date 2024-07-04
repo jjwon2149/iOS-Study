@@ -29,7 +29,7 @@ struct ContentView: View {
                     TextField("장소 검색", text: $searchText)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                     
-                    Button{
+                    Button {
                         reverseGeocoding(to: searchText) { result in
                             if let result = result {
                                 route.append(locationManager.location!)
@@ -38,6 +38,12 @@ struct ContentView: View {
                         }
                     } label: {
                         Text("검색")
+                    }
+                    Button {
+                        route.removeLast()
+                        route.removeLast()
+                    } label: {
+                        Text("루트 삭제")
                     }
                 }
                 Map {
