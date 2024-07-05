@@ -12,6 +12,7 @@
 		4A40CCAA2C377EA6008717F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A40CCA92C377EA6008717F5 /* Assets.xcassets */; };
 		4A40CCAD2C377EA6008717F5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A40CCAC2C377EA6008717F5 /* Preview Assets.xcassets */; };
 		4A40CCB42C377F00008717F5 /* Small World.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4A40CCB32C377F00008717F5 /* Small World.mp3 */; };
+		4A40CCB62C378013008717F5 /* AudioPlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A40CCB52C378013008717F5 /* AudioPlayerManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		4A40CCA92C377EA6008717F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4A40CCAC2C377EA6008717F5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4A40CCB32C377F00008717F5 /* Small World.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Small World.mp3"; sourceTree = "<group>"; };
+		4A40CCB52C378013008717F5 /* AudioPlayerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 			children = (
 				4A40CCA52C377EA5008717F5 /* AudioAppApp.swift */,
 				4A40CCA72C377EA5008717F5 /* ContentView.swift */,
+				4A40CCB52C378013008717F5 /* AudioPlayerManager.swift */,
 				4A40CCB32C377F00008717F5 /* Small World.mp3 */,
 				4A40CCA92C377EA6008717F5 /* Assets.xcassets */,
 				4A40CCAB2C377EA6008717F5 /* Preview Content */,
@@ -142,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A40CCA82C377EA5008717F5 /* ContentView.swift in Sources */,
+				4A40CCB62C378013008717F5 /* AudioPlayerManager.swift in Sources */,
 				4A40CCA62C377EA5008717F5 /* AudioAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
