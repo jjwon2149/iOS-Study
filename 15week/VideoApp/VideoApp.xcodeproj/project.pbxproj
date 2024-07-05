@@ -11,6 +11,7 @@
 		4A40CCC62C3785E2008717F5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A40CCC52C3785E2008717F5 /* ContentView.swift */; };
 		4A40CCC82C3785E3008717F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A40CCC72C3785E3008717F5 /* Assets.xcassets */; };
 		4A40CCCB2C3785E3008717F5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A40CCCA2C3785E3008717F5 /* Preview Assets.xcassets */; };
+		4A40CCD22C37861C008717F5 /* SaturnV.mov in Resources */ = {isa = PBXBuildFile; fileRef = 4A40CCD12C37861C008717F5 /* SaturnV.mov */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		4A40CCC52C3785E2008717F5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4A40CCC72C3785E3008717F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4A40CCCA2C3785E3008717F5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4A40CCD12C37861C008717F5 /* SaturnV.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = SaturnV.mov; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 				4A40CCC32C3785E2008717F5 /* VideoAppApp.swift */,
 				4A40CCC52C3785E2008717F5 /* ContentView.swift */,
 				4A40CCC72C3785E3008717F5 /* Assets.xcassets */,
+				4A40CCD12C37861C008717F5 /* SaturnV.mov */,
 				4A40CCC92C3785E3008717F5 /* Preview Content */,
 			);
 			path = VideoApp;
@@ -125,6 +128,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A40CCD22C37861C008717F5 /* SaturnV.mov in Resources */,
 				4A40CCCB2C3785E3008717F5 /* Preview Assets.xcassets in Resources */,
 				4A40CCC82C3785E3008717F5 /* Assets.xcassets in Resources */,
 			);
