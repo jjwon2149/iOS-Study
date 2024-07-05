@@ -13,15 +13,20 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            VideoPlayer(player: player)
-                .frame(height: 320)
-                .onAppear {
-                    guard let videoURL = Bundle.main.url(forResource: "SaturnV", withExtension: "mov") else {
-                        print("Video file not found")
-                        return
-                    }
-                    player = AVPlayer(url: videoURL as URL)
+            VideoPlayer(player: player) {
+                VStack {
+                    Text("OverLay text to Apear")
+                        .foregroundStyle(.white)
                 }
+            }
+            .frame(height: 320)
+            .onAppear {
+                guard let videoURL = Bundle.main.url(forResource: "SaturnV", withExtension: "mov") else {
+                    print("Video file not found")
+                    return
+                }
+                player = AVPlayer(url: videoURL as URL)
+            }
         }
         .padding()
     }
