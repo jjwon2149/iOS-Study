@@ -147,3 +147,5 @@ iOS-Study/6week/FirebaseBasic/FirebaseBasic/GoogleService-Info.plist
 iOS-Study/6week/FirebaseBasic/FirebaseBasic/Info.plist
 
 *.xcconfig
+*.mov
+*.pdf
