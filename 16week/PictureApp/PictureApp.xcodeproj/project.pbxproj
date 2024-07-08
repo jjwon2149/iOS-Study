@@ -11,6 +11,7 @@
 		4AD45F8F2C3BB2CC00900568 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD45F8E2C3BB2CC00900568 /* ContentView.swift */; };
 		4AD45F912C3BB2CD00900568 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AD45F902C3BB2CD00900568 /* Assets.xcassets */; };
 		4AD45F942C3BB2CD00900568 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AD45F932C3BB2CD00900568 /* Preview Assets.xcassets */; };
+		4AD45F9D2C3BB89200900568 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD45F9C2C3BB89200900568 /* ImagePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		4AD45F8E2C3BB2CC00900568 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4AD45F902C3BB2CD00900568 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4AD45F932C3BB2CD00900568 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4AD45F9C2C3BB89200900568 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 			children = (
 				4AD45F8C2C3BB2CC00900568 /* PictureAppApp.swift */,
 				4AD45F8E2C3BB2CC00900568 /* ContentView.swift */,
+				4AD45F9C2C3BB89200900568 /* ImagePicker.swift */,
 				4AD45F902C3BB2CD00900568 /* Assets.xcassets */,
 				4AD45F922C3BB2CD00900568 /* Preview Content */,
 			);
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AD45F9D2C3BB89200900568 /* ImagePicker.swift in Sources */,
 				4AD45F8F2C3BB2CC00900568 /* ContentView.swift in Sources */,
 				4AD45F8D2C3BB2CC00900568 /* PictureAppApp.swift in Sources */,
 			);
@@ -275,6 +279,8 @@
 				DEVELOPMENT_TEAM = 2TXBC7N5Q5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = .;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = .;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -304,6 +310,8 @@
 				DEVELOPMENT_TEAM = 2TXBC7N5Q5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = .;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = .;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
