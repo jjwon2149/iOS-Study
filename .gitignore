@@ -149,3 +149,4 @@ iOS-Study/6week/FirebaseBasic/FirebaseBasic/Info.plist
 *.xcconfig
 *.mov
 *.pdf
+*.mlmodel
