@@ -7,9 +7,10 @@
 
 import Foundation
 
-struct MenuItem {
+struct MenuItem: Identifiable {
     let category: String
     let name: String
+    var id: String { name }
 }
 
 func groupMenuByCategory(_ menu: [MenuItem]) -> [MenuSection] {
