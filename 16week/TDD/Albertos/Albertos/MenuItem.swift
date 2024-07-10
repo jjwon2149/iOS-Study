@@ -8,5 +8,10 @@
 import Foundation
 
 struct MenuItem {
-    
+    let category: String
+}
+
+func groupMenuByCategory(_ menu: [MenuItem]) -> [MenuSection] {
+    if menu.isEmpty { return [] }
+    return [MenuSection()]
 }
