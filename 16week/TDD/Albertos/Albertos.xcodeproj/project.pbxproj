@@ -102,8 +102,8 @@
 				4AFFFBF92C3E40640074665E /* ContentView.swift */,
 				4AFFFBFB2C3E40660074665E /* Assets.xcassets */,
 				4AFFFBFD2C3E40660074665E /* Preview Content */,
-				4AFFFC212C3E42CF0074665E /* MenuItem.swift */,
 				4AFFFC232C3E42EA0074665E /* MenuSection.swift */,
+				4AFFFC212C3E42CF0074665E /* MenuItem.swift */,
 			);
 			path = Albertos;
 			sourceTree = "<group>";
