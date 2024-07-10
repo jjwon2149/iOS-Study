@@ -18,6 +18,8 @@ final class MenuGroupingTests: XCTestCase {
     }
     
     func testEmptyMenuReturnsEmptySections() {
-        
+        let menu = [MenuItem]()
+        let sections = groupMenuByCategory(menu)
+        XCTAssertTrue(sections.isEmpty)
     }
 }
