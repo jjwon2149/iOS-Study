@@ -14,12 +14,31 @@ final class MenuListViewModelTests: XCTestCase {
     
     var cancellables = Set<AnyCancellable>()
     
+    func testCallsGivenGroupingFunction() throws {
+        try XCTSkipIf(true, "skipping this for now, keeping it to reuse part of the code later on")
+        
+        var called = false
+        let inputSections = [MenuSection.fixture()]
+        let probeClosure: ([MenuItem]) -> [MenuSection] = { _ in
+            called = true
+            return inputSections
+        }
+        
+        //        let viewModel = MenuList.ViewModel(menu: [.fixture()], menuGrouping: probeClosure)
+        //        let sections = viewModel.sections
+        
+        // Check that the given closure was called
+        XCTAssertTrue(called)
+        // Check that the returned value was build with the closure
+        //        XCTAssertEqual(sections, inputSections)
+    }
+    
     func testWhenFetchingStartsPublishesEmptyMenu() {
         let viewModel = MenuList.ViewModel(menuFetching: MenuFetchingSample())
         XCTAssertTrue(viewModel.sections.isEmpty)
     }
     
-    func testWhenFetchingSucceedsPublishesSectionBuiltFromReceivedMenuAndGivenGroupingClosure() {
+    func testWhenFetchingSucceedsPublishesSectionBuiltFromReceivedMenuAndGivenGroupingClosure() throws {
         var receivedMenu: [MenuItem]?
         var expectedSections: [MenuSection] = [.fixture()]
         
