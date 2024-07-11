@@ -26,6 +26,6 @@ struct MenuList: View {
 
 #Preview {
     NavigationStack {
-        MenuList(viewModel: .init(menu: menu, menuGrouping: groupMenuByCategory))
+        MenuList(viewModel: .init())
     }
 }
