@@ -16,5 +16,10 @@ final class MenuRowViewModelTests: XCTestCase {
         // 컴파일러가 말합니다: Type 'MenuRow' has no member 'ViewModel'
         XCTAssertEqual(viewModel.text, "name")
     }
-    func testWhenItemIsSpicyTextIsItemNameWithChiliEmoji() {}
+    func testWhenItemIsSpicyTextIsItemNameWithChiliEmoji() {
+        let item = MenuItem.fixture(name: "name", spicy: true)
+        let viewModel = MenuRow.ViewModel(item: item)
+        // 컴파일러가 말합니다: Type 'MenuRow' has no member 'ViewModel'
+        XCTAssertEqual(viewModel.text, "name 🌶")
+    }
 }
