@@ -52,6 +52,7 @@
 		4AFFFC772C3FC11F0074665E /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		4AFFFC792C3FC1600074665E /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		4AFFFC7B2C3FC1E00074665E /* MockUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUserService.swift; sourceTree = "<group>"; };
+		4AFFFC7D2C3FC33C0074665E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +83,7 @@
 		4AFFFC3F2C3FBC840074665E = {
 			isa = PBXGroup;
 			children = (
+				4AFFFC7D2C3FC33C0074665E /* README.md */,
 				4AFFFC4A2C3FBC840074665E /* TDDwithMocking */,
 				4AFFFC5B2C3FBC850074665E /* TDDwithMockingTests */,
 				4AFFFC652C3FBC850074665E /* TDDwithMockingUITests */,
