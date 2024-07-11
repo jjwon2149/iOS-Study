@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct MenuRow: View {
-    let item: MenuItem
+    let viewModel: ViewModel
+
     var body: some View {
-        Text(item.name)
+        Text(viewModel.text)
     }
 }
 
 #Preview {
-    MenuRow(item: menu[0])
+    MenuRow(viewModel: .init(item: menu[0]))
 }
