@@ -18,6 +18,7 @@
 		4AFFFC242C3E42EA0074665E /* MenuSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFFFC232C3E42EA0074665E /* MenuSection.swift */; };
 		4AFFFC2A2C3F5F8F0074665E /* Array+Safe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFFFC292C3F5F8F0074665E /* Array+Safe.swift */; };
 		4AFFFC2C2C3F5FA40074665E /* MenuItem+Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFFFC2B2C3F5FA40074665E /* MenuItem+Fixture.swift */; };
+		4AFFFC2E2C3F69910074665E /* MenuSection+Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFFFC2D2C3F69910074665E /* MenuSection+Fixture.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		4AFFFC232C3E42EA0074665E /* MenuSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSection.swift; sourceTree = "<group>"; };
 		4AFFFC292C3F5F8F0074665E /* Array+Safe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Safe.swift"; sourceTree = "<group>"; };
 		4AFFFC2B2C3F5FA40074665E /* MenuItem+Fixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MenuItem+Fixture.swift"; sourceTree = "<group>"; };
+		4AFFFC2D2C3F69910074665E /* MenuSection+Fixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MenuSection+Fixture.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 				4AFFFC082C3E40660074665E /* MenuGroupingTests.swift */,
 				4AFFFC292C3F5F8F0074665E /* Array+Safe.swift */,
 				4AFFFC2B2C3F5FA40074665E /* MenuItem+Fixture.swift */,
+				4AFFFC2D2C3F69910074665E /* MenuSection+Fixture.swift */,
 			);
 			path = AlbertosTests;
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AFFFC2E2C3F69910074665E /* MenuSection+Fixture.swift in Sources */,
 				4AFFFC2A2C3F5F8F0074665E /* Array+Safe.swift in Sources */,
 				4AFFFC2C2C3F5FA40074665E /* MenuItem+Fixture.swift in Sources */,
 				4AFFFC092C3E40660074665E /* MenuGroupingTests.swift in Sources */,
