@@ -20,7 +20,7 @@ final class TDDwithMockingTests: XCTestCase {
         
         // Usermanager 초기화
         //UserManager 인스턴스를 생성하고 MockUserService를 주입하여 의존성을 주입합니다.
-        let userManager = UserManager(userServiceL mockUserService)
+        let userManager = UserManager(userService: mockUserService)
         
         // 비동기 테스트를 위한 기대치 설정
         //비동기 테스트를 위해 XCTestExpectation을 생성하여 테스트가 완료될 때까지 기다립니다.
