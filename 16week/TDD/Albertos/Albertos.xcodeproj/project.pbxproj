@@ -26,6 +26,7 @@
 		4AFFFC382C3F905A0074665E /* MenuListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFFFC372C3F905A0074665E /* MenuListViewModelTests.swift */; };
 		4AFFFC3A2C3F93240074665E /* MenuFetching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFFFC392C3F93240074665E /* MenuFetching.swift */; };
 		4AFFFC3C2C3F94050074665E /* MenuFetchingSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFFFC3B2C3F94050074665E /* MenuFetchingSample.swift */; };
+		4AFFFC3E2C3FA8D70074665E /* MenuFetchingStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFFFC3D2C3FA8D70074665E /* MenuFetchingStub.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		4AFFFC372C3F905A0074665E /* MenuListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuListViewModelTests.swift; sourceTree = "<group>"; };
 		4AFFFC392C3F93240074665E /* MenuFetching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuFetching.swift; sourceTree = "<group>"; };
 		4AFFFC3B2C3F94050074665E /* MenuFetchingSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuFetchingSample.swift; sourceTree = "<group>"; };
+		4AFFFC3D2C3FA8D70074665E /* MenuFetchingStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuFetchingStub.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 				4AFFFC2D2C3F69910074665E /* MenuSection+Fixture.swift */,
 				4AFFFC312C3F6D340074665E /* MenuRowViewModelTests.swift */,
 				4AFFFC372C3F905A0074665E /* MenuListViewModelTests.swift */,
+				4AFFFC3D2C3FA8D70074665E /* MenuFetchingStub.swift */,
 			);
 			path = AlbertosTests;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 				4AFFFC2C2C3F5FA40074665E /* MenuItem+Fixture.swift in Sources */,
 				4AFFFC322C3F6D340074665E /* MenuRowViewModelTests.swift in Sources */,
 				4AFFFC092C3E40660074665E /* MenuGroupingTests.swift in Sources */,
+				4AFFFC3E2C3FA8D70074665E /* MenuFetchingStub.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
