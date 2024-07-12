@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4A29B95B2C40AED0008DD083 /* MenuItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A29B95A2C40AED0008DD083 /* MenuItemTests.swift */; };
+		4A29B95D2C40B19C008DD083 /* menu_item.json in Resources */ = {isa = PBXBuildFile; fileRef = 4A29B95C2C40B19C008DD083 /* menu_item.json */; };
 		4AFFFBF82C3E40640074665E /* AlbertosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFFFBF72C3E40640074665E /* AlbertosApp.swift */; };
 		4AFFFBFA2C3E40640074665E /* MenuList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFFFBF92C3E40640074665E /* MenuList.swift */; };
 		4AFFFBFC2C3E40660074665E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AFFFBFB2C3E40660074665E /* Assets.xcassets */; };
@@ -49,6 +50,7 @@
 
 /* Begin PBXFileReference section */
 		4A29B95A2C40AED0008DD083 /* MenuItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemTests.swift; sourceTree = "<group>"; };
+		4A29B95C2C40B19C008DD083 /* menu_item.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = menu_item.json; sourceTree = "<group>"; };
 		4AFFFBF42C3E40640074665E /* Albertos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Albertos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AFFFBF72C3E40640074665E /* AlbertosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbertosApp.swift; sourceTree = "<group>"; };
 		4AFFFBF92C3E40640074665E /* MenuList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuList.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 				4AFFFC372C3F905A0074665E /* MenuListViewModelTests.swift */,
 				4AFFFC3D2C3FA8D70074665E /* MenuFetchingStub.swift */,
 				4A29B95A2C40AED0008DD083 /* MenuItemTests.swift */,
+				4A29B95C2C40B19C008DD083 /* menu_item.json */,
 			);
 			path = AlbertosTests;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A29B95D2C40B19C008DD083 /* menu_item.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
