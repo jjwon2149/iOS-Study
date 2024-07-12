@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MenuItem: Identifiable, Equatable {
+struct MenuItem: Identifiable, Equatable, Codable {
     let category: String
     let name: String
     let spicy: Bool //이렇게 MenuItem을 바꿨을때 fixture에서만 에러가 발생함. 따라서 fixture만 수정하면 됨
