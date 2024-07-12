@@ -12,7 +12,7 @@ struct AlbertosApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationStack {
-                MenuList(viewModel: .init(menuFetching: MenuFetcher()))
+                MenuList(viewModel: .init(menuFetching: MenuFetcher(networkFetching: URLSession.shared)))
             }
         }
     }
