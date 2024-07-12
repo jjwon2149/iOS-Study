@@ -70,7 +70,7 @@ final class MenuListViewModelTests: XCTestCase {
                     return XCTFail("Expected a successful Result, got: \(value)")
                 }
                 
-                XCTAssertEqual(receivedMenu, menu)
+                XCTAssertEqual(receivedMenu, expectedMenu)
                 XCTAssertEqual(sections, expectedSections)
                 expectation.fulfill()
             }
