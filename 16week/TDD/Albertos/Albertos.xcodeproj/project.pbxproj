@@ -137,11 +137,11 @@
 				4AFFFC332C3F6FA10074665E /* MenuRow.ViewModel.swift */,
 				4AFFFC392C3F93240074665E /* MenuFetching.swift */,
 				4AFFFC3B2C3F94050074665E /* MenuFetchingSample.swift */,
+				4A29B9602C40BD29008DD083 /* MenuFetcher.swift */,
 				4AFFFBFB2C3E40660074665E /* Assets.xcassets */,
 				4AFFFBFD2C3E40660074665E /* Preview Content */,
 				4AFFFC232C3E42EA0074665E /* MenuSection.swift */,
 				4AFFFC212C3E42CF0074665E /* MenuItem.swift */,
-				4A29B9602C40BD29008DD083 /* MenuFetcher.swift */,
 			);
 			path = Albertos;
 			sourceTree = "<group>";
