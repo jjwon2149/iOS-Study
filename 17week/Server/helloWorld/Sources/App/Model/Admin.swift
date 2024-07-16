@@ -29,15 +29,13 @@ final class Admin: Model, Content {
     }
 }
 
-extension Admin: ModelAuthenticatable {
+extension Admin: ModelSessionAuthenticatable, ModelAuthenticatable {
     static let usernameKey = \Admin.$name
-    static let passwordHash = \Admin.$passwordHash
-    
-    static var passwordHashKey: KeyPath<Admin, Field<String>> {
-        <#code#>
-    }
+    static let passwordHashKey = \Admin.$passwordHash
     
     func verify(password: String) throws -> Bool {
         try Bcrypt.verify(password, created: self.passwordHash) // 같은 해시함수로 비밀번호 비교
     }
 }
+
+extension Admin: @unchecked Sendable {}
