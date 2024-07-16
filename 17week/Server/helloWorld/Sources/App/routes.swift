@@ -1,19 +1,21 @@
 import Vapor
+import Leaf
 
 func routes(_ app: Application) throws {
-    let journalController = JournalController()
-    
-    app.get("old/entries", use: journalController.index)
     
     app.get { req async in
         "It works!"
     }
+    
+    app.get("hello") { req -> EventLoopFuture<View> in
+        req.logger.info("Received request for /hello")
+        return req.view.render("hello", ["name": "Leaf"])
 
-    app.get("hello") { req async -> String in
-        req.logger.critical("Received request for /hello")
-        // req.logger.debug("") 등과 같이 다양한 로그를 찍을 수 있음.
-        return "Hello, world!"
-    }
+//    app.get("hello") { req async -> String in
+//        req.logger.critical("Received request for /hello")
+//        // req.logger.debug("") 등과 같이 다양한 로그를 찍을 수 있음.
+//        return "Hello, world!"
+//    }
     
     app.get("greet", ":name") { req async -> String in
         guard let guest = req.parameters.get("name") else {
