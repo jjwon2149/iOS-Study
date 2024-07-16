@@ -6,7 +6,9 @@ func routes(_ app: Application) throws {
     }
 
     app.get("hello") { req async -> String in
-        "Hello, world!"
+        req.logger.critical("Received request for /hello")
+        // req.logger.debug("") 등과 같이 다양한 로그를 찍을 수 있음.
+        return "Hello, world!"
     }
     
     app.get("greet", ":name") { req async -> String in
