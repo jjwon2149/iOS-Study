@@ -6,6 +6,12 @@
 //
 
 import Vapor
+import Leaf
+
+struct IndexContext: Encodable {
+    let entries: [Entry]
+    let count: Int
+}
 
 struct CreateEntryData: Content {
     let title: String
@@ -28,9 +34,20 @@ struct JournalController:RouteCollection {
     
     // List
     @Sendable
-    func index(req: Request) throws -> EventLoopFuture<[Entry]> {
-        return Entry.query(on: req.db).all()
-    }
+    func index(req: Request) async throws -> Response {
+        let entries = try await Entry.query(on: req.db).all()
+        
+        if req.headers.accept.mediaTypes.contains(.html) {
+            let context = IndexContext(entries: entries, count: entries.count)
+            let view = req.view.render("index", context)
+            return try await view.encodeResponse(for: req).get()
+        } else {
+            return try await entries.encodeResponse(for: req)
+        }
+//    @Sendable
+//    func index(req: Request) throws -> EventLoopFuture<[Entry]> {
+//        return Entry.query(on: req.db).all()
+//    }
     
     @Sendable
     func create(req: Request) throws -> EventLoopFuture<Entry> {
