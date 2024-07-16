@@ -10,6 +10,7 @@ func routes(_ app: Application) throws {
     app.get("hello") { req -> EventLoopFuture<View> in
         req.logger.info("Received request for /hello")
         return req.view.render("hello", ["name": "Leaf"])
+    }
 
 //    app.get("hello") { req async -> String in
 //        req.logger.critical("Received request for /hello")

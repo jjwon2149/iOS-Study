@@ -44,6 +44,7 @@ struct JournalController:RouteCollection {
         } else {
             return try await entries.encodeResponse(for: req)
         }
+    }
 //    @Sendable
 //    func index(req: Request) throws -> EventLoopFuture<[Entry]> {
 //        return Entry.query(on: req.db).all()
