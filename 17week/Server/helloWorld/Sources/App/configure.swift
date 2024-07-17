@@ -13,12 +13,18 @@ public func configure(_ app: Application) async throws {
     // 마이그레이션 코드 추가
     app.migrations.add(CreateEntry())
     app.migrations.add(CreateAdmin())
-
+    app.migrations.add(CreateAdminUser())
+    
     // 템플릿 엔진 Leaf 추가
     app.views.use(.leaf)
     
+    // // 세션을 데이터베이스에서 관리하도록 설정
+    app.sessions.use(.fluent)
+    app.migrations.add(SessionRecord.migration)
+    
     // uncomment to serve files from /Public folder
     app.middleware.use(FileMiddleware(publicDirectory: app.directory.publicDirectory))
+    app.middleware.use(app.sessions.middleware)
     
     // Journal Controller 라우터 등록
     try app.register(collection: JournalController())

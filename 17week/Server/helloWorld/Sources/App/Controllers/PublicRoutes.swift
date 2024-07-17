@@ -7,8 +7,13 @@
 
 import Vapor
 
+struct LoginRequest: Content {
+    let name: String
+    let password: String
+}
+
 struct PublicRoutes: RouteCollection {
-    func boot(routes: RoutesBuilder) throws {
+    func boot(routes: any Vapor.RoutesBuilder) throws {
         routes.get("login", use: loginHandler)
         routes.post("login", use: loginPostHandler)
     }
@@ -33,6 +38,7 @@ struct PublicRoutes: RouteCollection {
                     let passwordMatches = try admin.verify(password: user.password)
                     if passwordMatches {
                         req.auth.login(admin)
+                        req.session.authenticate(admin)
                         return req.eventLoop.future(req.redirect(to: "/dashboard"))
                     } else {
                         return req.eventLoop.future(req.redirect(to: "/login?error=invalidpassword"))
@@ -42,8 +48,5 @@ struct PublicRoutes: RouteCollection {
                 }
             }
     }
-}
-struct LoginRequest: Content {
-    let name: String
-    let password: String
+    
 }

@@ -8,7 +8,6 @@
 import Vapor
 
 struct ProtectedRoutes: RouteCollection {
-    
     func boot(routes: RoutesBuilder) throws {
         routes.get("dashboard", use: dashboardHandler)
         routes.post("logout", use: logoutHandler)
@@ -16,7 +15,11 @@ struct ProtectedRoutes: RouteCollection {
     
     @Sendable
     func dashboardHandler(_ req: Request) throws -> EventLoopFuture<View> {
-        guard let user = try? req.auth.require(Admin.self) else { throw Abort(.unauthorized) }
+        req.logger.info("Rendering dashboard")
+        guard let user = try? req.auth.require(Admin.self) else {
+            req.logger.error("Unauthorized access to dashboard")
+            throw Abort(.unauthorized)
+        }
         return req.view.render("dashboard", ["name": user.name])
     }
     
