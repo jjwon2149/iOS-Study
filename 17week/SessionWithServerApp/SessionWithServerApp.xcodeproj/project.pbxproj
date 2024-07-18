@@ -12,6 +12,8 @@
 		4A29B97D2C48954D008DD083 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A29B97C2C48954D008DD083 /* Assets.xcassets */; };
 		4A29B9802C48954D008DD083 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A29B97F2C48954D008DD083 /* Preview Assets.xcassets */; };
 		4A6583DA2C489BBD009740DA /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6583D92C489BBD009740DA /* Color+Extension.swift */; };
+		4A6583DC2C489F56009740DA /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6583DB2C489F56009740DA /* LoginView.swift */; };
+		4A6583DE2C48A4DB009740DA /* EntriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6583DD2C48A4DB009740DA /* EntriesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +23,8 @@
 		4A29B97C2C48954D008DD083 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4A29B97F2C48954D008DD083 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4A6583D92C489BBD009740DA /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		4A6583DB2C489F56009740DA /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		4A6583DD2C48A4DB009740DA /* EntriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntriesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +59,8 @@
 			children = (
 				4A29B9782C48954C008DD083 /* SessionWithServerAppApp.swift */,
 				4A29B97A2C48954C008DD083 /* ContentView.swift */,
+				4A6583DB2C489F56009740DA /* LoginView.swift */,
+				4A6583DD2C48A4DB009740DA /* EntriesView.swift */,
 				4A29B97C2C48954D008DD083 /* Assets.xcassets */,
 				4A6583D92C489BBD009740DA /* Color+Extension.swift */,
 				4A29B97E2C48954D008DD083 /* Preview Content */,
@@ -142,6 +148,8 @@
 			files = (
 				4A29B97B2C48954C008DD083 /* ContentView.swift in Sources */,
 				4A6583DA2C489BBD009740DA /* Color+Extension.swift in Sources */,
+				4A6583DE2C48A4DB009740DA /* EntriesView.swift in Sources */,
+				4A6583DC2C489F56009740DA /* LoginView.swift in Sources */,
 				4A29B9792C48954C008DD083 /* SessionWithServerAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
