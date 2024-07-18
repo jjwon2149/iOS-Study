@@ -7,22 +7,18 @@
 
 import SwiftUI
 
-struct Entry: Identifiable {
-    let id = UUID()
-    let date: String
-    let text: String
-}
-
 struct EntriesView: View {
     
-    var entries: [Entry] = [
-        Entry(date: "Jan 25, 2023", text: "I have started a new project at work."),
-        Entry(date: "Dec 12, 2022", text: "My brother is visiting from the west coast for the holidays."),
-        Entry(date: "Nov 10, 2022", text: "I'm thinking about moving to a new city."),
-        Entry(date: "Oct 23, 2022", text: "I just finished reading a great book on minimalism."),
-        Entry(date: "Sep 5, 2022", text: "I'm going to travel to Italy next year."),
-        Entry(date: "Aug 18, 2022", text: "I'm starting to learn how to play the guitar.")
-    ]
+    //Navigation Title foreground color change
+    init() {
+        //Use this if NavigationBarTitle is with Large Font
+        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor(.white)]
+        //Use this if NavigationBarTitle is with displayMode = .inline
+        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor(.white)]
+    }
+    
+    @State private var entries: [Entry] = []
+    @State private var isShowNewEntry = false
     
     var body: some View {
         
@@ -48,7 +44,8 @@ struct EntriesView: View {
                     .toolbar {
                         ToolbarItem {
                             Button {
-                                print("tap!")
+                                //TODO: - NewEntry와 연결
+                                isShowNewEntry = true
                             } label: {
                                 Image(systemName: "plus")
                                     .foregroundStyle(.white)
@@ -57,6 +54,9 @@ struct EntriesView: View {
                             }
                         }
                     } //toolbar
+                    .navigationDestination(isPresented: $isShowNewEntry) {
+                        NewEntryView()
+                    }
                     
                 }
             } //ZStack
@@ -64,6 +64,8 @@ struct EntriesView: View {
         .scrollContentBackground(.hidden)
     }
 }
+
+
 
 #Preview {
     EntriesView()

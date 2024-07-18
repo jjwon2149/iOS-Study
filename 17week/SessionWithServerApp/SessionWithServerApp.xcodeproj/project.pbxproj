@@ -14,6 +14,9 @@
 		4A6583DA2C489BBD009740DA /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6583D92C489BBD009740DA /* Color+Extension.swift */; };
 		4A6583DC2C489F56009740DA /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6583DB2C489F56009740DA /* LoginView.swift */; };
 		4A6583DE2C48A4DB009740DA /* EntriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6583DD2C48A4DB009740DA /* EntriesView.swift */; };
+		4A6583E02C48E0B7009740DA /* NewEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6583DF2C48E0B7009740DA /* NewEntryView.swift */; };
+		4A6583E32C48E352009740DA /* EntryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6583E22C48E352009740DA /* EntryViewModel.swift */; };
+		4A6583E62C48E36D009740DA /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6583E52C48E36D009740DA /* Entry.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +28,9 @@
 		4A6583D92C489BBD009740DA /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		4A6583DB2C489F56009740DA /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		4A6583DD2C48A4DB009740DA /* EntriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntriesView.swift; sourceTree = "<group>"; };
+		4A6583DF2C48E0B7009740DA /* NewEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEntryView.swift; sourceTree = "<group>"; };
+		4A6583E22C48E352009740DA /* EntryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryViewModel.swift; sourceTree = "<group>"; };
+		4A6583E52C48E36D009740DA /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,11 +64,11 @@
 			isa = PBXGroup;
 			children = (
 				4A29B9782C48954C008DD083 /* SessionWithServerAppApp.swift */,
-				4A29B97A2C48954C008DD083 /* ContentView.swift */,
-				4A6583DB2C489F56009740DA /* LoginView.swift */,
-				4A6583DD2C48A4DB009740DA /* EntriesView.swift */,
+				4A6583E72C48E376009740DA /* Model */,
+				4A6583E42C48E35A009740DA /* ViewModels */,
+				4A6583E12C48E32E009740DA /* Views */,
 				4A29B97C2C48954D008DD083 /* Assets.xcassets */,
-				4A6583D92C489BBD009740DA /* Color+Extension.swift */,
+				4A6583E82C48E399009740DA /* Extensions */,
 				4A29B97E2C48954D008DD083 /* Preview Content */,
 			);
 			path = SessionWithServerApp;
@@ -74,6 +80,41 @@
 				4A29B97F2C48954D008DD083 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4A6583E12C48E32E009740DA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4A29B97A2C48954C008DD083 /* ContentView.swift */,
+				4A6583DB2C489F56009740DA /* LoginView.swift */,
+				4A6583DD2C48A4DB009740DA /* EntriesView.swift */,
+				4A6583DF2C48E0B7009740DA /* NewEntryView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4A6583E42C48E35A009740DA /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				4A6583E22C48E352009740DA /* EntryViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		4A6583E72C48E376009740DA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4A6583E52C48E36D009740DA /* Entry.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4A6583E82C48E399009740DA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4A6583D92C489BBD009740DA /* Color+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,8 +187,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A6583E62C48E36D009740DA /* Entry.swift in Sources */,
+				4A6583E02C48E0B7009740DA /* NewEntryView.swift in Sources */,
 				4A29B97B2C48954C008DD083 /* ContentView.swift in Sources */,
 				4A6583DA2C489BBD009740DA /* Color+Extension.swift in Sources */,
+				4A6583E32C48E352009740DA /* EntryViewModel.swift in Sources */,
 				4A6583DE2C48A4DB009740DA /* EntriesView.swift in Sources */,
 				4A6583DC2C489F56009740DA /* LoginView.swift in Sources */,
 				4A29B9792C48954C008DD083 /* SessionWithServerAppApp.swift in Sources */,
