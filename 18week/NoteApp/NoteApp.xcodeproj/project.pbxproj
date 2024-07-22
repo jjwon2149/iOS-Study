@@ -15,6 +15,8 @@
 		4A6584072C4DEDC5009740DA /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 4A6584062C4DEDC5009740DA /* FirebaseAuth */; };
 		4A6584092C4DEDC5009740DA /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 4A6584082C4DEDC5009740DA /* FirebaseFirestore */; };
 		4A65840B2C4DEDC5009740DA /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4A65840A2C4DEDC5009740DA /* FirebaseFirestoreSwift */; };
+		4A65840D2C4DF8BE009740DA /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A65840C2C4DF8BE009740DA /* Note.swift */; };
+		4A65840F2C4DF90C009740DA /* NoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A65840E2C4DF90C009740DA /* NoteViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		4A6583F92C4DE89F009740DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4A6583FC2C4DE89F009740DA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4A6584032C4DEAD4009740DA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4A65840C2C4DF8BE009740DA /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		4A65840E2C4DF90C009740DA /* NoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +68,8 @@
 				4A6583F92C4DE89F009740DA /* Assets.xcassets */,
 				4A6584032C4DEAD4009740DA /* GoogleService-Info.plist */,
 				4A6583FB2C4DE89F009740DA /* Preview Content */,
+				4A65840C2C4DF8BE009740DA /* Note.swift */,
+				4A65840E2C4DF90C009740DA /* NoteViewModel.swift */,
 			);
 			path = NoteApp;
 			sourceTree = "<group>";
@@ -155,8 +161,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A65840F2C4DF90C009740DA /* NoteViewModel.swift in Sources */,
 				4A6583F82C4DE89E009740DA /* ContentView.swift in Sources */,
 				4A6583F62C4DE89E009740DA /* NoteAppApp.swift in Sources */,
+				4A65840D2C4DF8BE009740DA /* Note.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
