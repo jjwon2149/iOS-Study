@@ -17,6 +17,7 @@
 		4A65840B2C4DEDC5009740DA /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4A65840A2C4DEDC5009740DA /* FirebaseFirestoreSwift */; };
 		4A65840D2C4DF8BE009740DA /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A65840C2C4DF8BE009740DA /* Note.swift */; };
 		4A65840F2C4DF90C009740DA /* NoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A65840E2C4DF90C009740DA /* NoteViewModel.swift */; };
+		4A6584112C4DFF89009740DA /* FormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6584102C4DFF89009740DA /* FormView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		4A6584032C4DEAD4009740DA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4A65840C2C4DF8BE009740DA /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		4A65840E2C4DF90C009740DA /* NoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewModel.swift; sourceTree = "<group>"; };
+		4A6584102C4DFF89009740DA /* FormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 			children = (
 				4A6583F52C4DE89E009740DA /* NoteAppApp.swift */,
 				4A6583F72C4DE89E009740DA /* ContentView.swift */,
+				4A6584102C4DFF89009740DA /* FormView.swift */,
 				4A6583F92C4DE89F009740DA /* Assets.xcassets */,
 				4A6584032C4DEAD4009740DA /* GoogleService-Info.plist */,
 				4A6583FB2C4DE89F009740DA /* Preview Content */,
@@ -163,6 +166,7 @@
 			files = (
 				4A65840F2C4DF90C009740DA /* NoteViewModel.swift in Sources */,
 				4A6583F82C4DE89E009740DA /* ContentView.swift in Sources */,
+				4A6584112C4DFF89009740DA /* FormView.swift in Sources */,
 				4A6583F62C4DE89E009740DA /* NoteAppApp.swift in Sources */,
 				4A65840D2C4DF8BE009740DA /* Note.swift in Sources */,
 			);
