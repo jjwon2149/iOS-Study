@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+class EntryViewModel: ObservableObject {
+    @Published var entries: [Entry]
+}
+
