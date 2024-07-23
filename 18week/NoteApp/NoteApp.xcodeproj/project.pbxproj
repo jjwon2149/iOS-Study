@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4A6583F62C4DE89E009740DA /* NoteAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6583F52C4DE89E009740DA /* NoteAppApp.swift */; };
-		4A6583F82C4DE89E009740DA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6583F72C4DE89E009740DA /* ContentView.swift */; };
 		4A6583FA2C4DE89F009740DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A6583F92C4DE89F009740DA /* Assets.xcassets */; };
 		4A6583FD2C4DE89F009740DA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A6583FC2C4DE89F009740DA /* Preview Assets.xcassets */; };
 		4A6584042C4DEAD4009740DA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4A6584032C4DEAD4009740DA /* GoogleService-Info.plist */; };
@@ -28,7 +27,6 @@
 /* Begin PBXFileReference section */
 		4A6583F22C4DE89E009740DA /* NoteApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoteApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A6583F52C4DE89E009740DA /* NoteAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteAppApp.swift; sourceTree = "<group>"; };
-		4A6583F72C4DE89E009740DA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4A6583F92C4DE89F009740DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4A6583FC2C4DE89F009740DA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4A6584032C4DEAD4009740DA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -76,18 +74,13 @@
 			isa = PBXGroup;
 			children = (
 				4A6583F52C4DE89E009740DA /* NoteAppApp.swift */,
-				4A6583F72C4DE89E009740DA /* ContentView.swift */,
-				4A6584102C4DFF89009740DA /* FormView.swift */,
-				4A6584122C4E219E009740DA /* DetailsView.swift */,
-				4A6584162C4F2E52009740DA /* HolderView.swift */,
-				4A6584182C4F2E91009740DA /* SignUpView.swift */,
-				4A65841A2C4F41F5009740DA /* ResetPasswordView.swift */,
+				4A65841F2C4F6841009740DA /* NoteViews */,
+				4A65841E2C4F681D009740DA /* AuthViews */,
 				4A6583F92C4DE89F009740DA /* Assets.xcassets */,
 				4A6584032C4DEAD4009740DA /* GoogleService-Info.plist */,
 				4A6583FB2C4DE89F009740DA /* Preview Content */,
-				4A65840C2C4DF8BE009740DA /* Note.swift */,
-				4A65840E2C4DF90C009740DA /* NoteViewModel.swift */,
-				4A6584142C4F2CB4009740DA /* AuthViewModel.swift */,
+				4A65841D2C4F66EC009740DA /* Models */,
+				4A65841C2C4F66DD009740DA /* ViewModels */,
 			);
 			path = NoteApp;
 			sourceTree = "<group>";
@@ -98,6 +91,42 @@
 				4A6583FC2C4DE89F009740DA /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4A65841C2C4F66DD009740DA /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				4A65840E2C4DF90C009740DA /* NoteViewModel.swift */,
+				4A6584142C4F2CB4009740DA /* AuthViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		4A65841D2C4F66EC009740DA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4A65840C2C4DF8BE009740DA /* Note.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4A65841E2C4F681D009740DA /* AuthViews */ = {
+			isa = PBXGroup;
+			children = (
+				4A6584182C4F2E91009740DA /* SignUpView.swift */,
+				4A65841A2C4F41F5009740DA /* ResetPasswordView.swift */,
+			);
+			path = AuthViews;
+			sourceTree = "<group>";
+		};
+		4A65841F2C4F6841009740DA /* NoteViews */ = {
+			isa = PBXGroup;
+			children = (
+				4A6584102C4DFF89009740DA /* FormView.swift */,
+				4A6584122C4E219E009740DA /* DetailsView.swift */,
+				4A6584162C4F2E52009740DA /* HolderView.swift */,
+			);
+			path = NoteViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,7 +209,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A65840F2C4DF90C009740DA /* NoteViewModel.swift in Sources */,
-				4A6583F82C4DE89E009740DA /* ContentView.swift in Sources */,
 				4A6584112C4DFF89009740DA /* FormView.swift in Sources */,
 				4A6584152C4F2CB4009740DA /* AuthViewModel.swift in Sources */,
 				4A6584172C4F2E52009740DA /* HolderView.swift in Sources */,
