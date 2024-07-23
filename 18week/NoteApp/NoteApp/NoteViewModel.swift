@@ -6,20 +6,25 @@
 //
 
 import Foundation
+import FirebaseAuth
 import FirebaseFirestore
 
 class NoteViewModel: ObservableObject {
     @Published var notes = [Note]()
     
-    private var databaseReference = Firestore.firestore().collection("Notes")
+    private lazy var databaseReference: CollectionReference? = {
+        guard let userId = Auth.auth().currentUser?.uid else { return nil }
+        let ref = Firestore.firestore().collection("Users").document(userId).collection("Posts")
+        return ref
+    }()
     
     func addData(title: String) {
-        let docRef = databaseReference.addDocument(data: ["title": title])
+        let docRef = databaseReference?.addDocument(data: ["title": title])
         dump(docRef)
     }
     
     func fetchData() {
-        databaseReference.addSnapshotListener { (querySnapshot, error) in
+        databaseReference?.addSnapshotListener { (querySnapshot, error) in
             guard let documents = querySnapshot?.documents else {
                 print("No documents")
                 return
@@ -32,7 +37,7 @@ class NoteViewModel: ObservableObject {
     }
     
     func updateData(title: String, id: String) {
-        databaseReference.document(id).updateData(["title": title]) { error in
+        databaseReference?.document(id).updateData(["title": title]) { error in
             if let error = error {
                 print("Error: \(error)")
             } else {
@@ -44,7 +49,7 @@ class NoteViewModel: ObservableObject {
     func deleteData(at indexSet: IndexSet) {
         indexSet.forEach { index in
             let note = notes[index]
-            databaseReference.document(note.id ?? "").delete { error in
+            databaseReference?.document(note.id ?? "").delete { error in
                 if let error = error {
                     print("\(error.localizedDescription)")
                 } else {
