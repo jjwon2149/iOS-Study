@@ -15,6 +15,7 @@
 		4A4758672C4F6AEB00BD8CE1 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4758662C4F6AEB00BD8CE1 /* Post.swift */; };
 		4A4758692C4F6C9900BD8CE1 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4758682C4F6C9900BD8CE1 /* PostViewModel.swift */; };
 		4A47586B2C4F733700BD8CE1 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A47586A2C4F733700BD8CE1 /* PostView.swift */; };
+		4A47586D2C4F795500BD8CE1 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A47586C2C4F795500BD8CE1 /* FeedView.swift */; };
 		4A65842D2C4F68AB009740DA /* SociallyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A65842C2C4F68AB009740DA /* SociallyApp.swift */; };
 		4A65842F2C4F68AB009740DA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A65842E2C4F68AB009740DA /* ContentView.swift */; };
 		4A6584312C4F68AD009740DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A6584302C4F68AD009740DA /* Assets.xcassets */; };
@@ -26,6 +27,7 @@
 		4A4758662C4F6AEB00BD8CE1 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		4A4758682C4F6C9900BD8CE1 /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
 		4A47586A2C4F733700BD8CE1 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
+		4A47586C2C4F795500BD8CE1 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
 		4A6584292C4F68AB009740DA /* Socially.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Socially.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A65842C2C4F68AB009740DA /* SociallyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SociallyApp.swift; sourceTree = "<group>"; };
 		4A65842E2C4F68AB009740DA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				4A4758662C4F6AEB00BD8CE1 /* Post.swift */,
 				4A4758682C4F6C9900BD8CE1 /* PostViewModel.swift */,
 				4A47586A2C4F733700BD8CE1 /* PostView.swift */,
+				4A47586C2C4F795500BD8CE1 /* FeedView.swift */,
 				4A6584302C4F68AD009740DA /* Assets.xcassets */,
 				4A47585B2C4F6A7300BD8CE1 /* GoogleService-Info.plist */,
 				4A6584322C4F68AD009740DA /* Preview Content */,
@@ -171,6 +174,7 @@
 				4A4758672C4F6AEB00BD8CE1 /* Post.swift in Sources */,
 				4A65842F2C4F68AB009740DA /* ContentView.swift in Sources */,
 				4A47586B2C4F733700BD8CE1 /* PostView.swift in Sources */,
+				4A47586D2C4F795500BD8CE1 /* FeedView.swift in Sources */,
 				4A65842D2C4F68AB009740DA /* SociallyApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
