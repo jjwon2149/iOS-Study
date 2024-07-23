@@ -23,8 +23,10 @@ struct SociallyApp: App {
     
     var body: some Scene {
         WindowGroup {
-            FeedView()
-                .environmentObject(PostViewModel())
+//            FeedView()
+//                .environmentObject(PostViewModel())
+            SignUpView()
+                .environmentObject(AuthViewModel())
         }
     }
 }
