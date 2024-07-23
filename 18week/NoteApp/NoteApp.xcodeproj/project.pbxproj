@@ -22,6 +22,7 @@
 		4A6584152C4F2CB4009740DA /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6584142C4F2CB4009740DA /* AuthViewModel.swift */; };
 		4A6584172C4F2E52009740DA /* HolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6584162C4F2E52009740DA /* HolderView.swift */; };
 		4A6584192C4F2E91009740DA /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6584182C4F2E91009740DA /* SignUpView.swift */; };
+		4A65841B2C4F41F5009740DA /* ResetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A65841A2C4F41F5009740DA /* ResetPasswordView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		4A6584142C4F2CB4009740DA /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		4A6584162C4F2E52009740DA /* HolderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolderView.swift; sourceTree = "<group>"; };
 		4A6584182C4F2E91009740DA /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		4A65841A2C4F41F5009740DA /* ResetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 				4A6584122C4E219E009740DA /* DetailsView.swift */,
 				4A6584162C4F2E52009740DA /* HolderView.swift */,
 				4A6584182C4F2E91009740DA /* SignUpView.swift */,
+				4A65841A2C4F41F5009740DA /* ResetPasswordView.swift */,
 				4A6583F92C4DE89F009740DA /* Assets.xcassets */,
 				4A6584032C4DEAD4009740DA /* GoogleService-Info.plist */,
 				4A6583FB2C4DE89F009740DA /* Preview Content */,
@@ -183,6 +186,7 @@
 				4A6584172C4F2E52009740DA /* HolderView.swift in Sources */,
 				4A6583F62C4DE89E009740DA /* NoteAppApp.swift in Sources */,
 				4A65840D2C4DF8BE009740DA /* Note.swift in Sources */,
+				4A65841B2C4F41F5009740DA /* ResetPasswordView.swift in Sources */,
 				4A6584192C4F2E91009740DA /* SignUpView.swift in Sources */,
 				4A6584132C4E219E009740DA /* DetailsView.swift in Sources */,
 			);
