@@ -44,4 +44,13 @@ final class AuthViewModel: ObservableObject {
             print("signOut Error: \(signOutError)")
         }
     }
+    
+    func resetPassword(emailAddress: String) {
+        Auth.auth().sendPasswordReset(withEmail: emailAddress) { error in
+            if let error = error {
+                print("error: \(error.localizedDescription)")
+            }
+            print("done")
+        }
+    }
 }
