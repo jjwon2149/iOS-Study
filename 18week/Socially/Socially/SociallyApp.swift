@@ -19,14 +19,23 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
 @main
 struct SociallyApp: App {
+    @StateObject var authModel = AuthViewModel()
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
     var body: some Scene {
         WindowGroup {
-//            FeedView()
-//                .environmentObject(PostViewModel())
-            SignUpView()
-                .environmentObject(AuthViewModel())
+            Group {
+                if authModel.user == nil {
+                    SignUpView()
+                } else {
+                    FeedView()
+                        .environmentObject(PostViewModel())
+                }
+            }
+            .environmentObject(authModel)
+            .onAppear {
+                authModel.listenToAuthState() //로그인 여부 save
+            }
         }
     }
 }
