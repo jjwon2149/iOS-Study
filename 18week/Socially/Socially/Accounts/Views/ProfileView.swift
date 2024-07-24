@@ -20,7 +20,51 @@ struct ProfileView: View {
             if authModel.user != nil {
                 Form {
                     Section("Your account") {
-                        Text(authModel.user?.email ?? "")
+                        HStack {
+                            PhotosPicker(selection: $selectedItem, maxSelectionCount: 1, selectionBehavior: .default, matching: .images, preferredItemEncoding: .automatic) {
+                                if let data = data, let image = UIImage(data: data) {
+                                    Image(uiImage: image)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(maxHeight: 80)
+                                } else {
+                                    AsyncImage(url: authModel.user?.photoURL) { phase in
+                                        switch phase {
+                                        case .empty:
+                                            EmptyView()
+                                        case .success(let image):
+                                            image
+                                                .resizable()
+                                                .scaledToFill()
+                                                .frame(width: 80, height: 80)
+                                                .clipped()
+                                        case .failure:
+                                            Image(systemName: "person.circle")
+                                        @unknown default:
+                                            EmptyView()
+                                        }
+                                    }
+                                    Label("Select a picture", systemImage: "photo.on.rectangle.angled")
+                                }
+                            }.onChange(of: selectedItem) { _, newValue in
+                                guard let item = selectedItem.first else {
+                                    return
+                                }
+                                item.loadTransferable(type: Data.self) { result in
+                                    switch result {
+                                    case .success(let data):
+                                        if let data = data {
+                                            self.data = data
+                                            authModel.uploadProfileImage(data)
+                                        }
+                                    case .failure(let failure):
+                                        print("Error: \(failure.localizedDescription)")
+                                    }
+                                }
+                            }
+                            
+                            Text(authModel.user?.email ?? "")
+                        }
                     }
                     Button {
                         authModel.signOut()
