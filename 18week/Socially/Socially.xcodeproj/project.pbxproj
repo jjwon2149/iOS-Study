@@ -57,6 +57,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A4B5E6E2C50994E00AD98AA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4A4758662C4F6AEB00BD8CE1 /* Post.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4A4B5E6F2C50995900AD98AA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4A47586A2C4F733700BD8CE1 /* PostView.swift */,
+				4A47586C2C4F795500BD8CE1 /* FeedView.swift */,
+			);
+			name = Views;
+			path = Socially/Posts/Views;
+			sourceTree = SOURCE_ROOT;
+		};
+		4A4B5E702C50996C00AD98AA /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				4A4758682C4F6C9900BD8CE1 /* PostViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		4A4B5E712C50997A00AD98AA /* Posts */ = {
+			isa = PBXGroup;
+			children = (
+				4A4B5E702C50996C00AD98AA /* ViewModels */,
+				4A4B5E6E2C50994E00AD98AA /* Models */,
+				4A4B5E6F2C50995900AD98AA /* Views */,
+			);
+			path = Posts;
+			sourceTree = "<group>";
+		};
 		4A6584202C4F68AB009740DA = {
 			isa = PBXGroup;
 			children = (
@@ -79,13 +115,8 @@
 				4A47586E2C4F7FAF00BD8CE1 /* Socially.entitlements */,
 				4A65842C2C4F68AB009740DA /* SociallyApp.swift */,
 				4A65842E2C4F68AB009740DA /* ContentView.swift */,
-				4A4758662C4F6AEB00BD8CE1 /* Post.swift */,
-				4A4B5E6B2C50805300AD98AA /* ProfileView.swift */,
-				4A4758682C4F6C9900BD8CE1 /* PostViewModel.swift */,
-				4A47586A2C4F733700BD8CE1 /* PostView.swift */,
-				4A47586C2C4F795500BD8CE1 /* FeedView.swift */,
-				4A4758712C4F81B500BD8CE1 /* SignUpView.swift */,
-				4A47586F2C4F805F00BD8CE1 /* AuthViewModel.swift */,
+				4A4B5E712C50997A00AD98AA /* Posts */,
+				4AB5F73B2C509A32009CC47F /* Accounts */,
 				4A6584302C4F68AD009740DA /* Assets.xcassets */,
 				4A47585B2C4F6A7300BD8CE1 /* GoogleService-Info.plist */,
 				4A6584322C4F68AD009740DA /* Preview Content */,
@@ -99,6 +130,32 @@
 				4A6584332C4F68AD009740DA /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4AB5F7392C509A19009CC47F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4A4758712C4F81B500BD8CE1 /* SignUpView.swift */,
+				4A4B5E6B2C50805300AD98AA /* ProfileView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4AB5F73A2C509A29009CC47F /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				4A47586F2C4F805F00BD8CE1 /* AuthViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		4AB5F73B2C509A32009CC47F /* Accounts */ = {
+			isa = PBXGroup;
+			children = (
+				4AB5F7392C509A19009CC47F /* Views */,
+				4AB5F73A2C509A29009CC47F /* ViewModels */,
+			);
+			path = Accounts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

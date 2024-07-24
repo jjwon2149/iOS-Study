@@ -12,15 +12,30 @@ struct FeedView: View {
     
     @FirestoreQuery(collectionPath: "Posts") var posts: [Post]
     @EnvironmentObject private var authModel: AuthViewModel
-
+    
     var body: some View {
         NavigationStack {
             List(posts) { post in
                 VStack(alignment: .leading) {
-                    VStack {
+                    AsyncImage(url: URL(string: post.imageURL ?? "")) { phase in
+                        switch phase {
+                        case .empty:
+                            EmptyView()
+                        case .success(let image):
+                            image
+                                .resizable()
+                                .frame(width: 300, height: 200)
+                        case .failure:
+                            Image(systemName: "photo")
+                        @unknown default:
+                            EmptyView()
+                        }
+                    }
+                    
+                    VStack(alignment: .leading) {
                         Text(post.description ?? "")
                             .font(.headline)
-                            .padding(12)
+                            .padding([.bottom, .top], 6)
                         Text("Published on the \(post.datePublished?.formatted() ?? "")")
                             .font(.caption)
                     }
@@ -33,11 +48,13 @@ struct FeedView: View {
                     Button {
                         authModel.signOut()
                     } label: {
-                        Text("Sign Out")
+                        Text("Sign out")
                     }
                 }
             }
+            
         }
+        
     }
 }
 
