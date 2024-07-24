@@ -24,18 +24,8 @@ struct SociallyApp: App {
     
     var body: some Scene {
         WindowGroup {
-            Group {
-                if authModel.user == nil {
-                    SignUpView()
-                } else {
-                    FeedView()
-                        .environmentObject(PostViewModel())
-                }
-            }
-            .environmentObject(authModel)
-            .onAppear {
-                authModel.listenToAuthState() //로그인 여부 save
-            }
+            ProfileView()
+                .environmentObject(authModel)
         }
     }
 }
