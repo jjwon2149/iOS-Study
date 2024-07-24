@@ -6,11 +6,14 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct ProfileView: View {
     @EnvironmentObject var authModel: AuthViewModel
     
     @State private var showSignUp: Bool = false
+    @State var data: Data?
+    @State var selectedItem: [PhotosPickerItem] = []
     
     var body: some View {
         VStack(alignment: .center) {
