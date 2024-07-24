@@ -12,6 +12,7 @@ struct FeedView: View {
     
     @FirestoreQuery(collectionPath: "Posts") var posts: [Post]
     @EnvironmentObject private var authModel: AuthViewModel
+    @State var showingPost: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -51,6 +52,16 @@ struct FeedView: View {
                         Text("Sign out")
                     }
                 }
+                ToolbarItem(placement: .confirmationAction) {
+                    Button {
+                        showingPost = true
+                    } label: {
+                        Image(systemName: "square.and.pencil")
+                    }
+                }
+            }
+            .sheet(isPresented: $showingPost) {
+                PostView().presentationDetents([.medium, .large])
             }
             
         }

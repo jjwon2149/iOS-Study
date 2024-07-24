@@ -11,6 +11,7 @@ import PhotosUI
 struct PostView: View {
     
     @EnvironmentObject private var viewModel: PostViewModel
+    @Environment(\.dismiss) var dismiss
     
     @State private var description = ""
     @State var data: Data?
@@ -62,6 +63,7 @@ struct PostView: View {
                                     return
                                 }
                                 print("upload & post done")
+                                dismiss()
                             }
                         }
                     } label: {
