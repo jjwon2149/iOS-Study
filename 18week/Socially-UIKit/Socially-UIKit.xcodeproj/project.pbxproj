@@ -13,9 +13,11 @@
 		4AB5F7552C51D761009CC47F /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 4AB5F7542C51D761009CC47F /* Base */; };
 		4AB5F7572C51D762009CC47F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AB5F7562C51D762009CC47F /* Assets.xcassets */; };
 		4AB5F75A2C51D762009CC47F /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 4AB5F7592C51D762009CC47F /* Base */; };
+		6DC714198F1F6F8E932B0E3D /* Pods_Socially_UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44F98EE85F8965AD2294CFD /* Pods_Socially_UIKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3B8D5CE6310AD39828743497 /* Pods-Socially-UIKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Socially-UIKit.debug.xcconfig"; path = "Target Support Files/Pods-Socially-UIKit/Pods-Socially-UIKit.debug.xcconfig"; sourceTree = "<group>"; };
 		4AB5F74A2C51D761009CC47F /* Socially-UIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Socially-UIKit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AB5F74D2C51D761009CC47F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4AB5F74F2C51D761009CC47F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +26,8 @@
 		4AB5F7562C51D762009CC47F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4AB5F7592C51D762009CC47F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4AB5F75B2C51D762009CC47F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D44F98EE85F8965AD2294CFD /* Pods_Socially_UIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Socially_UIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED6096AA180F34C9B3C5A2D0 /* Pods-Socially-UIKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Socially-UIKit.release.xcconfig"; path = "Target Support Files/Pods-Socially-UIKit/Pods-Socially-UIKit.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6DC714198F1F6F8E932B0E3D /* Pods_Socially_UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +47,8 @@
 			children = (
 				4AB5F74C2C51D761009CC47F /* Socially-UIKit */,
 				4AB5F74B2C51D761009CC47F /* Products */,
+				8AE2EF42D44E5C6038DF2F76 /* Pods */,
+				A1C397B75FECD2628B1A5588 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +74,24 @@
 			path = "Socially-UIKit";
 			sourceTree = "<group>";
 		};
+		8AE2EF42D44E5C6038DF2F76 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3B8D5CE6310AD39828743497 /* Pods-Socially-UIKit.debug.xcconfig */,
+				ED6096AA180F34C9B3C5A2D0 /* Pods-Socially-UIKit.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		A1C397B75FECD2628B1A5588 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D44F98EE85F8965AD2294CFD /* Pods_Socially_UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +99,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4AB5F75E2C51D762009CC47F /* Build configuration list for PBXNativeTarget "Socially-UIKit" */;
 			buildPhases = (
+				51156337A4382D44A35BC1B0 /* [CP] Check Pods Manifest.lock */,
 				4AB5F7462C51D761009CC47F /* Sources */,
 				4AB5F7472C51D761009CC47F /* Frameworks */,
 				4AB5F7482C51D761009CC47F /* Resources */,
+				007C50071372B39CAAA2650D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,6 +159,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		007C50071372B39CAAA2650D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Socially-UIKit/Pods-Socially-UIKit-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Socially-UIKit/Pods-Socially-UIKit-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Socially-UIKit/Pods-Socially-UIKit-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		51156337A4382D44A35BC1B0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Socially-UIKit-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4AB5F7462C51D761009CC47F /* Sources */ = {
@@ -287,6 +356,7 @@
 		};
 		4AB5F75F2C51D762009CC47F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B8D5CE6310AD39828743497 /* Pods-Socially-UIKit.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -315,6 +385,7 @@
 		};
 		4AB5F7602C51D762009CC47F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ED6096AA180F34C9B3C5A2D0 /* Pods-Socially-UIKit.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
