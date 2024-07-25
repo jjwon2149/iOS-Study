@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseFirestore
+import Kingfisher
 
 class ViewController: UIViewController {
     
@@ -36,22 +37,40 @@ class ViewController: UIViewController {
     func configureTableView() {
         tableView = UITableView(frame: view.bounds, style: .plain)
         view.addSubview(tableView)
-        tableView.register(UITableView.self, forCellReuseIdentifier: "postCell")
-        tableView.rowHeight = 280
+        tableView.register(PostTableViewCell.self, forCellReuseIdentifier: "postCell")
     }
     
     func configureDataSource() {
         dataSource = UITableViewDiffableDataSource<Section, Post>(tableView: tableView) { (tableView, indexPath, item) in
-            let cell = tableView.dequeueReusableCell(withIdentifier: "postCell")
-            
-            var config = cell?.defaultContentConfiguration()
-            
-            config?.text = item.description
-            
-            cell?.contentConfiguration = config
+            let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as! PostTableViewCell
+            cell.descriptionLabel.text = item.description
+            self.downloadImage(with: item.imageURL ?? "") { result in
+                DispatchQueue.main.async {
+                    cell.postImageView.image = result
+                }
+            }
             
             return cell
         }
+    }
+    
+    func downloadImage(with urlString : String , imageCompletionHandler: @escaping (UIImage?) -> Void){
+        guard let url = URL.init(string: urlString) else {
+            return  imageCompletionHandler(nil)
+        }
+        let resource = KF.ImageResource(downloadURL: url)
+        
+        DispatchQueue.main.async {
+            KingfisherManager.shared.retrieveImage(with: resource, options: nil, progressBlock: nil) { result in
+                switch result {
+                case .success(let value):
+                    imageCompletionHandler(value.image)
+                case .failure:
+                    imageCompletionHandler(nil)
+                }
+            }
+        }
+        
     }
     
     func startListeningToFirestore() {
