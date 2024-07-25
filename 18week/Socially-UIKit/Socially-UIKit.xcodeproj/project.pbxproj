@@ -14,6 +14,7 @@
 		4AB5F7572C51D762009CC47F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AB5F7562C51D762009CC47F /* Assets.xcassets */; };
 		4AB5F75A2C51D762009CC47F /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 4AB5F7592C51D762009CC47F /* Base */; };
 		4AB5F7622C51EE12009CC47F /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5F7612C51EE12009CC47F /* Post.swift */; };
+		4AB5F7642C51F3CE009CC47F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4AB5F7632C51F3CE009CC47F /* GoogleService-Info.plist */; };
 		6DC714198F1F6F8E932B0E3D /* Pods_Socially_UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44F98EE85F8965AD2294CFD /* Pods_Socially_UIKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +29,7 @@
 		4AB5F7592C51D762009CC47F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4AB5F75B2C51D762009CC47F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4AB5F7612C51EE12009CC47F /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		4AB5F7632C51F3CE009CC47F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D44F98EE85F8965AD2294CFD /* Pods_Socially_UIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Socially_UIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED6096AA180F34C9B3C5A2D0 /* Pods-Socially-UIKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Socially-UIKit.release.xcconfig"; path = "Target Support Files/Pods-Socially-UIKit/Pods-Socially-UIKit.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -72,6 +74,7 @@
 				4AB5F7532C51D761009CC47F /* Main.storyboard */,
 				4AB5F7562C51D762009CC47F /* Assets.xcassets */,
 				4AB5F7582C51D762009CC47F /* LaunchScreen.storyboard */,
+				4AB5F7632C51F3CE009CC47F /* GoogleService-Info.plist */,
 				4AB5F75B2C51D762009CC47F /* Info.plist */,
 			);
 			path = "Socially-UIKit";
@@ -155,6 +158,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4AB5F7572C51D762009CC47F /* Assets.xcassets in Resources */,
+				4AB5F7642C51F3CE009CC47F /* GoogleService-Info.plist in Resources */,
 				4AB5F75A2C51D762009CC47F /* Base in Resources */,
 				4AB5F7552C51D761009CC47F /* Base in Resources */,
 			);

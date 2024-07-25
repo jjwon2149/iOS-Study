@@ -13,4 +13,9 @@ struct Post: Identifiable, Decodable, Hashable {
     var description: String?
     var imageURL: String?
     @ServerTimestamp var datePublished: Date?
+    
+    init?(document: QueryDocumentSnapshot) {
+        self.id = document.documentID
+        self.description = document.data()["description"] as? String
+    }
 }
