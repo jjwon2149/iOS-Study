@@ -31,6 +31,22 @@ class ViewController: UIViewController {
         configureTableView()
         configureDataSource()
         startListeningToFirestore()
+        
+        let barItem = UIBarButtonItem(systemItem: .add,
+                                      primaryAction: UIAction { [weak self] action in
+            let newPostViewController = NewPostViewController()
+            let navigationController = UINavigationController(rootViewController: newPostViewController)
+            
+            if let sheet = navigationController.sheetPresentationController {
+                sheet.detents = [.medium(), .large()]
+                sheet.prefersGrabberVisible = true
+                sheet.preferredCornerRadius = 20
+            }
+            
+            self?.present(navigationController, animated: true, completion: nil)
+        })
+        
+        navigationItem.rightBarButtonItem = barItem
     }
     
     //MARK: - Methods
@@ -74,7 +90,9 @@ class ViewController: UIViewController {
     }
     
     func startListeningToFirestore() {
-        listener = db.collection("Posts").addSnapshotListener {
+        listener = db.collection("Posts")
+            .order(by: "datePublished", descending: true)
+            .addSnapshotListener {
             [weak self] querySnapshot, error in
             guard let documents = querySnapshot?.documents else {
                 print("Error fetching documents: \(error!)")

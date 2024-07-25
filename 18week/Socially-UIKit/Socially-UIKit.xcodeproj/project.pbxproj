@@ -16,6 +16,7 @@
 		4AB5F7622C51EE12009CC47F /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5F7612C51EE12009CC47F /* Post.swift */; };
 		4AB5F7642C51F3CE009CC47F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4AB5F7632C51F3CE009CC47F /* GoogleService-Info.plist */; };
 		4AB5F7662C521DDD009CC47F /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5F7652C521DDD009CC47F /* PostTableViewCell.swift */; };
+		4AB5F7682C522B2C009CC47F /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5F7672C522B2C009CC47F /* NewPostViewController.swift */; };
 		6DC714198F1F6F8E932B0E3D /* Pods_Socially_UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44F98EE85F8965AD2294CFD /* Pods_Socially_UIKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +33,7 @@
 		4AB5F7612C51EE12009CC47F /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		4AB5F7632C51F3CE009CC47F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4AB5F7652C521DDD009CC47F /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		4AB5F7672C522B2C009CC47F /* NewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
 		D44F98EE85F8965AD2294CFD /* Pods_Socially_UIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Socially_UIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED6096AA180F34C9B3C5A2D0 /* Pods-Socially-UIKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Socially-UIKit.release.xcconfig"; path = "Target Support Files/Pods-Socially-UIKit/Pods-Socially-UIKit.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -74,6 +76,7 @@
 				4AB5F7512C51D761009CC47F /* ViewController.swift */,
 				4AB5F7612C51EE12009CC47F /* Post.swift */,
 				4AB5F7652C521DDD009CC47F /* PostTableViewCell.swift */,
+				4AB5F7672C522B2C009CC47F /* NewPostViewController.swift */,
 				4AB5F7532C51D761009CC47F /* Main.storyboard */,
 				4AB5F7562C51D762009CC47F /* Assets.xcassets */,
 				4AB5F7582C51D762009CC47F /* LaunchScreen.storyboard */,
@@ -221,6 +224,7 @@
 				4AB5F7662C521DDD009CC47F /* PostTableViewCell.swift in Sources */,
 				4AB5F7502C51D761009CC47F /* SceneDelegate.swift in Sources */,
 				4AB5F7622C51EE12009CC47F /* Post.swift in Sources */,
+				4AB5F7682C522B2C009CC47F /* NewPostViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
