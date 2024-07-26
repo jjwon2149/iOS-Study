@@ -17,6 +17,7 @@
 		4AB5F7662C521DDD009CC47F /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5F7652C521DDD009CC47F /* PostTableViewCell.swift */; };
 		4AB5F7682C522B2C009CC47F /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5F7672C522B2C009CC47F /* NewPostViewController.swift */; };
 		4AB5F76A2C5323A7009CC47F /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5F7692C5323A7009CC47F /* ProfileViewController.swift */; };
+		4AB5F76F2C532DC2009CC47F /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5F76E2C532DC2009CC47F /* AuthService.swift */; };
 		6DC714198F1F6F8E932B0E3D /* Pods_Socially_UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44F98EE85F8965AD2294CFD /* Pods_Socially_UIKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +35,7 @@
 		4AB5F7652C521DDD009CC47F /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		4AB5F7672C522B2C009CC47F /* NewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
 		4AB5F7692C5323A7009CC47F /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		4AB5F76E2C532DC2009CC47F /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		D44F98EE85F8965AD2294CFD /* Pods_Socially_UIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Socially_UIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED6096AA180F34C9B3C5A2D0 /* Pods-Socially-UIKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Socially-UIKit.release.xcconfig"; path = "Target Support Files/Pods-Socially-UIKit/Pods-Socially-UIKit.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -73,17 +75,42 @@
 			children = (
 				4AB5F74D2C51D761009CC47F /* AppDelegate.swift */,
 				4AB5F74F2C51D761009CC47F /* SceneDelegate.swift */,
-				4AB5F7512C51D761009CC47F /* FeedViewController.swift */,
-				4AB5F7692C5323A7009CC47F /* ProfileViewController.swift */,
-				4AB5F7612C51EE12009CC47F /* Post.swift */,
-				4AB5F7652C521DDD009CC47F /* PostTableViewCell.swift */,
-				4AB5F7672C522B2C009CC47F /* NewPostViewController.swift */,
+				4AB5F76D2C532DB5009CC47F /* Service */,
+				4AB5F76B2C532DA1009CC47F /* Post */,
+				4AB5F76C2C532DA9009CC47F /* Account */,
 				4AB5F7562C51D762009CC47F /* Assets.xcassets */,
 				4AB5F7582C51D762009CC47F /* LaunchScreen.storyboard */,
 				4AB5F7632C51F3CE009CC47F /* GoogleService-Info.plist */,
 				4AB5F75B2C51D762009CC47F /* Info.plist */,
 			);
 			path = "Socially-UIKit";
+			sourceTree = "<group>";
+		};
+		4AB5F76B2C532DA1009CC47F /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				4AB5F7512C51D761009CC47F /* FeedViewController.swift */,
+				4AB5F7612C51EE12009CC47F /* Post.swift */,
+				4AB5F7652C521DDD009CC47F /* PostTableViewCell.swift */,
+				4AB5F7672C522B2C009CC47F /* NewPostViewController.swift */,
+			);
+			path = Post;
+			sourceTree = "<group>";
+		};
+		4AB5F76C2C532DA9009CC47F /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				4AB5F7692C5323A7009CC47F /* ProfileViewController.swift */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		4AB5F76D2C532DB5009CC47F /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				4AB5F76E2C532DC2009CC47F /* AuthService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		8AE2EF42D44E5C6038DF2F76 /* Pods */ = {
@@ -225,6 +252,7 @@
 				4AB5F76A2C5323A7009CC47F /* ProfileViewController.swift in Sources */,
 				4AB5F7622C51EE12009CC47F /* Post.swift in Sources */,
 				4AB5F7682C522B2C009CC47F /* NewPostViewController.swift in Sources */,
+				4AB5F76F2C532DC2009CC47F /* AuthService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
