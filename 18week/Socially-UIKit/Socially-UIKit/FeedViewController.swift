@@ -25,8 +25,8 @@ class FeedViewController: UIViewController {
         
         self.title = "Feed"
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        self.tabBarItem = UITabBarItem(title: "Feed", image: UIImage(systemName: "text.bubble"), tag: 0)
-        
+        self.view.backgroundColor = .white
+
         db = Firestore.firestore()
         configureTableView()
         configureDataSource()
