@@ -52,6 +52,11 @@ class FeedViewController: UIViewController {
     //MARK: - Methods
     func configureTableView() {
         tableView = UITableView(frame: view.bounds, style: .plain)
+        let refreshControl = UIRefreshControl()
+        refreshControl.addAction(UIAction { [weak self] _ in
+            self?.reloadData()
+        }, for: .valueChanged)
+        tableView.refreshControl = refreshControl
         view.addSubview(tableView)
         tableView.register(PostTableViewCell.self, forCellReuseIdentifier: "postCell")
     }
@@ -59,15 +64,58 @@ class FeedViewController: UIViewController {
     func configureDataSource() {
         dataSource = UITableViewDiffableDataSource<Section, Post>(tableView: tableView) { (tableView, indexPath, item) in
             let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as! PostTableViewCell
-            cell.descriptionLabel.text = item.description
-            self.downloadImage(with: item.imageURL ?? "") { result in
-                DispatchQueue.main.async {
-                    cell.postImageView.image = result
+            
+            // 기존 컨트롤 UI 제거
+            cell.contentView.subviews.forEach { subview in
+                if subview is UIControl {
+                    subview.removeFromSuperview()
                 }
             }
             
+            let control = UIControl()
+            control.translatesAutoresizingMaskIntoConstraints = false
+            let cellAction = UIAction { [weak self] _ in
+                let detailViewController = PostDetailViewController(post: item)
+                self?.navigationController?.pushViewController(detailViewController, animated: true)
+            }
+            control.addAction(cellAction, for: .touchUpInside)
+            cell.contentView.addSubview(control)
+            
+            NSLayoutConstraint.activate([
+                control.leadingAnchor.constraint(equalTo: cell.contentView.leadingAnchor),
+                control.trailingAnchor.constraint(equalTo: cell.trailingAnchor),
+                control.topAnchor.constraint(equalTo: cell.contentView.topAnchor),
+                control.bottomAnchor.constraint(equalTo: cell.contentView.bottomAnchor),
+            ])
+            
+            cell.descriptionLabel.text = item.description
+            if let imageURL = item.imageURL {
+                self.downloadImage(with: imageURL) { result in
+                    DispatchQueue.main.async {
+                        cell.postImageView.image = result
+                    }
+                }
+            } else {
+                cell.postImageView.image = UIImage(systemName: "photo.artframe")
+            }
+            
+            
             return cell
         }
+    }
+    
+    func reloadData() {
+        db.collection("Posts")
+            .order(by: "datePublished", descending: true).getDocuments {
+                [weak self] querySnapshot, error in
+                guard let documents = querySnapshot?.documents else {
+                    print("Error fetching documents: \(error!)")
+                    return
+                }
+                let posts = documents.compactMap { Post(document: $0) }
+                self?.updateDataSource(with: posts)
+                self?.tableView.refreshControl?.endRefreshing()
+            }
     }
     
     func downloadImage(with urlString : String , imageCompletionHandler: @escaping (UIImage?) -> Void){
