@@ -10,6 +10,11 @@ import FirebaseFirestore
 import FirebaseStorage
 
 class PostService {
+    
+    static let shared = PostService()
+    private init() {}
+
+    
     private let db = Firestore.firestore()
     private let storage = Storage.storage().reference()
     
@@ -43,7 +48,7 @@ class PostService {
         }
     }
     
-    func deletaPost(post: Post, completion: @escaping (Result<Void, Error>) -> Void) {
+    func deletePost(post: Post, completion: @escaping (Result<Void, Error>) -> Void) {
         if let postId = post.id {
             db.collection("Posts").document(postId).delete { error in
                 if let error = error {
