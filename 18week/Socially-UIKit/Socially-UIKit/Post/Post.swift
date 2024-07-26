@@ -16,6 +16,13 @@ struct Post: Identifiable, Decodable, Hashable {
     var path: String?
     @ServerTimestamp var datePublished: Date?
     
+    init(id: String, description: String, imageURL: String, datePublished: Date) {
+        self.id = id
+        self.description = description
+        self.imageURL = imageURL
+        self.datePublished = datePublished
+    }
+    
     init?(document: QueryDocumentSnapshot) {
         self.id = document.documentID
         self.description = document.data()["description"] as? String
@@ -38,7 +45,10 @@ struct Post: Identifiable, Decodable, Hashable {
                let docId = self.id {
                 Firestore.firestore().collection("Posts")
                     .document(docId)
-                    .setData(["imageURL": url.absoluteString], merge: true)
+                    .setData([
+                        "path": FieldValue.delete(),
+                        "imageURL": url.absoluteString
+                    ], merge: true)
             }
         }
         

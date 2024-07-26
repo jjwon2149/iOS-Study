@@ -19,6 +19,7 @@
 		4AB5F76A2C5323A7009CC47F /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5F7692C5323A7009CC47F /* ProfileViewController.swift */; };
 		4AB5F76F2C532DC2009CC47F /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5F76E2C532DC2009CC47F /* AuthService.swift */; };
 		4AB5F7722C53668C009CC47F /* PostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5F7712C53668C009CC47F /* PostDetailViewController.swift */; };
+		4AB5F7742C53742C009CC47F /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5F7732C53742C009CC47F /* PostService.swift */; };
 		6DC714198F1F6F8E932B0E3D /* Pods_Socially_UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44F98EE85F8965AD2294CFD /* Pods_Socially_UIKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +40,7 @@
 		4AB5F76E2C532DC2009CC47F /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		4AB5F7702C532DF4009CC47F /* Socially-UIKit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Socially-UIKit.entitlements"; sourceTree = "<group>"; };
 		4AB5F7712C53668C009CC47F /* PostDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewController.swift; sourceTree = "<group>"; };
+		4AB5F7732C53742C009CC47F /* PostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostService.swift; sourceTree = "<group>"; };
 		D44F98EE85F8965AD2294CFD /* Pods_Socially_UIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Socially_UIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED6096AA180F34C9B3C5A2D0 /* Pods-Socially-UIKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Socially-UIKit.release.xcconfig"; path = "Target Support Files/Pods-Socially-UIKit/Pods-Socially-UIKit.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -114,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				4AB5F76E2C532DC2009CC47F /* AuthService.swift */,
+				4AB5F7732C53742C009CC47F /* PostService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 				4AB5F7662C521DDD009CC47F /* PostTableViewCell.swift in Sources */,
 				4AB5F7502C51D761009CC47F /* SceneDelegate.swift in Sources */,
 				4AB5F7722C53668C009CC47F /* PostDetailViewController.swift in Sources */,
+				4AB5F7742C53742C009CC47F /* PostService.swift in Sources */,
 				4AB5F76A2C5323A7009CC47F /* ProfileViewController.swift in Sources */,
 				4AB5F7622C51EE12009CC47F /* Post.swift in Sources */,
 				4AB5F7682C522B2C009CC47F /* NewPostViewController.swift in Sources */,

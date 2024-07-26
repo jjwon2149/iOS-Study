@@ -63,6 +63,13 @@ class PostDetailViewController: UIViewController {
         
         setupUI()
         configureWithPost()
+        
+        navigationItem.rightBarButtonItems = [
+            UIBarButtonItem(systemItem: .trash, primaryAction: UIAction { _ in
+                
+            }),
+            UIBarButtonItem(systemItem: .edit, primaryAction: UIAction { _ in })
+        ]
     }
     
     // MARK: - UI Setup
