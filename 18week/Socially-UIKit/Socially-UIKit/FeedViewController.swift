@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  FeedViewController.swift
 //  Socially-UIKit
 //
 //  Created by 정종원 on 7/25/24.
@@ -9,7 +9,7 @@ import UIKit
 import FirebaseFirestore
 import Kingfisher
 
-class ViewController: UIViewController {
+class FeedViewController: UIViewController {
     
     enum Section {
         case main
