@@ -54,8 +54,13 @@ class FeedViewController: UIViewController {
         tableView = UITableView(frame: view.bounds, style: .plain)
         let refreshControl = UIRefreshControl()
         refreshControl.addAction(UIAction { [weak self] _ in
-            self?.reloadData()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
+                self?.reloadData()
+            }
         }, for: .valueChanged)
+        refreshControl.tintColor = UIColor.systemIndigo
+        refreshControl.attributedTitle = NSAttributedString(string: "당겨서 새로고침",
+                                                            attributes: [.foregroundColor: UIColor.systemIndigo])
         tableView.refreshControl = refreshControl
         view.addSubview(tableView)
         tableView.register(PostTableViewCell.self, forCellReuseIdentifier: "postCell")
