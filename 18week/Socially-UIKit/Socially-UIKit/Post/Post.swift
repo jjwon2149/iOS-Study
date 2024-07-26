@@ -11,6 +11,8 @@ import FirebaseStorage
 
 struct Post: Identifiable, Decodable, Hashable {
     @DocumentID var id: String?
+    var userId: String?
+    var userName: String?
     var description: String?
     var imageURL: String?
     var path: String?
@@ -32,6 +34,7 @@ struct Post: Identifiable, Decodable, Hashable {
         if let path = document.data()["path"] as? String {
             self.path = path
         }
+        self.userName = document.data()["userName"] as? String
     }
     
     func checkImageURL(_ path: String) {
@@ -55,3 +58,22 @@ struct Post: Identifiable, Decodable, Hashable {
     }
     
 }
+
+/*
+rules_version = '2';
+
+service cloud.firestore {
+    match /databases/{database}/documents {
+        match /{document=**} {
+            allow read, write: if false;
+        }
+        // Post 하위 모든 도큐먼트의 읽기 쓰기를 허용
+        match /Posts/{document=**} {
+            allow read: if true
+            allow create: if true
+            // 도큐먼트의 userId 정보로 삭제 여부 판단
+            allow delete: if request.auth.uid == resource.data.userId
+        }
+    }
+}
+ */
