@@ -187,29 +187,14 @@ class NewPostViewController: UIViewController, UITextViewDelegate, PHPickerViewC
                 return
             }
             
-            Thread.sleep(forTimeInterval: 10)
-            let thumbRef = Storage.storage().reference().child("thumbs/\(path)_320x200")
+            let post = [
+                "description": description,
+                "datePublished": datePublished,
+                "path": path,
+            ]
             
-            thumbRef.downloadURL { url, error in
-                if let error = error {
-                    completion(error)
-                    return
-                }
-                
-                guard let url = url else {
-                    completion(NSError(domain: "PostViewModel", code: 0, userInfo: [NSLocalizedDescriptionKey: "Failed to get download URL"]))
-                    return
-                }
-                
-                let post = [
-                    "description": description,
-                    "datePublished": datePublished,
-                    "imageURL": url.absoluteString
-                ]
-                
-                self.db.collection("Posts").addDocument(data: post) { error in
-                    completion(error)
-                }
+            self.db.collection("Posts").addDocument(data: post) { error in
+                completion(error)
             }
         }
     }

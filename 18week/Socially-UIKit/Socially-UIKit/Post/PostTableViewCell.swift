@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class PostTableViewCell: UITableViewCell {
     
@@ -48,4 +49,28 @@ class PostTableViewCell: UITableViewCell {
         ])
     }
 
+    func configureItem(with item: Post) {
+        descriptionLabel.text = item.description
+        
+        // Load the image asynchronously using Kingfisher
+        let processor = DownsamplingImageProcessor(size: postImageView.bounds.size)
+        postImageView.kf.indicatorType = .activity
+        if let imageURL = item.imageURL {
+            postImageView.kf.setImage(
+                with: URL(string: imageURL)!,
+                placeholder: UIImage(systemName: "photo.artframe"),
+                options: [
+                    .processor(processor),
+                    .scaleFactor(UIScreen.main.scale),
+                    .transition(.fade(0.2)),
+                    .cacheOriginalImage
+                ]
+            )
+        } else {
+            if let path = item.path {
+                item.checkImageURL(path)
+            }
+            postImageView.image = UIImage(systemName: "photo.artframe")
+        }
+    }
 }
